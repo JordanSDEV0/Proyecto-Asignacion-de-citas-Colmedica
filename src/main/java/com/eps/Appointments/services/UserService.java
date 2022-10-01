@@ -1,5 +1,7 @@
 package com.eps.Appointments.services;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Transactional
     public User create(User user) throws IllegalArgumentException{
         return userRepository.save(user);
     }

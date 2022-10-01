@@ -2,6 +2,7 @@ package com.eps.Appointments.persistance.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,7 +21,7 @@ public class Admin implements Serializable{
     @Id
     @Column(name = "eps_user")
     private String id;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "eps_user")
     private User user;

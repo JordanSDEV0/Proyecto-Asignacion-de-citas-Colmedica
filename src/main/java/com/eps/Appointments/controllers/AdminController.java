@@ -21,12 +21,19 @@ public class AdminController {
     @PostMapping
     private ResponseEntity<AdminDTO> create(@RequestBody AdminDTO admin){
         try {
-            return new ResponseEntity<AdminDTO>(adminService.create(admin), HttpStatus.CREATED);
+            AdminDTO newAdmin= adminService.create(admin);
+            if(newAdmin != null){
+                return new ResponseEntity<AdminDTO>(newAdmin, HttpStatus.CREATED);
+            }else{
+                return new ResponseEntity<>(HttpStatus.ACCEPTED);
+            }
         } catch (IllegalArgumentException illegalArgumentException) {
+            System.out.println(illegalArgumentException.getCause());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch(Exception e){
+        } /* catch(Exception e){
+            System.out.println(e.getCause());
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        }*/
     }
     
 }
