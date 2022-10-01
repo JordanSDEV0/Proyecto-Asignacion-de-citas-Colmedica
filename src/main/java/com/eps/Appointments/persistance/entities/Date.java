@@ -1,4 +1,4 @@
-package com.eps.Appointments.Entities;
+package com.eps.Appointments.persistance.entities;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

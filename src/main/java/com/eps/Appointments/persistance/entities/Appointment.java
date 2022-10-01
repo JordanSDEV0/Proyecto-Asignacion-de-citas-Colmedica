@@ -1,4 +1,4 @@
-package com.eps.Appointments.Entities;
+package com.eps.Appointments.persistance.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,15 +13,19 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Data
-public class Certificate {
+public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @ManyToOne
-    @JoinColumn(name = "patient", nullable = false)
+    @JoinColumn(nullable = false)
+    private Doctor doctor;
+    @ManyToOne
+    @JoinColumn(nullable = false)
     private Patient patient;
-    private String rute;
-    private String type;
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Date date;
     
 }

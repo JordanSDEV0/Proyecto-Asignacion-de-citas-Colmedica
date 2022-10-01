@@ -1,4 +1,4 @@
-package com.eps.Appointments.Entities;
+package com.eps.Appointments.persistance.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,15 +13,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Data
-public class Headquarter {
+public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @ManyToOne
-    @JoinColumn(name = "city", nullable = false)
-    private City city;
-    private String name;
-    private String address;
+    @JoinColumn(name = "department", nullable = false)
+    private Department department;
+    private String city;
     
 }

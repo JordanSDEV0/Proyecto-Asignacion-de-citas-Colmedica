@@ -1,4 +1,4 @@
-package com.eps.Appointments.Entities;
+package com.eps.Appointments.persistance.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;

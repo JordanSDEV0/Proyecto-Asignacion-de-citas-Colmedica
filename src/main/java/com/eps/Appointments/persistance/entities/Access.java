@@ -1,5 +1,8 @@
-package com.eps.Appointments.Entities;
+package com.eps.Appointments.persistance.entities;
 
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +22,8 @@ public class Access {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @ManyToOne
-    @JoinColumn(name = "user", nullable = false)    
+    @JoinColumn(name = "eps_user", nullable = false)    
     private User user;
+    @Column(name = "access_time")
+    private LocalDateTime accessTime;
 }

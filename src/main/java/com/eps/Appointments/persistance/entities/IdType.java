@@ -1,4 +1,4 @@
-package com.eps.Appointments.Entities;
+package com.eps.Appointments.persistance.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
