@@ -7,6 +7,5 @@ import com.eps.Appointments.persistance.entities.Access;
 
 @Repository
 public interface AccessRepository extends CrudRepository<Access, String>{
-{
 
 }
