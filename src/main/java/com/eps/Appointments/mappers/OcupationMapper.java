@@ -1,22 +1,18 @@
 package com.eps.Appointments.mappers;
-
-
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import com.eps.Appointments.DTOs.UserDTO;
-import com.eps.Appointments.persistance.entities.User;
+import com.eps.Appointments.DTOs.OcupationDTO;
+import com.eps.Appointments.persistance.entities.Ocupation;
 
 @Mapper(componentModel = "spring")
-public interface UserMapper {
+public interface OcupationMapper {
     @Mapping(source = "user.id", target = "id")
-    @Mapping(source = "password", target = "password")
-    UserDTO toUserDTO (User user);
+    @Mapping(source = "ocupation", target = "ocupation")
+    OcupationDTO toOcupationDTO (Ocupation ocupation);
 
     @InheritInverseConfiguration
     @Mapping(target = "user", ignore = true)
-    User toUser (UserDTO userDTO);
-    
-
+    Ocupation toOcupation (OcupationDTO ocupationDTO);
 }
