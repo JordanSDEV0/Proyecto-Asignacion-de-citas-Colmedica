@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.eps.Appointments.persistance.entities.City;
 
 @Repository
-public interface CityRepository extends CrudRepository<City, String> {
+public interface CityRepository extends CrudRepository<City, Integer> {
 
 
 }

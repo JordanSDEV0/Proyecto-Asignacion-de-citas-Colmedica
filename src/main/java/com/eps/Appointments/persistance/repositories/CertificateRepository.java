@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.eps.Appointments.persistance.entities.Certificate;
 
 @Repository
-public interface CertificateRepository extends CrudRepository<Certificate, String> {
+public interface CertificateRepository extends CrudRepository<Certificate, Integer> {
 
 }

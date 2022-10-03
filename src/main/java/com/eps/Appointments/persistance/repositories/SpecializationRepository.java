@@ -4,6 +4,6 @@ import org.springframework.stereotype.Repository;
 
 import com.eps.Appointments.persistance.entities.Specialization;
 @Repository
-public interface SpecializationRepository extends CrudRepository<Specialization, String>{
+public interface SpecializationRepository extends CrudRepository<Specialization, Integer>{
 
 }

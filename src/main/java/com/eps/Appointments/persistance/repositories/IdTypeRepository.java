@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.eps.Appointments.persistance.entities.IdType;
 @Repository
-public interface IdTypeRepository extends CrudRepository<IdType, String>{
+public interface IdTypeRepository extends CrudRepository<IdType, Integer>{
 
 }

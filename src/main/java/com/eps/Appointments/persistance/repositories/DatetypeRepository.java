@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.eps.Appointments.persistance.entities.DateType;
 @Repository
-public interface Datetype extends CrudRepository<DateType, String> {
+public interface Datetype extends CrudRepository<DateType, Integer> {
 
 
 }

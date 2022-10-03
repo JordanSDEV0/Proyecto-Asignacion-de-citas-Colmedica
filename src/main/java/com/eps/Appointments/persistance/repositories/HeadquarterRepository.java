@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.eps.Appointments.persistance.entities.Headquarter;
 @Repository
-public interface HeadquarterRepository extends CrudRepository<Headquarter, String>{
+public interface HeadquarterRepository extends CrudRepository<Headquarter, Integer>{
 
 }
