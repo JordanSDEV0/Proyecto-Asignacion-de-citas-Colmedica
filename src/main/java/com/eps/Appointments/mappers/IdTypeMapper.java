@@ -6,9 +6,9 @@ import org.mapstruct.Mapping;
 import com.eps.Appointments.DTOs.IdTypeDTO;
 import com.eps.Appointments.persistance.entities.IdType;
 
-
 @Mapper(componentModel = "spring")
 public interface IdTypeMapper {
+
     @Mapping(source = "id", target = "id")
     @Mapping(source = "type", target = "type")
     IdTypeDTO toIdTypeDTO (IdType idType);

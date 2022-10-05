@@ -6,7 +6,7 @@ import org.mapstruct.Mapping;
 import com.eps.Appointments.DTOs.HeadquarterDTO;
 import com.eps.Appointments.persistance.entities.Headquarter;
 
-@Mapper(componentModel = "spring", uses = CitiMapper.class)
+@Mapper(componentModel = "spring", uses = CityMapper.class)
 public interface HeadquarterMapper {
 
     @Mapping(source = "id", target = "id")

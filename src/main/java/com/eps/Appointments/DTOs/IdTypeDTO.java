@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class IdTypeDTO {
-	private Integer id;
+
+	private int id;
     private String type;
     
 }
