@@ -30,10 +30,10 @@ public class AdminController {
         } catch (IllegalArgumentException illegalArgumentException) {
             System.out.println(illegalArgumentException.getCause());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } /* catch(Exception e){
+        } catch(Exception e){
             System.out.println(e.getCause());
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }*/
+        }
     }
     
 }
