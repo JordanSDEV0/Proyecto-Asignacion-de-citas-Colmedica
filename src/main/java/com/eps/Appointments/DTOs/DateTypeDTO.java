@@ -3,7 +3,8 @@ import lombok.Data;
 
 @Data
 public class DateTypeDTO {
-	private Integer id;
+
+	private int id;
 	private String description;
     
 }

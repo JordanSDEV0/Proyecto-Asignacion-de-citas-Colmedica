@@ -13,5 +13,5 @@ public interface DateTypeMapper {
     DateTypeDTO toDateTypeDTO (DateType dateType);
 
     @InheritInverseConfiguration
-    DateType toAdmin (DateTypeDTO dateTypeDTO);
+    DateType toDateType (DateTypeDTO dateTypeDTO);
 }
