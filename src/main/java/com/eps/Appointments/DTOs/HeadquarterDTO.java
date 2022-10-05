@@ -6,7 +6,7 @@ import lombok.Data;
 public class HeadquarterDTO {
 
     private int id;
-    private CityDTO cityDTO;
+    private CityDTO city;
 	private String name;
 	private String address;
 

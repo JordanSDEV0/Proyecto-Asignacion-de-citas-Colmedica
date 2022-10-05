@@ -6,7 +6,7 @@ import lombok.Data;
 public class LaboratoryResultDTO {
 
     private int id;
-    private DateDTO dateDTO;
+    private DateDTO date;
     private String description;
     private String archiveRute;
 

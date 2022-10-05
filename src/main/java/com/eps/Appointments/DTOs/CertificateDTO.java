@@ -6,7 +6,7 @@ import lombok.Data;
 public class CertificateDTO {
 
     private int id;
-    private PatientDTO patientDTO;
+    private PatientDTO patient;
     private String rute;
     private String type;
 }

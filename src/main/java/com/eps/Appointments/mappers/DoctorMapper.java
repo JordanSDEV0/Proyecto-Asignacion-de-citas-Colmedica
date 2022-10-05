@@ -11,7 +11,7 @@ public interface DoctorMapper {
 
     @Mapping(source = "id", target = "id")
     @Mapping(source = "headquarter", target = "headquarter")
-    @Mapping(source = "specialization", target = "specialization")
+    @Mapping(source = "specialization", target = "specializationList")
     DoctorDTO toDoctorDTO (Doctor doctor);
 
     @InheritInverseConfiguration

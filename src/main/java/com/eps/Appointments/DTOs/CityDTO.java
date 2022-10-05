@@ -6,6 +6,6 @@ import lombok.Data;
 public class CityDTO {
 
     private int id;
-	private DepartmentDTO departmentDTO;
+	private DepartmentDTO department;
     private String city;
 }

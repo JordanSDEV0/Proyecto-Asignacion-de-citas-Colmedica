@@ -9,8 +9,8 @@ import lombok.Data;
 public class DateDTO {
 
     private int id;
-    private DateTypeDTO dateTypeDTO;
-	private HeadquarterDTO headquarterDTO;
+    private DateTypeDTO dateType;
+	private HeadquarterDTO headquarter;
     private String description;	
 	private LocalDateTime initialTime;
 	private LocalDateTime finalTime;

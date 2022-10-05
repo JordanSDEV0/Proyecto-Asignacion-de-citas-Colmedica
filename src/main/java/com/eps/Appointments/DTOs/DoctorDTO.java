@@ -8,8 +8,8 @@ import lombok.Data;
 public class DoctorDTO {
 
     private String id;
-    private HeadquarterDTO headquarterDTO;
-    private List<SpecializationDTO> specializationDTOs;
+    private HeadquarterDTO headquarter;
+    private List<SpecializationDTO> specializationList;
 
 
 }

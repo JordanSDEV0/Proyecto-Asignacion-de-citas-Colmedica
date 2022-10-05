@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class AccessDTO {
     private int id;
-    private UserDTO userDTO;
+    private UserDTO user;
     private LocalDateTime accessTime;
 
 }
