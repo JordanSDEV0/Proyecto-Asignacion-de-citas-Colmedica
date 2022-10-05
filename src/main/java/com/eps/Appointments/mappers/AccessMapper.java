@@ -7,15 +7,14 @@ import com.eps.Appointments.DTOs.AccessDTO;
 import com.eps.Appointments.persistance.entities.Access;
 
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = UserMapper.class)
 public interface AccessMapper {
 
     @Mapping(source = "id", target = "id")
-    @Mapping(source = "user.eps", target = "user.eps")
+    @Mapping(source = "user", target = "user")
     @Mapping(source = "accessTime", target = "accessTime")
     AccessDTO toAccessDTO (Access access);
 
     @InheritInverseConfiguration
-    @Mapping(target = "user", ignore = true)
     Access toAccess (AccessDTO accessDTO);
 }
