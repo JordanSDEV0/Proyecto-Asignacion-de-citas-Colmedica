@@ -4,8 +4,9 @@ import lombok.Data;
 
 @Data
 public class OcupationDTO {
-	 private Integer id;
-	    private String ocupation;
+
+	private int id;
+	private String ocupation;
 
 
 }
