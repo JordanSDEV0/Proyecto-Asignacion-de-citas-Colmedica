@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class SpecializationDTO {
-	  private Integer id;
+	  	private Integer id;
 	    private String description;
 
 }
