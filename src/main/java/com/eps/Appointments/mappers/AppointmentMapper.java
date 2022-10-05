@@ -16,5 +16,5 @@ public interface AppointmentMapper {
     AppointmentDTO toAppointmentDTO (Appointment appointment);
 
     @InheritInverseConfiguration
-    Appointment tAppointment (AppointmentDTO appointmentDTO);
+    Appointment toAppointment (AppointmentDTO appointmentDTO);
 }
