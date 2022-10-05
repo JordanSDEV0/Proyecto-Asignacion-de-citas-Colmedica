@@ -3,6 +3,8 @@ package com.eps.Appointments.persistance.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -21,8 +23,11 @@ import lombok.NoArgsConstructor;
 public class Doctor implements Serializable{
 
     @Id
-    @OneToOne
+    @Column(name = "eps_user")
+    private String id;
+    @OneToOne(cascade = CascadeType.ALL)
     @MapsId
+    @JoinColumn(name = "eps_user")
     private User user;
     @ManyToOne
     @JoinColumn(nullable = false)
