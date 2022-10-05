@@ -6,7 +6,7 @@ import org.mapstruct.Mapping;
 import com.eps.Appointments.DTOs.AppointmentDTO;
 import com.eps.Appointments.persistance.entities.Appointment;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {DoctorMapper.class, PatientMapper.class, DateMapper.class})
 public interface AppointmentMapper {
 
     @Mapping(source = "id", target = "id")

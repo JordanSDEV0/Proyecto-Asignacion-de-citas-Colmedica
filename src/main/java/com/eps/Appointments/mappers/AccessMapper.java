@@ -6,7 +6,6 @@ import org.mapstruct.Mapping;
 import com.eps.Appointments.DTOs.AccessDTO;
 import com.eps.Appointments.persistance.entities.Access;
 
-
 @Mapper(componentModel = "spring", uses = UserMapper.class)
 public interface AccessMapper {
 
