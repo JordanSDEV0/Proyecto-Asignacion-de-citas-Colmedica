@@ -6,11 +6,11 @@ import org.mapstruct.Mapping;
 import com.eps.Appointments.DTOs.DateDTO;
 import com.eps.Appointments.persistance.entities.Date;
 
-@Mapper(componentModel = "spring", uses = {DateTypeMapper.class, HeadquearterMapper.class})
+@Mapper(componentModel = "spring", uses = {DateTypeMapper.class, HeadquarterMapper.class})
 public interface DateMapper {
 
     @Mapping(source = "id", target = "id")
-    @Mapping(source = "datetype", target = "datetype")
+    @Mapping(source = "dateType", target = "dateType")
     @Mapping(source = "headquarter", target = "headquarter")
     @Mapping(source = "description", target = "description")
     @Mapping(source = "initialTime", target = "initialTime")

@@ -15,5 +15,6 @@ public interface DoctorMapper {
     DoctorDTO toDoctorDTO (Doctor doctor);
 
     @InheritInverseConfiguration
+    @Mapping(target = "user", ignore = true)
     Doctor toDoctor (DoctorDTO doctor);
 }

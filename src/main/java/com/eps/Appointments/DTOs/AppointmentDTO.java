@@ -6,7 +6,7 @@ import lombok.Data;
 public class AppointmentDTO {
 
     private int id;
-    private DoctorDTO doctord;
+    private DoctorDTO doctor;
     private PatientDTO patient;
     private DateDTO date;
 }
