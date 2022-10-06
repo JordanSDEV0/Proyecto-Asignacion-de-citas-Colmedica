@@ -9,4 +9,5 @@ public class CertificateDTO {
     private PatientDTO patient;
     private String rute;
     private String type;
+
 }

@@ -7,4 +7,5 @@ public class AdminDTO {
     
     private String id;
     private String password;
+
 }

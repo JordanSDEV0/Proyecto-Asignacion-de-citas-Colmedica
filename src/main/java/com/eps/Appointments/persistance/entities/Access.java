@@ -26,4 +26,5 @@ public class Access {
     private User user;
     @Column(name = "access_time")
     private LocalDateTime accessTime;
+
 }

@@ -1,4 +1,5 @@
 package com.eps.Appointments.mappers;
+
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -8,7 +9,6 @@ import com.eps.Appointments.persistance.entities.Specialization;
 
 @Mapper(componentModel = "spring")
 public interface SpecializationMapper {
-
     
     @Mapping(source = "id", target = "id")
     @Mapping(source = "description", target = "description")
@@ -16,6 +16,4 @@ public interface SpecializationMapper {
 
     @InheritInverseConfiguration
     Specialization toSpecialization (SpecializationDTO specializationDTO);
-    
-    
 }

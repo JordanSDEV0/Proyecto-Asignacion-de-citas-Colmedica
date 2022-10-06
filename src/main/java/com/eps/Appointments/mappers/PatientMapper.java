@@ -13,7 +13,7 @@ public interface PatientMapper {
 
     @Mapping(source = "user.id", target = "id")
     @Mapping(source = "user.password", target = "password")
-    @Mapping(source = "idtype", target = "idtype")
+    @Mapping(source = "idType", target = "idType")
     @Mapping(source = "headquarter", target = "headquarter")
     @Mapping(source = "ocupation", target = "ocupation")
     @Mapping(source = "regimenType", target = "regimenType")

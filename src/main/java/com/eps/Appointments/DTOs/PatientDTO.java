@@ -2,13 +2,13 @@ package com.eps.Appointments.DTOs;
 
 import java.time.LocalDate;
 
-
 import lombok.Data;
 
 @Data
 public class PatientDTO {
-    private UserDTO user;
+
     private String id;
+    private String password;
     private IdTypeDTO idType;
     private HeadquarterDTO headquarter;
     private OcupationDTO ocupation;
@@ -20,4 +20,5 @@ public class PatientDTO {
     private String email;
     private LocalDate birthDate;
     private String genre;
+
 }

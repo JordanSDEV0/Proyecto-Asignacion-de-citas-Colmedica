@@ -9,4 +9,5 @@ public class AppointmentDTO {
     private DoctorDTO doctor;
     private PatientDTO patient;
     private DateDTO date;
+
 }

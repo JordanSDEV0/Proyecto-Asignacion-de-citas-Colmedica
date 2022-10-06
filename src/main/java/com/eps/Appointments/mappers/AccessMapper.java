@@ -16,4 +16,5 @@ public interface AccessMapper {
 
     @InheritInverseConfiguration
     Access toAccess (AccessDTO accessDTO);
+
 }
