@@ -28,7 +28,6 @@ public class AdminService {
             if(newUser != null){
                 Admin newAdmin= adminMapper.toAdmin(adminDTO);
                 newAdmin.setUser(newUser);
-                System.out.println(newAdmin);
                 return adminMapper.toAdminDTO(adminRepository.save(newAdmin));
             }
             return null;
