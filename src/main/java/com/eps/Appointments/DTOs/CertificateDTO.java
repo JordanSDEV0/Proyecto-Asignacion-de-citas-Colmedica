@@ -1,9 +1,15 @@
 package com.eps.Appointments.DTOs;
 
 import lombok.Data;
+import com.eps.Appointments.controllers.AbstractResponse;
 
-@Data
-public class CertificateDTO {
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+
+@Data()
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+public class CertificateDTO extends AbstractResponse{
 
     private int id;
     private PatientDTO patient;

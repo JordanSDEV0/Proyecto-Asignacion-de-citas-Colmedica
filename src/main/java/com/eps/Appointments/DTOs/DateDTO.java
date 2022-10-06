@@ -5,8 +5,16 @@ import java.time.LocalDateTime;
 
 import lombok.Data;
 
-@Data
-public class DateDTO {
+
+import com.eps.Appointments.controllers.AbstractResponse;
+
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+
+@Data()
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+public class DateDTO extends AbstractResponse{
 
     private int id;
     private DateTypeDTO dateType;

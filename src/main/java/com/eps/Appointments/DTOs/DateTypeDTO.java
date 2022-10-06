@@ -1,8 +1,13 @@
 package com.eps.Appointments.DTOs;
-import lombok.Data;
+import com.eps.Appointments.controllers.AbstractResponse;
 
-@Data
-public class DateTypeDTO {
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+
+@Data()
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)public class DateTypeDTO extends AbstractResponse{
 
 	private int id;
 	private String description;

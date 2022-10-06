@@ -4,8 +4,16 @@ import java.time.LocalDate;
 
 import lombok.Data;
 
-@Data
-public class PatientDTO {
+
+import com.eps.Appointments.controllers.AbstractResponse;
+
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+
+@Data()
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+public class PatientDTO extends AbstractResponse{
 
     private String id;
     private String password;
