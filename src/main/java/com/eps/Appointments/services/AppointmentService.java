@@ -9,7 +9,7 @@ import com.eps.Appointments.mappers.AppointmentMapper;
 import com.eps.Appointments.persistance.repositories.AppointmentRepository;
 
 @Service
-public class AppointmentService {
+public class AppointmentService{
 
     @Autowired
     private AppointmentRepository appointmentRepository;

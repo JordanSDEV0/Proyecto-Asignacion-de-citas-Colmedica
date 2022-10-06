@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eps.Appointments.DTOs.AdminDTO;
+import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.services.AdminService;
 
 @RestController
@@ -19,20 +20,21 @@ public class AdminController {
     private AdminService adminService;
 
     @PostMapping
-    private ResponseEntity<AdminDTO> create(@RequestBody AdminDTO admin){
+    private ResponseEntity<? extends AbstractResponse> create(@RequestBody AdminDTO admin){
         try {
             AdminDTO newAdmin= adminService.create(admin);
             if(newAdmin != null){
                 return new ResponseEntity<AdminDTO>(newAdmin, HttpStatus.CREATED);
             }else{
-                return new ResponseEntity<>(HttpStatus.ACCEPTED);
+                return new ResponseEntity<ErrorDTO>(new ErrorDTO("Admin not created"), HttpStatus.ACCEPTED);
             }
         } catch (IllegalArgumentException illegalArgumentException) {
             System.out.println(illegalArgumentException.getCause());
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            System.out.println(e.getCause());
+            return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage), HttpStatus.NOT_FOUND);
         } catch(Exception e){
             System.out.println(e.getCause());
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
     
