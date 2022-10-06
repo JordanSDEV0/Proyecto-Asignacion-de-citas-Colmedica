@@ -3,8 +3,10 @@ package com.eps.Appointments.DTOs;
 import com.eps.Appointments.controllers.AbstractResponse;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-@Data
+@Data()
+@EqualsAndHashCode(callSuper = false)
 public class AdminDTO extends AbstractResponse{
     
     private String id;
