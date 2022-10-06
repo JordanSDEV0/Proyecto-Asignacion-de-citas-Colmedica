@@ -30,8 +30,8 @@ public class AdminController {
             }
         } catch (IllegalArgumentException illegalArgumentException) {
             System.out.println(illegalArgumentException.getCause());
-            System.out.println(e.getCause());
-            return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage), HttpStatus.NOT_FOUND);
+            System.out.println(illegalArgumentException.getCause());
+            return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
         } catch(Exception e){
             System.out.println(e.getCause());
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
