@@ -35,4 +35,8 @@ public class DoctorService {
         }
     }
 
+    public Object getById(String doctorId) {
+        return null;
+    }
+
 }

@@ -10,5 +10,9 @@ public class PatientService {
 
     @Autowired
     private PatientRepository patientRepository;
+
+    public boolean getById(String patientId) {
+        return false;
+    }
     
 }

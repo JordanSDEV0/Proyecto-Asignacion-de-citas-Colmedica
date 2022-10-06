@@ -11,12 +11,15 @@ import com.eps.Appointments.persistance.entities.Appointment;
 public interface AppointmentMapper {
 
     @Mapping(source = "id", target = "id")
-    @Mapping(source = "doctor", target = "doctor")
-    @Mapping(source = "patient", target = "patient")
-    @Mapping(source = "date", target = "date")
+    @Mapping(source = "doctor.id", target = "doctorId")
+    @Mapping(source = "patient.id", target = "patientId")
+    @Mapping(source = "date.id", target = "dateId")
     AppointmentDTO toAppointmentDTO (Appointment appointment);
 
     @InheritInverseConfiguration
+    @Mapping(target = "doctor", ignore = true)
+    @Mapping(target = "patient", ignore = true)
+    @Mapping(target = "date", ignore = true)
     Appointment toAppointment (AppointmentDTO appointmentDTO);
 
 }
