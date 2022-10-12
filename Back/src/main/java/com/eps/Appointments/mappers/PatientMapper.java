@@ -62,5 +62,7 @@ public interface PatientMapper {
     @Mapping(target = "user", ignore = true)
     Patient toPatient (PatientDTO patientDTO);
 
+    List<PatientDTO> toPatientDTOs(List<Patient> patient);
+
     
 }

@@ -22,7 +22,7 @@ public interface DateMapper {
     @Mapping(source = "date", target = "date")
     @Mapping(source = "status", target = "status")
     DateDTO toDateDto (Date date);
-
+    
     default int mapDateType(DateType dateType){
         return dateType.getId();
     }
@@ -44,8 +44,8 @@ public interface DateMapper {
     }
 
     @InheritInverseConfiguration
-    abstract Date toDate (DateDTO dateDTO);
+    Date toDate (DateDTO dateDTO);
+
     List<DateDTO> toDateDTOs(List<Date> dates);
-    DateDTO toDateDTO(Date date);
     
 }

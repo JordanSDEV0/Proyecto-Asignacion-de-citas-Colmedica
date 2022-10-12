@@ -23,15 +23,23 @@ public class OcupationService {
         ocupationRepository.save(ocupationMapper.toOcupation(ocupation));
         return ocupation;
     }
-    //@Transactional
-    //public OcupationDTO getById(Integer id){
-      //  return ocupationMapper.toOcupationDTO(ocupationMapper.findById(id).map(ocupation -> {
-        //    return ocupation;
-        //}).orElseGet(null));
-    //}
+    @Transactional
+    public OcupationDTO getById(int id){
+        return ocupationMapper.toOcupationDTO(ocupationRepository.findById(id).map(ocupation -> {
+            return ocupation;
+        }).orElseGet(null));
+    }
     @Transactional
     public List<OcupationDTO> getAll(){
         List<Ocupation> ocupation= (List<Ocupation>) ocupationRepository.findAll();
         return ocupationMapper.toOcupationDTOs(ocupation);
+    }
+    @Transactional
+    public OcupationDTO updateOcupation(OcupationDTO ocupationDTO){
+        if(getById(ocupationDTO.getId()) != null){
+            Ocupation updatedOcupation = ocupationMapper.toOcupation(ocupationDTO);
+            return ocupationMapper.toOcupationDTO(ocupationRepository.save(updatedOcupation));
+        }
+        return null;
     }
 }

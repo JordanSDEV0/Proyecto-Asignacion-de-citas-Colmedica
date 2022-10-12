@@ -30,7 +30,7 @@ public class DoctorController {
             if(newDoctor != null){
                 return new ResponseEntity<>(newDoctor, HttpStatus.CREATED);
             }else{
-                return new ResponseEntity<>(new ErrorDTO("Admin not created"), HttpStatus.ACCEPTED);
+                return new ResponseEntity<>(new ErrorDTO("Doctor not created"), HttpStatus.ACCEPTED);
             }
         } catch (IllegalArgumentException illegalArgumentException) {
             System.out.println(illegalArgumentException.getCause());

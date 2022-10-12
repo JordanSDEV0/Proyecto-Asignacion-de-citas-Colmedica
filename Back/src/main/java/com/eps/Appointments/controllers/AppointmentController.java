@@ -53,22 +53,6 @@ public class AppointmentController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-    @PutMapping("/{id}")
-    private ResponseEntity<? extends Object> Update(@RequestBody AppointmentDTO appointmentDTO, @PathVariable("id") int id){
-        try {
-            AppointmentDTO newPatient= patientService.updatePatient(appointmentDTO);
-            if(newPatient != null){
-                return new ResponseEntity<>(newPatient, HttpStatus.CREATED);
-            }
-            return new ResponseEntity<>(new ErrorDTO("Patient not created"), HttpStatus.ACCEPTED);
-        } catch (IllegalArgumentException illegalArgumentException) {
-            System.out.println(illegalArgumentException.getCause());
-            return new ResponseEntity<>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
-        }
-    }
     @GetMapping()
     public ResponseEntity<? extends Object> getAll(){
         try{
@@ -82,11 +66,11 @@ public class AppointmentController {
         }
     }
     @PutMapping("/{id}")
-    private ResponseEntity<? extends Object> Update(@RequestBody AppointmentDTO appointmentDTO, @PathVariable("id") String id){
+    private ResponseEntity<? extends Object> Update(@RequestBody AppointmentDTO appointmentDTO, @PathVariable("id") int id){
         try {
-            AppointmentDTO updatedDate= appointmentService.updatePatient(appointmentDTO);
-            if(updatedDate != null){
-                return new ResponseEntity<>(updatedDate, HttpStatus.CREATED);
+            AppointmentDTO updateAppointment= appointmentService.updateAppointment(appointmentDTO);
+            if(updateAppointment != null){
+                return new ResponseEntity<>(updateAppointment, HttpStatus.CREATED);
             }
             return new ResponseEntity<>(new ErrorDTO("Patient not created"), HttpStatus.ACCEPTED);
         } catch (IllegalArgumentException illegalArgumentException) {

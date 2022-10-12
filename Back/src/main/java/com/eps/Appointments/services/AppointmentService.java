@@ -31,7 +31,7 @@ public class AppointmentService{
         return appointmentMapper.toAppointmentDTOs(appointments);
     }
     @Transactional
-    public AppointmentDTO updatePatient(AppointmentDTO appointmentDTO){
+    public AppointmentDTO updateAppointment(AppointmentDTO appointmentDTO){
         if(getById(appointmentDTO.getId()) != null){
             Appointment updatedAppointment = appointmentMapper.toAppointment(appointmentDTO);
             return appointmentMapper.toAppointmentDTO(appointmentRepository.save(updatedAppointment));

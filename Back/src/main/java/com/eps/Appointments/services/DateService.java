@@ -37,13 +37,13 @@ public class DateService {
     public DateDTO updateDate(DateDTO dateDTO){
         if(getById(dateDTO.getId()) != null){
             Date updatedDate = dateMapper.toDate(dateDTO);
-            return dateMapper.toDateDTO(dateRepository.save(updatedDate));
+            return dateMapper.toDateDto(dateRepository.save(updatedDate));
         }
         return null;
     }
       @Transactional
     public DateDTO getById(Integer id){
-       return dateMapper.toDateDTO(dateRepository.findById(id).map(date -> {
+       return dateMapper.toDateDto(dateRepository.findById(id).map(date -> {
            return date;
       }).orElseGet(null));
     }
