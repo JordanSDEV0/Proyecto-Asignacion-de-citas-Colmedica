@@ -45,7 +45,7 @@ public interface DateMapper {
 
     @InheritInverseConfiguration
     abstract Date toDate (DateDTO dateDTO);
-
     List<DateDTO> toDateDTOs(List<Date> dates);
+    DateDTO toDateDTO(Date date);
     
 }

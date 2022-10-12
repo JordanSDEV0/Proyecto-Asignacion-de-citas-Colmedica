@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.eps.Appointments.DTOs.AppointmentDTO;
 import com.eps.Appointments.DTOs.PatientDTO;
 import com.eps.Appointments.mappers.PatientMapper;
 import com.eps.Appointments.persistance.entities.Patient;
@@ -43,8 +44,13 @@ public class PatientService {
     @Transactional
     public PatientDTO updatePatient(PatientDTO patientDTO){
         if(getById(patientDTO.getId()) != null){
-            return null;
+            Patient updatedPatient = patientMapper.toPatient(patientDTO);
+            return patientMapper.toPatientDTO(patientRepository.save(updatedPatient));
         }
+        return null;
+    }
+
+    public AppointmentDTO updatePatient(AppointmentDTO appointmentDTO) {
         return null;
     }
     

@@ -42,6 +42,14 @@ public class DoctorService {
             return doctor;
         }).orElseGet(null));
     }
+    @Transactional
+    public DoctorDTO update(DoctorDTO doctorDTO){
+        if(getById(doctorDTO.getId()) != null){
+            Doctor updateDoctor = doctorMapper.toDoctor(doctorDTO);
+            return doctorMapper.toDoctorDTO(doctorRepository.save(updateDoctor));
+        }
+        return null;
+    }
 
     public List<DoctorDTO> getAll(){
         List<Doctor> admin= (List<Doctor>) doctorRepository.findAll();

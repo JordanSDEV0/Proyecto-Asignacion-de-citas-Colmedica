@@ -21,6 +21,7 @@ public class AppointmentService{
 
     @Transactional
     public AppointmentDTO create(AppointmentDTO appointmentDTO) throws IllegalArgumentException{
+        System.out.println(appointmentMapper.toAppointment(appointmentDTO));
         return appointmentMapper.toAppointmentDTO(appointmentRepository.save(appointmentMapper.toAppointment(appointmentDTO)));
     }
     
@@ -29,12 +30,22 @@ public class AppointmentService{
         List<Appointment> appointments= (List<Appointment>) appointmentRepository.findAll();
         return appointmentMapper.toAppointmentDTOs(appointments);
     }
+    @Transactional
+    public AppointmentDTO updatePatient(AppointmentDTO appointmentDTO){
+        if(getById(appointmentDTO.getId()) != null){
+            Appointment updatedAppointment = appointmentMapper.toAppointment(appointmentDTO);
+            return appointmentMapper.toAppointmentDTO(appointmentRepository.save(updatedAppointment));
+        }
+        return null;
+    }
+      @Transactional
+    public AppointmentDTO getById(int id){
+       return appointmentMapper.toAppointmentDTO(appointmentRepository.findById(id).map(ocupation -> {
+           return ocupation;
+      }).orElseGet(null));
+    }
 }
-     //@Transactional
-    //public AppointmentDTO getById(Integer id){
-     //   return AppointmentMapper.toAppointmentDTO(appointmentMapper.findById(id)).map(ocupation -> {
-      //     return ocupation;
-      // }).orElseGet(null);
-    //}
+
+   
     
 
