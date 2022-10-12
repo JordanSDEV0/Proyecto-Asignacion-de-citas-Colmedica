@@ -27,9 +27,10 @@ public class PatientService {
     }
 
     @Transactional
-    public PatientDTO create(PatientDTO patientDTO){
+    public PatientDTO create(PatientDTO patientDTO)throws IllegalArgumentException{
         if(userService.getById(patientDTO.getId()) == null){
             User newUser= userService.create(new User(patientDTO.getId(), patientDTO.getPassword()));
+            System.out.println(newUser);
             if(newUser != null){
                 Patient patient = patientMapper.toPatient(patientDTO);
                 patient.setUser(newUser);
