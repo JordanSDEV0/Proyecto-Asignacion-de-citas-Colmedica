@@ -12,8 +12,8 @@ import com.eps.Appointments.persistance.entities.Headquarter;
 public interface DateMapper {
 
     @Mapping(source = "id", target = "id")
-    @Mapping(source = "dateType", target = "dateType")
-    @Mapping(source = "headquarter", target = "headquarter")
+    @Mapping(source = "dateType", target = "dateTypeId")
+    @Mapping(source = "headquarter", target = "headquarterId")
     @Mapping(source = "description", target = "description")
     @Mapping(source = "initialTime", target = "initialTime")
     @Mapping(source = "finalTime", target = "finalTime")
