@@ -11,24 +11,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.eps.Appointments.DTOs.AdminDTO;
+import com.eps.Appointments.DTOs.DoctorDTO;
 import com.eps.Appointments.DTOs.ErrorDTO;
-import com.eps.Appointments.services.AdminService;
+import com.eps.Appointments.services.DoctorService;
 
 @RestController
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/doctor")
+public class DoctorController {
 
     @Autowired
-    private AdminService adminService;
+    private DoctorService doctorService;
 
     @PostMapping
-    private ResponseEntity<? extends AbstractResponse> create(@RequestBody AdminDTO admin){
+    private ResponseEntity<? extends AbstractResponse> create(@RequestBody DoctorDTO doctor){
         try {
-            AdminDTO newAdmin= adminService.create(admin);
-            if(newAdmin != null){
-                return new ResponseEntity<AdminDTO>(newAdmin, HttpStatus.CREATED);
+            DoctorDTO newDoctor= doctorService.create(doctor);
+            if(newDoctor != null){
+                return new ResponseEntity<DoctorDTO>(newDoctor, HttpStatus.CREATED);
             }else{
                 return new ResponseEntity<ErrorDTO>(new ErrorDTO("Admin not created"), HttpStatus.ACCEPTED);
             }
@@ -44,7 +43,7 @@ public class AdminController {
     @GetMapping("{id}")
     public ResponseEntity<? extends Object> getAll(@PathVariable("id") String id){
         try{
-            return new ResponseEntity<AdminDTO>(adminService.getById(id), HttpStatus.ACCEPTED);
+            return new ResponseEntity<DoctorDTO>(doctorService.getById(id), HttpStatus.ACCEPTED);
 	} catch(IllegalArgumentException illegalArgumentException){
 	    System.out.println(illegalArgumentException.getCause());
 	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
@@ -56,7 +55,7 @@ public class AdminController {
     @GetMapping()
     public ResponseEntity<? extends Object> getAll(){
         try{
-            return new ResponseEntity<List<AdminDTO>>(adminService.getAll(), HttpStatus.OK);
+            return new ResponseEntity<List<DoctorDTO>>(doctorService.getAll(), HttpStatus.OK);
 	} catch(IllegalArgumentException illegalArgumentException){
 	    System.out.println(illegalArgumentException.getCause());
 	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);

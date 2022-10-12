@@ -1,5 +1,8 @@
 package com.eps.Appointments.services;
 
+
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +38,16 @@ public class AdminService {
             return null;
         }
     }
-    
+    @Transactional
+    public AdminDTO getById(String id){
+        return adminMapper.toAdminDTO(adminRepository.findById(id).map(admin -> {
+            return admin;
+        }).orElseGet(null));
+    }
+    @Transactional
+    public List<AdminDTO> getAll(){
+        List<Admin> admin= (List<Admin>) adminRepository.findAll();
+        return adminMapper.toAdminDTOs(admin);
+    }
+
 }

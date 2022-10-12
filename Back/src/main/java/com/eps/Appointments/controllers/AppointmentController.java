@@ -1,8 +1,11 @@
 package com.eps.Appointments.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,5 +49,31 @@ public class AppointmentController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
+    
+    @GetMapping()
+    public ResponseEntity<? extends Object> getAll(){
+        try{
+            return new ResponseEntity<List<AppointmentDTO>>(appointmentService.getAll(), HttpStatus.OK);
+	} catch(IllegalArgumentException illegalArgumentException){
+	    System.out.println(illegalArgumentException.getCause());
+	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+        } catch(Exception e){
+	    System.out.println(e.getCause());
+            return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+        }
+    }
+   // @GetMapping("{id}")
+   // public ResponseEntity<? extends Object> getAll(@PathVariable("id") Integer id){
+     //   try{
+      //      return new ResponseEntity<AppointmentDTO>(appointmentService.getById(id), HttpStatus.ACCEPTED);
+	//} catch(IllegalArgumentException illegalArgumentException){
+	  //  System.out.println(illegalArgumentException.getCause());
+	   // return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+        //} catch(Exception e){
+	    //System.out.println(e.getCause());
+         //   return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+        //}
+    //}
+   
     
 }

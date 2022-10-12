@@ -1,4 +1,6 @@
 package com.eps.Appointments.mappers;
+import java.util.List;
+
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -15,4 +17,6 @@ public interface OcupationMapper {
 
     @InheritInverseConfiguration
     Ocupation toOcupation (OcupationDTO ocupationDTO);
+
+    List<OcupationDTO> toOcupationDTOs(List<Ocupation> ocupation);
 }

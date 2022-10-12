@@ -1,5 +1,7 @@
 package com.eps.Appointments.mappers;
 
+import java.util.List;
+
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -17,5 +19,7 @@ public interface AdminMapper {
     @InheritInverseConfiguration
     @Mapping(target = "user", ignore = true)
     Admin toAdmin (AdminDTO adminDTO);
+
+    List<AdminDTO> toAdminDTOs(List<Admin> admin);
     
 }

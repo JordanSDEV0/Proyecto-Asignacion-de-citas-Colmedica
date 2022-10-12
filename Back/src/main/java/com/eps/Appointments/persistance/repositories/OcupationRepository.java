@@ -4,6 +4,6 @@ import org.springframework.stereotype.Repository;
 
 import com.eps.Appointments.persistance.entities.Ocupation;
 @Repository
-public interface OcupationRepository extends CrudRepository<Ocupation, Integer>{
+public interface OcupationRepository extends CrudRepository<Ocupation, String>{
 
 }

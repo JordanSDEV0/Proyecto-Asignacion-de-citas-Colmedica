@@ -1,4 +1,6 @@
 package com.eps.Appointments.mappers;
+import java.util.List;
+
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -18,4 +20,6 @@ public interface DoctorMapper {
     @InheritInverseConfiguration
     @Mapping(target = "user", ignore = true)
     Doctor toDoctor (DoctorDTO doctor);
+
+    List<DoctorDTO> toAdminDTOs(List<Doctor> admin);
 }
