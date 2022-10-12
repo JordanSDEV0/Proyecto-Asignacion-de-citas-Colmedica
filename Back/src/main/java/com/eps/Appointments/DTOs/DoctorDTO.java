@@ -14,7 +14,7 @@ public class DoctorDTO extends AbstractResponse{
 
     private String id;
     private String password;
-    private HeadquarterDTO headquarter;
+    private int headquarterId;
     private List<SpecializationDTO> specializationList;
 
 
