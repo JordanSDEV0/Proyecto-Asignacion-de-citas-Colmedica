@@ -25,7 +25,6 @@ public class PatientController {
     private ResponseEntity<? extends Object> create(@RequestBody PatientDTO patientDTO){
         try {
             PatientDTO newPatient= patientService.create(patientDTO);
-            System.out.println(newPatient);
             if(newPatient != null){
                 return new ResponseEntity<>(newPatient, HttpStatus.CREATED);
             }
@@ -33,10 +32,10 @@ public class PatientController {
         } catch (IllegalArgumentException illegalArgumentException) {
             System.out.println(illegalArgumentException.getCause());
             return new ResponseEntity<>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
-        } //catch (Exception e) {
-            //System.out.println(e.getMessage());
-            //return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
-        //}
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+        }
     }
     
 }
