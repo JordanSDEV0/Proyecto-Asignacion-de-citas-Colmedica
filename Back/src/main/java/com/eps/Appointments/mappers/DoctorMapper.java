@@ -13,9 +13,19 @@ public interface DoctorMapper {
 
     @Mapping(source = "user.id", target = "id")
     @Mapping(source = "user.password", target = "password")
-    @Mapping(source = "headquarter", target = "headquarter")
+    @Mapping(source = "headquarter", target = "headquarterId")
     @Mapping(source = "specialization", target = "specializationList")
     DoctorDTO toDoctorDTO (Doctor doctor);
+    
+    default int mapHeadquarter(Headquarter headquarter){
+        return headquarter.getId();
+    }
+    
+    default Headquarter mapHeadquarter(int id){
+        Headquarter h= new Headquarter();
+        h.setId(id);
+        return h;
+    }
 
     @InheritInverseConfiguration
     @Mapping(target = "user", ignore = true)
