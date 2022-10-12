@@ -23,21 +23,20 @@ public class DoctorController {
     private DoctorService doctorService;
 
     @PostMapping
-    private ResponseEntity<? extends AbstractResponse> create(@RequestBody DoctorDTO doctor){
+    private ResponseEntity<? extends Object> create(@RequestBody DoctorDTO doctor){
         try {
             DoctorDTO newDoctor= doctorService.create(doctor);
             if(newDoctor != null){
-                return new ResponseEntity<DoctorDTO>(newDoctor, HttpStatus.CREATED);
+                return new ResponseEntity<>(newDoctor, HttpStatus.CREATED);
             }else{
-                return new ResponseEntity<ErrorDTO>(new ErrorDTO("Admin not created"), HttpStatus.ACCEPTED);
+                return new ResponseEntity<>(new ErrorDTO("Admin not created"), HttpStatus.ACCEPTED);
             }
         } catch (IllegalArgumentException illegalArgumentException) {
             System.out.println(illegalArgumentException.getCause());
-            System.out.println(illegalArgumentException.getCause());
-            return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
         } catch(Exception e){
             System.out.println(e.getCause());
-            return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
     @GetMapping("{id}")
