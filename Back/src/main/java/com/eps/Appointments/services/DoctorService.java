@@ -29,7 +29,6 @@ public class DoctorService {
             if(newUser != null){
                 Doctor newDoctor= doctorMapper.toDoctor(doctorDTO);
                 newDoctor.setUser(newUser);
-                System.out.println(newDoctor);
                 return doctorMapper.toDoctorDTO(doctorRepository.save(newDoctor));
             }
             return null;
