@@ -32,9 +32,11 @@ public class AppointmentController {
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody AppointmentDTO appointmentDTO){
         try {
+            System.out.println(appointmentDTO);
             if((doctorService.getById(appointmentDTO.getDoctor().getId()) != null) && (patientService.getById(appointmentDTO.getPatient().getId()) != null) && (dateService.getById(appointmentDTO.getDate().getId()) != null)){
                 AppointmentDTO newAppointment= appointmentService.create(appointmentDTO);
                 if(newAppointment != null){
+                    
                     return new ResponseEntity<>(newAppointment, HttpStatus.CREATED);
                 }
                 return new ResponseEntity<ErrorDTO>(new ErrorDTO("El agendamiento no fue creado"), HttpStatus.ACCEPTED);

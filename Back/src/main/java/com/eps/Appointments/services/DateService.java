@@ -1,11 +1,14 @@
 package com.eps.Appointments.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eps.Appointments.DTOs.DateDTO;
 import com.eps.Appointments.mappers.DateMapper;
+import com.eps.Appointments.persistance.entities.Date;
 import com.eps.Appointments.persistance.repositories.DateRepository;
 
 @Service
@@ -25,6 +28,10 @@ public class DateService {
     @Transactional
     public DateDTO create(DateDTO dateDTO) throws IllegalArgumentException{
         return dateMapper.toDateDto(dateRepository.save(dateMapper.toDate(dateDTO)));
+    }
+    public List<DateDTO> getAll(){
+        List<Date> dates= (List<Date>) dateRepository.findAll();
+        return dateMapper.toDateDTOs(dates);
     }
     
 }
