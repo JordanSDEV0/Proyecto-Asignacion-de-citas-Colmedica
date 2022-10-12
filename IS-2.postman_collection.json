@@ -58,6 +58,72 @@
 			]
 		},
 		{
+			"name": "Dates",
+			"item": [
+				{
+					"name": "Create Date",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateTypeId\": 0,\n    \"headquarterId\" : 0,\n    \"description\" : \"description example\",\n    \"initialTime\" : \"2007-12-03T10:15:30\",\n    \"finalTime\" : \"2007-12-03T10:15:30.\",\n    \"date\" : \"2007-12-03\",\n    \"status\" : \"example\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/dates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dates"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patients",
+			"item": [
+				{
+					"name": "Create Patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\" : \"patient\",\n    \"password\" : \"asdf\",\n    \"idTypeId\" : 0,\n    \"headquarterId\" : 0,\n    \"ocupationId\" : 0,\n    \"regimenType\" : \"regimenType example\",\n    \"phone\" : \"example\",\n    \"name\" : \"example\",\n    \"lastName\" : \"lastName example\",\n    \"address\" : \"address example\",\n    \"email\" : \"email aexmaple\",\n    \"birthDate\": \"2007-12-03\",\n    \"genre\" : \"m\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/patients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Create admin",
 			"request": {
 				"method": "POST",
