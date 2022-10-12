@@ -17,8 +17,8 @@ import lombok.EqualsAndHashCode;
 public class DateDTO extends AbstractResponse{
 
     private int id;
-    private DateTypeDTO dateType;
-	private HeadquarterDTO headquarter;
+    private int dateTypeId;
+	private int headquarterId;
     private String description;	
 	private LocalDateTime initialTime;
 	private LocalDateTime finalTime;

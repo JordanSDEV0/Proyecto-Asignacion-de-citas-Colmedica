@@ -14,6 +14,7 @@ import com.eps.Appointments.persistance.repositories.DoctorRepository;
 
 @Service
 public class DoctorService {
+
     @Autowired
     private DoctorRepository doctorRepository;
     @Autowired
@@ -36,13 +37,13 @@ public class DoctorService {
             return null;
         }
     }
-    @Transactional
+
     public DoctorDTO getById(String id){
         return doctorMapper.toDoctorDTO(doctorRepository.findById(id).map(doctor -> {
             return doctor;
         }).orElseGet(null));
     }
-    @Transactional
+
     public List<DoctorDTO> getAll(){
         List<Doctor> admin= (List<Doctor>) doctorRepository.findAll();
         return doctorMapper.toAdminDTOs(admin);

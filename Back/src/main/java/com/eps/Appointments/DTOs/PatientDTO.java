@@ -17,9 +17,9 @@ public class PatientDTO extends AbstractResponse{
 
     private String id;
     private String password;
-    private IdTypeDTO idType;
-    private HeadquarterDTO headquarter;
-    private OcupationDTO ocupation;
+    private int idTypeId;
+    private int headquarterId;
+    private int ocupationId;
     private String regimenType;
     private String phone;
     private String name;

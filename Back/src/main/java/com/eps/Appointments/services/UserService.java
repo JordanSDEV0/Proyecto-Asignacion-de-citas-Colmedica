@@ -32,9 +32,9 @@ public class UserService {
     }
     @Transactional
     public UserDTO getById(String id){
-        return userMapper.toUserDTO(userRepository.findById(id).map(admin -> {
-            return admin;
-        }).orElseGet(null));
+        return userMapper.toUserDTO(userRepository.findById(id).map(user -> {
+            return user;
+        }).orElse(null));
     }
     @Transactional
     public List<UserDTO> getAll(){

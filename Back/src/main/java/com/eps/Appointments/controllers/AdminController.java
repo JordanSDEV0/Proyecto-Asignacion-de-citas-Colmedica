@@ -1,10 +1,9 @@
 package com.eps.Appointments.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +17,7 @@ import com.eps.Appointments.services.AdminService;
 
 @RestController
 @RequestMapping("/admin")
+@CrossOrigin
 public class AdminController {
 
     @Autowired
@@ -41,27 +41,33 @@ public class AdminController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
+
     @GetMapping("{id}")
-    public ResponseEntity<? extends Object> getAll(@PathVariable("id") String id){
+    public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
         try{
-            return new ResponseEntity<AdminDTO>(adminService.getById(id), HttpStatus.ACCEPTED);
-	} catch(IllegalArgumentException illegalArgumentException){
-	    System.out.println(illegalArgumentException.getCause());
-	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+            AdminDTO admin= adminService.getById(id);
+            if(admin != null){
+                return new ResponseEntity<>(adminService.getById(id), HttpStatus.OK);
+            }
+            return new ResponseEntity<>(new ErrorDTO(("Admin not found with id: " + id)), HttpStatus.ACCEPTED);
+	    } catch(IllegalArgumentException illegalArgumentException){
+	        System.out.println(illegalArgumentException.getCause());
+	        return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
         } catch(Exception e){
-	    System.out.println(e.getCause());
+            System.out.println(e.getCause());
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
+
     @GetMapping()
     public ResponseEntity<? extends Object> getAll(){
         try{
-            return new ResponseEntity<List<AdminDTO>>(adminService.getAll(), HttpStatus.OK);
-	} catch(IllegalArgumentException illegalArgumentException){
-	    System.out.println(illegalArgumentException.getCause());
-	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(adminService.getAll(), HttpStatus.OK);
+	    } catch(IllegalArgumentException illegalArgumentException){
+	        System.out.println(illegalArgumentException.getCause());
+	        return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
         } catch(Exception e){
-	    System.out.println(e.getCause());
+	        System.out.println(e.getCause());
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
