@@ -1,7 +1,5 @@
 package com.eps.Appointments.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,15 +30,16 @@ public class AppointmentController {
     private DateService dateService;
 
     @PostMapping
-    private ResponseEntity<? extends AbstractResponse> create(@RequestBody AppointmentDTO appointmentDTO){
+    private ResponseEntity<? extends Object> create(@RequestBody AppointmentDTO appointmentDTO){
         try {
-            if(doctorService.getById(appointmentDTO.getDoctorId()) != null && patientService.getById(appointmentDTO.getPatientId()) && dateService.getById(appointmentDTO.getDateId())){
+            if((doctorService.getById(appointmentDTO.getDoctorId()) != null) && (patientService.getById(appointmentDTO.getPatientId()) != null) && (dateService.getById(appointmentDTO.getDateId()) != null)){
                 AppointmentDTO newAppointment= appointmentService.create(appointmentDTO);
                 if(newAppointment != null){
-                    return new ResponseEntity<AppointmentDTO>(newAppointment, HttpStatus.CREATED);
+                    return new ResponseEntity<>(newAppointment, HttpStatus.CREATED);
                 }
+                return new ResponseEntity<ErrorDTO>(new ErrorDTO("El agendamiento no fue creado"), HttpStatus.ACCEPTED);
             }
-            return new ResponseEntity<ErrorDTO>(new ErrorDTO("Appointment not created"), HttpStatus.ACCEPTED);
+            return new ResponseEntity<ErrorDTO>(new ErrorDTO("Appointment not created, no se encontro el doctor o el paciente o la cita"), HttpStatus.ACCEPTED);
         } catch (IllegalArgumentException illegalArgumentException){
             System.out.println(illegalArgumentException.getCause());
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
@@ -53,15 +52,16 @@ public class AppointmentController {
     @GetMapping()
     public ResponseEntity<? extends Object> getAll(){
         try{
-            return new ResponseEntity<List<AppointmentDTO>>(appointmentService.getAll(), HttpStatus.OK);
-	} catch(IllegalArgumentException illegalArgumentException){
-	    System.out.println(illegalArgumentException.getCause());
-	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(appointmentService.getAll(), HttpStatus.OK);
+	    } catch(IllegalArgumentException illegalArgumentException){
+	        System.out.println(illegalArgumentException.getCause());
+	        return new ResponseEntity<>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
         } catch(Exception e){
-	    System.out.println(e.getCause());
-            return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+	        System.out.println(e.getCause());
+            return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
+
    // @GetMapping("{id}")
    // public ResponseEntity<? extends Object> getAll(@PathVariable("id") Integer id){
      //   try{
