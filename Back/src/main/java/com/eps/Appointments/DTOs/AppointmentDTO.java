@@ -10,8 +10,8 @@ import lombok.EqualsAndHashCode;
 public class AppointmentDTO extends AbstractResponse{
 
     private int id;
-    private DoctorDTO doctor;
-    private PatientDTO patient;
-    private DateDTO date;
+    private String doctorId;
+    private String patientId;
+    private int dateId;
 
 }
