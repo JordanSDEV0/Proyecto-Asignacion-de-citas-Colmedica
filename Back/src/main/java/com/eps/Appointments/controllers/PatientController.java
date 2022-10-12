@@ -1,9 +1,12 @@
 package com.eps.Appointments.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -53,6 +56,30 @@ public class PatientController {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+        }
+    }
+    @GetMapping("{id}")
+    public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
+        try{
+            return new ResponseEntity<PatientDTO>(patientService.getById(id), HttpStatus.ACCEPTED);
+	} catch(IllegalArgumentException illegalArgumentException){
+	    System.out.println(illegalArgumentException.getCause());
+	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+        } catch(Exception e){
+	    System.out.println(e.getCause());
+            return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+        }
+    }
+    @GetMapping()
+    public ResponseEntity<? extends Object> getAll(){
+        try{
+            return new ResponseEntity<List<PatientDTO>>(patientService.getAll(), HttpStatus.OK);
+	} catch(IllegalArgumentException illegalArgumentException){
+	    System.out.println(illegalArgumentException.getCause());
+	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+        } catch(Exception e){
+	    System.out.println(e.getCause());
+            return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
 

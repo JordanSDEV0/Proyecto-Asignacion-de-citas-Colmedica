@@ -1,5 +1,7 @@
 package com.eps.Appointments.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,6 +54,10 @@ public class PatientService {
 
     public AppointmentDTO updatePatient(AppointmentDTO appointmentDTO) {
         return null;
+    }
+    public List<PatientDTO> getAll(){
+        List<Patient> patient= (List<Patient>) patientRepository.findAll();
+        return patientMapper.toPatientDTOs(patient);
     }
     
 }

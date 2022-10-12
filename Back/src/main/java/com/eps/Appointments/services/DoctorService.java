@@ -43,7 +43,7 @@ public class DoctorService {
         }).orElseGet(null));
     }
     @Transactional
-    public DoctorDTO update(DoctorDTO doctorDTO){
+    public DoctorDTO updateDoctor(DoctorDTO doctorDTO){
         if(getById(doctorDTO.getId()) != null){
             Doctor updateDoctor = doctorMapper.toDoctor(doctorDTO);
             return doctorMapper.toDoctorDTO(doctorRepository.save(updateDoctor));
