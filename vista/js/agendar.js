@@ -79,7 +79,7 @@ function getDateTypes(url){
         console.log(dateTypes);
         dateTypes.forEach(dateType => {
             let option= document.createElement("option");
-            option.value= patient.description;
+            option.value= dateType.description;
             document.getElementById("date_types").appendChild(option);
         });
     }).catch();
