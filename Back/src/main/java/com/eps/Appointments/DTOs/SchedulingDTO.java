@@ -10,7 +10,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class SchedulingDTO {
   
-  private int id;
   private int dateTypeId;
 	private int headquarterId;
   private String description;	
@@ -20,5 +19,6 @@ public class SchedulingDTO {
 	private String status;
   private String doctorId;
   private String patientId;
+  private int dateId;
 
 }
