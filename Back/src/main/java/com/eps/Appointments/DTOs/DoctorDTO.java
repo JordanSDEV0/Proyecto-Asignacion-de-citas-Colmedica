@@ -1,21 +1,17 @@
 package com.eps.Appointments.DTOs;
 
 import java.util.List;
-import com.eps.Appointments.controllers.AbstractResponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@Data()
+@Data
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-public class DoctorDTO extends AbstractResponse{
+public class DoctorDTO {
 
     private String id;
     private String password;
     private int headquarterId;
     private List<SpecializationDTO> specializationList;
-
 
 }

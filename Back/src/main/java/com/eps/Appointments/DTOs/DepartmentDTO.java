@@ -1,15 +1,11 @@
 package com.eps.Appointments.DTOs;
 
-import com.eps.Appointments.controllers.AbstractResponse;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@Data()
+@Data
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-public class DepartmentDTO extends AbstractResponse{
+public class DepartmentDTO {
 
 	private int id;
 	private String department;

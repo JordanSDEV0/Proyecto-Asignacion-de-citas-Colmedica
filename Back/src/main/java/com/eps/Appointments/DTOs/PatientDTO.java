@@ -3,17 +3,11 @@ package com.eps.Appointments.DTOs;
 import java.time.LocalDate;
 
 import lombok.Data;
-
-
-import com.eps.Appointments.controllers.AbstractResponse;
-
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 
-@Data()
+@Data
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-public class PatientDTO extends AbstractResponse{
+public class PatientDTO {
 
     private String id;
     private String password;

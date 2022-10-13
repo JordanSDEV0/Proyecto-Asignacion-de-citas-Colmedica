@@ -4,17 +4,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import lombok.Data;
-
-
-import com.eps.Appointments.controllers.AbstractResponse;
-
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 
-@Data()
+@Data
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-public class DateDTO extends AbstractResponse{
+public class DateDTO {
 
     private int id;
     private int dateTypeId;
@@ -25,5 +19,4 @@ public class DateDTO extends AbstractResponse{
 	private LocalDate date;
 	private String status;
 	    
-
 }
