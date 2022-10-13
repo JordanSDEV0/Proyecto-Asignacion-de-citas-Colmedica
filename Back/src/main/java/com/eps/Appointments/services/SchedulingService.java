@@ -1,29 +1,35 @@
-package com.eps.Appointments.mappers;
-import java.util.List;
+package com.eps.Appointments.services;
 
-import org.mapstruct.InheritInverseConfiguration;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.eps.Appointments.DTOs.SchedulingDTO;
-import com.eps.Appointments.DTOs.DateDTO;
 import com.eps.Appointments.DTOs.AppointmentDTO;
+import com.eps.Appointments.DTOs.DateDTO;
+import com.eps.Appointments.mappers.SchedulingMapper;
 
-@Mapper(componentModel = "spring")
-public interface DateMapper {
-    
-    @Mapping(source = "dateTypeId", target = "dateTypeId")
-    @Mapping(source = "headquarterId", target = "headquarterId")
-    @Mapping(source = "description", target = "description")
-    @Mapping(source = "initialTime", target = "initialTime")
-    @Mapping(source = "finalTime", target = "finalTime")
-    @Mapping(source = "date", target = "date")
-    @Mapping(source = "status", target = "status")
-    DateDTO toDateDto (SchedulingDTO scheduling);
+@Service
+public class SchedulingService{
 
-    @Mapping(source = "doctorId", target = "doctorId")
-    @Mapping(source = "patientId", target = "patientId")
-    @Mapping(source = "dateId", target = "dateId")  
-    AppointmentDTO toAppointmentDTO (SchedulingDTO scheduling);
-    
+  @Autowired
+  private SchedulingMapper schedulingMapper;
+  @Autowired
+  private AppointmentService appointmentService;
+  @Autowired
+  private DateService dateService;
+
+  @Transactional
+  public SchedulingDTO create(SchedulingDTO scheduling){
+      DateDTO dateDTO= dateService.create(schedulingMapper.toDateDto(scheduling));
+      if(dateDTO != null){
+          AppointmentDTO appointmentDTO= appointmentService.create(schedulingMapper.toAppointmentDTO(scheduling));
+          if(appointmentDTO != null){
+            return scheduling;
+          }
+          return null;
+      }
+      return null;    
+  }
+  
 }

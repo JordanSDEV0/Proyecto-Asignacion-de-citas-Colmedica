@@ -1,5 +1,6 @@
 package com.eps.Appointments.persistance.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class Headquarter {
     @ManyToOne
     @JoinColumn(name = "city", nullable = false)
     private City city;
+    @Column(unique = true)
     private String name;
     private String address;
     

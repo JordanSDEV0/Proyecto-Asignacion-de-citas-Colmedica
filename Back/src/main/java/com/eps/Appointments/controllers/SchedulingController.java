@@ -3,6 +3,7 @@ package com.eps.Appointments.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +29,7 @@ public class SchedulingController {
         try {
           SchedulingDTO newScheduling= schedulingService.create(scheduling);
           if(scheduling != null){
-            return new ResponseEntity<SchedulingDTO>(scheduling, HttpStatus.CREATED);
+            return new ResponseEntity<SchedulingDTO>(newScheduling, HttpStatus.CREATED);
           }
           return new ResponseEntity<ErrorDTO>(new ErrorDTO("Cita no creada"), HttpStatus.ACCEPTED);
         } catch (IllegalArgumentException illegalArgumentException){
@@ -56,7 +57,7 @@ public class SchedulingController {
     @GetMapping("/{id}")
         public ResponseEntity<? extends Object> getById(@PathVariable("id") Integer id){
         try{
-            return new ResponseEntity<AppointmentDTO>(null, HttpStatus.OK);
+            return new ResponseEntity<>(null, HttpStatus.OK);
 	} catch(IllegalArgumentException illegalArgumentException){
 	    System.out.println(illegalArgumentException.getCause());
 	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
