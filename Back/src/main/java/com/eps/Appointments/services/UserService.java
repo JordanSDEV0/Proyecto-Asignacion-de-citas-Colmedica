@@ -36,4 +36,13 @@ public class UserService {
         return userMapper.toUserDTOs(user);
     }
     
+    @Transactional
+    public UserDTO updateUser(UserDTO userDTO){
+        if(getById(userDTO.getId()) != null){
+            User updateUser = userMapper.toUser(userDTO);
+            return userMapper.toUserDTO(userRepository.save(updateUser));
+        }
+        return null;
+    }
+    
 }
