@@ -63,6 +63,7 @@ public class AppointmentController {
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
+
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> Update(@RequestBody AppointmentDTO appointmentDTO, @PathVariable("id") int id){
         try {

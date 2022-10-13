@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eps.Appointments.DTOs.SchedulingDTO;
+import com.eps.Appointments.DTOs.AppointmentDTO;
 import com.eps.Appointments.DTOs.DateDTO;
 import com.eps.Appointments.mappers.SchedulingMapper;
 import com.eps.Appointments.mappers.AppointmentMapper;
@@ -17,7 +18,7 @@ import com.eps.Appointments.persistance.repositories.AppointmentRepository;
 import com.eps.Appointments.persistance.repositories.DateRepository;
 
 @Service
-public class SchedulingService{
+public class AppointmentService{
 
   @Autowired
   private SchedulingMapper schedulingMapper;
