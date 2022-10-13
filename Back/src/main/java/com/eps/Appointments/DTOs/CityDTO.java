@@ -2,16 +2,11 @@ package com.eps.Appointments.DTOs;
 
 import lombok.Data;
 
-
-import com.eps.Appointments.controllers.AbstractResponse;
-
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 
-@Data()
+@Data
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-public class CityDTO extends AbstractResponse{
+public class CityDTO {
 
     private int id;
 	private DepartmentDTO department;
