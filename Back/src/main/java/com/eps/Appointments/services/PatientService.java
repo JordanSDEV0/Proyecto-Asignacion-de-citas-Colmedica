@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.eps.Appointments.DTOs.PatientDTO;
 import com.eps.Appointments.mappers.PatientMapper;
+import com.eps.Appointments.mappers.UserMapper;
 import com.eps.Appointments.persistance.entities.Patient;
 import com.eps.Appointments.persistance.entities.User;
 import com.eps.Appointments.persistance.repositories.PatientRepository;
@@ -21,6 +22,8 @@ public class PatientService {
     private PatientMapper patientMapper;
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserMapper userMapper;
 
     public PatientDTO getById(String id) {
         return patientMapper.toPatientDTO(patientRepository.findById(id).map(patient -> {
@@ -31,7 +34,7 @@ public class PatientService {
     @Transactional
     public PatientDTO create(PatientDTO patientDTO)throws IllegalArgumentException{
         if(userService.getById(patientDTO.getId()) == null){
-            User newUser= userService.create(new User(patientDTO.getId(), patientDTO.getPassword()));
+            User newUser= userMapper.toUser(userService.create(userMapper.toUserDTO(new User(patientDTO.getId(), patientDTO.getPassword()))));
             if(newUser != null){
                 Patient patient = patientMapper.toPatient(patientDTO);
                 patient.setUser(newUser);

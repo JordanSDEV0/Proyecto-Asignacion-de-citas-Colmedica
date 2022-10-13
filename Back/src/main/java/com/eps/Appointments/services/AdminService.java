@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.eps.Appointments.DTOs.AdminDTO;
 import com.eps.Appointments.mappers.AdminMapper;
+import com.eps.Appointments.mappers.UserMapper;
 import com.eps.Appointments.persistance.entities.Admin;
 import com.eps.Appointments.persistance.entities.User;
 import com.eps.Appointments.persistance.repositories.AdminRepository;
@@ -22,11 +23,13 @@ public class AdminService {
     private AdminMapper adminMapper;
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserMapper userMapper;
 
     @Transactional
     public AdminDTO create(AdminDTO adminDTO) throws IllegalArgumentException{
-        if(userService.getUser(adminDTO.getId()) == null){
-            User newUser= userService.create(new User(adminDTO.getId(), adminDTO.getPassword()));
+        if(userService.getById(adminDTO.getId()) == null){
+            User newUser= userMapper.toUser(userService.create(userMapper.toUserDTO(new User(adminDTO.getId(), adminDTO.getPassword()))));
             if(newUser != null){
                 Admin newAdmin= adminMapper.toAdmin(adminDTO);
                 newAdmin.setUser(newUser);
