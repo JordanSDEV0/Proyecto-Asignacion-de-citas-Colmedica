@@ -15,7 +15,7 @@ public class HeadquarterService {
     @Autowired
     private HeadquarterMapper headquarterMapper;
 
-    HeadquarterDTO getByName(String name){
+    public HeadquarterDTO getByName(String name){
         return headquarterMapper.toHeadquarterDTO(headquarterRepository.findByName(name).map(h -> {
             return h;
         }).orElse(null));
