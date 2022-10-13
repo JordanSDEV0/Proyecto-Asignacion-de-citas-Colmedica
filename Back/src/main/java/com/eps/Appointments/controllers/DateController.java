@@ -41,7 +41,7 @@ public class DateController {
         }
     }
 
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") Integer id){
         try{
             DateDTO date= dateService.getById(id);

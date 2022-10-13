@@ -59,7 +59,7 @@ public class PatientController {
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
         try{
             return new ResponseEntity<PatientDTO>(patientService.getById(id), HttpStatus.ACCEPTED);

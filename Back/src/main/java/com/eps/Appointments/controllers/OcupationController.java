@@ -42,7 +42,7 @@ public class OcupationController {
         }
     }
 
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getAll(@PathVariable("id") int id){
        try{
             return new ResponseEntity<OcupationDTO>(ocupationService.getById(id), HttpStatus.ACCEPTED);

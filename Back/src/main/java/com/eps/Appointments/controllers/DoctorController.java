@@ -42,7 +42,7 @@ public class DoctorController {
         }
     }
 
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
         try{
             return new ResponseEntity<DoctorDTO>(doctorService.getById(id), HttpStatus.ACCEPTED);

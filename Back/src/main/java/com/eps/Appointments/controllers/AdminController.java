@@ -58,7 +58,7 @@ public class AdminController {
         }
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<? extends Object> getAll(){
         try{
             return new ResponseEntity<>(adminService.getAll(), HttpStatus.OK);
