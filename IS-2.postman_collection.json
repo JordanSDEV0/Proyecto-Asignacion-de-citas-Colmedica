@@ -587,6 +587,31 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Sede",
+			"item": [
+				{
+					"name": "Get Headquarter By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/headquarter/example",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"headquarter",
+								"example"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
