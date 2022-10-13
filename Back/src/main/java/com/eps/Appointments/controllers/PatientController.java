@@ -42,8 +42,9 @@ public class PatientController {
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
+
     @PutMapping("/{id}")
-    private ResponseEntity<? extends Object> Update(@RequestBody PatientDTO patientDTO, @PathVariable("id") String id){
+    private ResponseEntity<? extends Object> update(@RequestBody PatientDTO patientDTO, @PathVariable("id") String id){
         try {
             PatientDTO newPatient= patientService.updatePatient(patientDTO);
             if(newPatient != null){
@@ -58,30 +59,30 @@ public class PatientController {
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping("{id}")
+    @GetMapping("{/id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
         try{
             return new ResponseEntity<PatientDTO>(patientService.getById(id), HttpStatus.ACCEPTED);
-	} catch(IllegalArgumentException illegalArgumentException){
-	    System.out.println(illegalArgumentException.getCause());
-	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+	    } catch(IllegalArgumentException illegalArgumentException){
+	        System.out.println(illegalArgumentException.getCause());
+	        return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
         } catch(Exception e){
-	    System.out.println(e.getCause());
-            return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
-        }
-    }
-    @GetMapping()
-    public ResponseEntity<? extends Object> getAll(){
-        try{
-            return new ResponseEntity<List<PatientDTO>>(patientService.getAll(), HttpStatus.OK);
-	} catch(IllegalArgumentException illegalArgumentException){
-	    System.out.println(illegalArgumentException.getCause());
-	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
-        } catch(Exception e){
-	    System.out.println(e.getCause());
+	        System.out.println(e.getCause());
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
 
-    
+    @GetMapping
+    public ResponseEntity<? extends Object> getAll(){
+        try{
+            return new ResponseEntity<List<PatientDTO>>(patientService.getAll(), HttpStatus.OK);
+	    } catch(IllegalArgumentException illegalArgumentException){
+	        System.out.println(illegalArgumentException.getCause());
+	        return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+        } catch(Exception e){
+	        System.out.println(e.getCause());
+            return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

@@ -35,11 +35,8 @@ public class AppointmentController {
     private ResponseEntity<? extends Object> create(@RequestBody AppointmentDTO appointmentDTO){
         try {
             if((doctorService.getById(appointmentDTO.getDoctorId()) != null) && (patientService.getById(appointmentDTO.getPatientId()) != null) && (dateService.getById(appointmentDTO.getDateId()) != null)){
-                System.out.println(appointmentDTO);
                 AppointmentDTO newAppointment= appointmentService.create(appointmentDTO);
-               
                 if(newAppointment != null){
-                    
                     return new ResponseEntity<>(newAppointment, HttpStatus.CREATED);
                 }
                 return new ResponseEntity<ErrorDTO>(new ErrorDTO("El agendamiento no fue creado"), HttpStatus.ACCEPTED);
@@ -53,7 +50,8 @@ public class AppointmentController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping()
+
+    @GetMapping
     public ResponseEntity<? extends Object> getAll(){
         try{
             return new ResponseEntity<>(appointmentService.getAll(), HttpStatus.OK);
@@ -82,16 +80,16 @@ public class AppointmentController {
         }
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
         public ResponseEntity<? extends Object> getById(@PathVariable("id") Integer id){
         try{
-            return new ResponseEntity<AppointmentDTO>(appointmentService.getById(id), HttpStatus.ACCEPTED);
+            return new ResponseEntity<AppointmentDTO>(appointmentService.getById(id), HttpStatus.OK);
 	} catch(IllegalArgumentException illegalArgumentException){
 	    System.out.println(illegalArgumentException.getCause());
 	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
-        } catch(Exception e){
+    } catch(Exception e){
 	    System.out.println(e.getCause());
-           return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
-        }
+        return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+    }
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.eps.Appointments.DTOs.DateDTO;
 import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.services.DateService;
@@ -39,7 +40,8 @@ public class DateController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping("{id}")
+
+    @GetMapping("{/id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") Integer id){
         try{
             DateDTO date= dateService.getById(id);
@@ -55,7 +57,8 @@ public class DateController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping()
+
+    @GetMapping
     public ResponseEntity<? extends Object> getAll(){
         try{
             return new ResponseEntity<>(dateService.getAll(), HttpStatus.OK);
@@ -67,6 +70,7 @@ public class DateController {
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
+
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> Update(@RequestBody DateDTO dateDTO, @PathVariable("id") String id){
         try {
@@ -85,4 +89,3 @@ public class DateController {
     }
     
 }
-

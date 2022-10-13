@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.DTOs.OcupationDTO;
 import com.eps.Appointments.services.OcupationService;
@@ -24,7 +25,7 @@ public class OcupationController {
     private OcupationService ocupationService;
 
     @PostMapping
-    private ResponseEntity<? extends AbstractResponse> create(@RequestBody OcupationDTO ocupation){
+    private ResponseEntity<? extends Object> create(@RequestBody OcupationDTO ocupation){
         try {
             OcupationDTO newOcupation= ocupationService.create(ocupation);
             if(newOcupation != null){
@@ -34,37 +35,39 @@ public class OcupationController {
             }
         } catch (IllegalArgumentException illegalArgumentException) {
             System.out.println(illegalArgumentException.getCause());
-            System.out.println(illegalArgumentException.getCause());
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
         } catch(Exception e){
             System.out.println(e.getCause());
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping("{id}")
+
+    @GetMapping("{/id}")
     public ResponseEntity<? extends Object> getAll(@PathVariable("id") int id){
        try{
             return new ResponseEntity<OcupationDTO>(ocupationService.getById(id), HttpStatus.ACCEPTED);
-	} catch(IllegalArgumentException illegalArgumentException){
-	    System.out.println(illegalArgumentException.getCause());
-	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+	    } catch(IllegalArgumentException illegalArgumentException){
+	        System.out.println(illegalArgumentException.getCause());
+	        return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
         } catch(Exception e){
-	    System.out.println(e.getCause());
+	        System.out.println(e.getCause());
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping()
+
+    @GetMapping
     public ResponseEntity<? extends Object> getAll(){
         try{
             return new ResponseEntity<List<OcupationDTO>>(ocupationService.getAll(), HttpStatus.OK);
-	} catch(IllegalArgumentException illegalArgumentException){
-	    System.out.println(illegalArgumentException.getCause());
-	    return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+	    } catch(IllegalArgumentException illegalArgumentException){
+	        System.out.println(illegalArgumentException.getCause());
+	        return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
         } catch(Exception e){
-	    System.out.println(e.getCause());
+	        System.out.println(e.getCause());
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
+
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> Update(@RequestBody OcupationDTO ocupationDTO, @PathVariable("id") String id){
         try {

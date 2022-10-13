@@ -24,7 +24,7 @@ public class AdminController {
     private AdminService adminService;
 
     @PostMapping
-    private ResponseEntity<? extends AbstractResponse> create(@RequestBody AdminDTO admin){
+    private ResponseEntity<? extends Object> create(@RequestBody AdminDTO admin){
         try {
             AdminDTO newAdmin= adminService.create(admin);
             if(newAdmin != null){
@@ -34,7 +34,6 @@ public class AdminController {
             }
         } catch (IllegalArgumentException illegalArgumentException) {
             System.out.println(illegalArgumentException.getCause());
-            System.out.println(illegalArgumentException.getCause());
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
         } catch(Exception e){
             System.out.println(e.getCause());
@@ -42,7 +41,7 @@ public class AdminController {
         }
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
         try{
             AdminDTO admin= adminService.getById(id);
