@@ -1,13 +1,41 @@
 {
 	"info": {
-		"_postman_id": "cfdb7c41-1424-4190-acdb-1a28912d5fa4",
+		"_postman_id": "16e84f72-7f77-49f7-8011-14ee3b6922f7",
 		"name": "IS-2",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "16661542"
 	},
 	"item": [
 		{
 			"name": "Appointments",
 			"item": [
+				{
+					"name": "Get Appointments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/appointments"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Appointment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n        \"id\": 2,\n        \"doctorId\": \"admin\",\n        \"patientId\": \"4\",\n        \"dateId\": \n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/appointments/2"
+					},
+					"response": []
+				},
 				{
 					"name": "Create Appointment",
 					"request": {
@@ -15,43 +43,23 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"doctorId\": \"doctor\",\n    \"patientId\": \"patient\",\n    \"dateId\": 1\n}",
+							"raw": "{\n        \"doctor\": {\n            \"id\": \"2\",\n            \"password\": \"12345\",\n            \"headquarterId\": 1,\n            \"specializationList\": []\n        },\n        \"patient\": {\n            \"id\": \"4\",\n            \"password\": \"5678\",\n            \"idTypeId\": 1,\n            \"headquarterId\": 1,\n            \"ocupationId\": 2,\n            \"regimenType\": \"Contributivo\",\n            \"phone\": \"3186918317\",\n            \"name\": \"usuario\",\n            \"lastName\": \"prueba\",\n            \"address\": \"cra 90d2\",\n            \"email\": \"prueba@mail.com\",\n            \"birthDate\": \"1960-02-10\",\n            \"genre\": \"masculino\"\n        },\n        \"dateid\":{\n        \"id\": 1,\n        \"dateTypeId\": 1,\n        \"headquarterId\": 1,\n        \"description\": \"primera cita\",\n        \"initialTime\": \"2021-10-11T00:00:00\",\n        \"finalTime\": \"2022-10-11T00:00:00\",\n        \"date\": \"2022-10-11\",\n        \"status\": \"en espera\"\n        }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/appointments",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"appointments"
-							]
-						}
+						"url": "http://localhost:8080/appointments"
 					},
 					"response": []
 				},
 				{
-					"name": "Get Appointments",
+					"name": "Get Appointments[id]",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/appointments",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"appointments"
-							]
-						}
+						"url": "http://localhost:8080/appointments/2"
 					},
 					"response": []
 				}
@@ -67,24 +75,50 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"dateTypeId\": 0,\n    \"headquarterId\" : 0,\n    \"description\" : \"description example\",\n    \"initialTime\" : \"2007-12-03T10:15:30\",\n    \"finalTime\" : \"2007-12-03T10:15:30.\",\n    \"date\" : \"2007-12-03\",\n    \"status\" : \"example\"\n}",
+							"raw": "{\n    \"dateTypeId\": 1,\n    \"headquarterId\" : 1,\n    \"description\" : \"description example\",\n    \"initialTime\" : \"2007-12-03T10:15:30\",\n    \"finalTime\" : \"2007-12-03T10:15:30.\",\n    \"date\" : \"2007-12-03\",\n    \"status\" : \"example\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/dates",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"dates"
-							]
-						}
+						"url": "http://localhost:8080/dates"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/dates"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Date [id]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/dates/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Date",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n        \"id\": 1,\r\n        \"dateTypeId\": 1,\r\n        \"headquarterId\": 1,\r\n        \"description\": \"Correccion cita\",\r\n        \"initialTime\": \"2021-10-11T00:00:00\",\r\n        \"finalTime\": \"2022-10-11T00:00:00\",\r\n        \"date\": \"2022-10-11\",\r\n        \"status\": \"en espera\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/dates/1"
 					},
 					"response": []
 				}
@@ -94,102 +128,209 @@
 			"name": "Patients",
 			"item": [
 				{
-					"name": "Create Patient",
+					"name": "Get Patients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/patients"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient [id]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/patients/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Patients",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\" : \"patient\",\n    \"password\" : \"asdf\",\n    \"idTypeId\" : 0,\n    \"headquarterId\" : 0,\n    \"ocupationId\" : 0,\n    \"regimenType\" : \"regimenType example\",\n    \"phone\" : \"example\",\n    \"name\" : \"example\",\n    \"lastName\" : \"lastName example\",\n    \"address\" : \"address example\",\n    \"email\" : \"email aexmaple\",\n    \"birthDate\": \"2007-12-03\",\n    \"genre\" : \"m\"\n}",
+							"raw": "{\r\n        \"id\": \"6\",\r\n        \"password\": \"5678\",\r\n        \"idTypeId\": 1,\r\n        \"headquarterId\": 1,\r\n        \"ocupationId\": 1,\r\n        \"regimenType\": \"Contributivo\",\r\n        \"phone\": \"3186918317\",\r\n        \"name\": \"segundo\",\r\n        \"lastName\": \"segundo\",\r\n        \"address\": \"cra 90d2\",\r\n        \"email\": \"diferente@mail.com\",\r\n        \"birthDate\": \"1960-02-10\",\r\n        \"genre\": \"m\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/patients",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"patients"
-							]
-						}
+						"url": "http://localhost:8080/patients"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Patient",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": \"4\",\r\n        \"password\": \"5678\",\r\n        \"idTypeId\": 1,\r\n        \"headquarterId\": 1,\r\n        \"ocupationId\": 2,\r\n        \"regimenType\": \"Contributivo\",\r\n        \"phone\": \"3186918317\",\r\n        \"name\": \"editado\",\r\n        \"lastName\": \"update\",\r\n        \"address\": \"cra 90d2\",\r\n        \"email\": \"prueba@mail.com\",\r\n        \"birthDate\": \"1960-02-10\",\r\n        \"genre\": \"masculino\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/patients/4"
 					},
 					"response": []
 				}
 			]
 		},
 		{
-			"name": "Create admin",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"id\": \"admin\",\n    \"password\": \"1234\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Create admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"admin\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/admin"
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/admin",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"admin"
-					]
+				{
+					"name": "Get Admin By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/admin/admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/admin"
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Get Admin By Id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/admin/admin",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"admin",
-						"admin"
-					]
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "Get Doctor By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/doctor/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/doctor"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Doctor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": \"8\",\r\n        \"password\": \"12345\",\r\n        \"headquarterId\": 1,\r\n        \"specializationList\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/doctor"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Doctor",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Get Doctor By Id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/doctor/2",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"doctor",
-						"2"
-					]
+			"name": "Ocupation",
+			"item": [
+				{
+					"name": "Get Ocupation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/ocupation/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ocupation[id]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/ocupation/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Ocupation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{       \"id\": 1,\r\n        \"ocupation\": \"Ocupacion CREADA\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/ocupation/"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Ocupation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 1,\r\n        \"ocupation\": \"update\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/ocupation/1"
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
