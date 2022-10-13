@@ -32,5 +32,18 @@ public class HeadquarterController {
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping
+    private ResponseEntity<? extends Object> getAll(){
+        try {
+            return ResponseEntity.ok(headquarterService.getAll());
+        } catch(IllegalArgumentException illegalArgumentException){
+	        System.out.println(illegalArgumentException.getCause());
+	        return new ResponseEntity<>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+        } catch(Exception e){
+	        System.out.println(e.getCause());
+            return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+        }
+    }
     
 }

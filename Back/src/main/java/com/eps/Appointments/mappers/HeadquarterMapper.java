@@ -1,5 +1,7 @@
 package com.eps.Appointments.mappers;
 
+import java.util.List;
+
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -15,6 +17,8 @@ public interface HeadquarterMapper {
     @Mapping(source = "name", target = "name")
     @Mapping(source = "address", target = "address")
     HeadquarterDTO toHeadquarterDTO (Headquarter Headquarter);
+
+    List<HeadquarterDTO> toHeadquarterDTOs(List<Headquarter> Headquarters);
 
     @InheritInverseConfiguration
     Headquarter toHeadquarter (HeadquarterDTO headquarterDTO);
