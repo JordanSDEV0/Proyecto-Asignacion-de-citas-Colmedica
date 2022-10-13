@@ -30,13 +30,13 @@
                 <img src="../../images/logo1.svg" alt="logo">
               </div>
               <h6 class="text-center font-weight-light">Registro de Paciente</h6>
-              <form class="form-sample">
+              <form class="form-sample" id="formulario">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Nombres</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" />
+                        <input id="name" type="text" class="form-control" />
                       </div>
                     </div>
                   </div>
@@ -44,7 +44,7 @@
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Apellidos</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" />
+                        <input id="lastName" type="text" class="form-control" />
                       </div>
                     </div>
                   </div>
@@ -54,7 +54,7 @@
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Tipo de Documento</label>
                       <div class="col-sm-9">
-                        <select class="form-control">
+                        <select class="form-control" id="idTypeId">
                           <option>Tarjeta de Identidad</option>
                           <option>Cedula de Ciudadania</option>
                           <option>Cedula de Extranjeria</option>
@@ -67,7 +67,7 @@
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Número de Documento</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" />
+                        <input id="id" type="text" class="form-control" />
                       </div>
                     </div>
                   </div>
@@ -77,7 +77,7 @@
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Correo</label>
                       <div class="col-sm-9">
-                        <input type="email" class="form-control" />
+                        <input id="email" type="email" class="form-control" />
                       </div>
                     </div>
                   </div>
@@ -85,7 +85,7 @@
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Numero de Telefono</label>
                       <div class="col-sm-9">
-                        <input type="tel" class="form-control" />
+                        <input id ="phone" type="tel" class="form-control" />
                       </div>
                     </div>
                   </div>
@@ -95,7 +95,7 @@
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Fecha de Nacimiento</label>
                       <div class="col-sm-9">
-                        <input type=date class="form-control" placeholder="dd/mm/yyyy"/>
+                        <input id="birthDate" type=date class="form-control" placeholder="dd/mm/yyyy"/>
                       </div>
                     </div>
                   </div>
@@ -103,7 +103,7 @@
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Direccion</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" />
+                        <input id="address" type="text" class="form-control" />
                       </div>
                     </div>
                   </div>
@@ -111,9 +111,9 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label">Estado Civil</label>
+                      <label class="col-sm-3 col-form-label">Regimen</label>
                       <div class="col-sm-9">
-                        <select class="form-control">
+                        <select class="form-control" id="regimenType">
                           <option>Soltero/a</option>
                           <option>Casado/a</option>
                           <option>Viudo/a</option>
@@ -126,7 +126,7 @@
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Genero</label>
                       <div class="col-sm-9">
-                        <select class="form-control">
+                        <select class="form-control" id="genre">
                           <option>Masculino</option>
                           <option>Femenino</option>
                           <option>Otro</option>
@@ -136,10 +136,9 @@
                   </div>
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="index.html">
-                    Registrar Paciente
-                  </a>
+                  <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >Registrar Paciente</a>
                 </div>
+                <script src="../../js/registroPatient.js"></script>
               </form>
             </div>
           </div>

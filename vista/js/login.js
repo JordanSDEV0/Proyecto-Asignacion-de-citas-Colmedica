@@ -15,8 +15,11 @@
                       for(let valor of user){
                         var valUser = valor
                         if(valUser.id==datos.get("id") && valUser.password==datos.get("password")){
-                      location.href="../../login.html";
-                      console.log("ingresa")
+                          let id =[datos.get("id")];
+                          localStorage.setItem("id", JSON.stringify(id));
+                          console.log(localStorage.getItem("id"));
+                          location.href="../../login.html";
+                          console.log("ingresa")
                     }
                   }
                       respuesta.innerHTML =`
