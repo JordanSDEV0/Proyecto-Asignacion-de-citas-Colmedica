@@ -19,7 +19,7 @@ import com.eps.Appointments.DTOs.PatientDTO;
 import com.eps.Appointments.services.PatientService;
 
 @RestController
-@RequestMapping("/patients")
+@RequestMapping("/patient")
 @CrossOrigin
 public class PatientController {
 

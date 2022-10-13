@@ -13,7 +13,7 @@ import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.services.HeadquarterService;
 
 @RestController
-@RequestMapping("/headquarters")
+@RequestMapping("/headquarter")
 @CrossOrigin
 public class HeadquarterController {
 
