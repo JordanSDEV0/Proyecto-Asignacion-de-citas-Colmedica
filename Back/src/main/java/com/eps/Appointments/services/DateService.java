@@ -29,10 +29,12 @@ public class DateService {
     public DateDTO create(DateDTO dateDTO) throws IllegalArgumentException{
         return dateMapper.toDateDto(dateRepository.save(dateMapper.toDate(dateDTO)));
     }
+
     public List<DateDTO> getAll(){
         List<Date> dates= (List<Date>) dateRepository.findAll();
         return dateMapper.toDateDTOs(dates);
     }
+
     @Transactional
     public DateDTO updateDate(DateDTO dateDTO){
         if(getById(dateDTO.getId()) != null){
@@ -40,12 +42,6 @@ public class DateService {
             return dateMapper.toDateDto(dateRepository.save(updatedDate));
         }
         return null;
-    }
-      @Transactional
-    public DateDTO getById(Integer id){
-       return dateMapper.toDateDto(dateRepository.findById(id).map(date -> {
-           return date;
-      }).orElseGet(null));
     }
     
 }

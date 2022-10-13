@@ -21,22 +21,16 @@ public class UserService {
     private UserRepository userRepository;
 
     @Transactional
-    public User create(User user) throws IllegalArgumentException{
-        return userRepository.save(user);
+    public UserDTO create(UserDTO user) throws IllegalArgumentException{
+        return userMapper.toUserDTO(userRepository.save(userMapper.toUser(user)));
     }
-    @Transactional
-    public User getUser(String id){
-        return userRepository.findById(id).map(user -> {
-            return user;
-        }).orElse(null);
-    }
-    @Transactional
+
     public UserDTO getById(String id){
         return userMapper.toUserDTO(userRepository.findById(id).map(user -> {
             return user;
         }).orElse(null));
     }
-    @Transactional
+
     public List<UserDTO> getAll(){
         List<User> user=(List<User>) userRepository.findAll();
         return userMapper.toUserDTOs(user);

@@ -1,4 +1,5 @@
 package com.eps.Appointments.services;
+
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -42,6 +43,7 @@ public class DoctorService {
             return doctor;
         }).orElseGet(null));
     }
+
     @Transactional
     public DoctorDTO updateDoctor(DoctorDTO doctorDTO){
         if(getById(doctorDTO.getId()) != null){
@@ -55,6 +57,5 @@ public class DoctorService {
         List<Doctor> admin= (List<Doctor>) doctorRepository.findAll();
         return doctorMapper.toAdminDTOs(admin);
     }
-
 
 }

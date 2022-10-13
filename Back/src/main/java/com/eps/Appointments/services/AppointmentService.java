@@ -25,11 +25,11 @@ public class AppointmentService{
         return appointmentMapper.toAppointmentDTO(appointmentRepository.save(appointmentMapper.toAppointment(appointmentDTO)));
     }
     
-    @Transactional
     public List<AppointmentDTO> getAll(){
         List<Appointment> appointments= (List<Appointment>) appointmentRepository.findAll();
         return appointmentMapper.toAppointmentDTOs(appointments);
     }
+
     @Transactional
     public AppointmentDTO updateAppointment(AppointmentDTO appointmentDTO){
         if(getById(appointmentDTO.getId()) != null){
@@ -38,14 +38,11 @@ public class AppointmentService{
         }
         return null;
     }
-      @Transactional
+
     public AppointmentDTO getById(int id){
-       return appointmentMapper.toAppointmentDTO(appointmentRepository.findById(id).map(ocupation -> {
-           return ocupation;
-      }).orElseGet(null));
+        return appointmentMapper.toAppointmentDTO(appointmentRepository.findById(id).map(ocupation -> {
+            return ocupation;
+        }).orElseGet(null));
     }
+
 }
-
-   
-    
-

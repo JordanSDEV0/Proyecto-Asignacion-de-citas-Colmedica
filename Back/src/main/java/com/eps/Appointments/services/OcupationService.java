@@ -1,4 +1,5 @@
 package com.eps.Appointments.services;
+
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -13,6 +14,7 @@ import com.eps.Appointments.persistance.repositories.OcupationRepository;
 
 @Service
 public class OcupationService {
+
     @Autowired
     private OcupationRepository ocupationRepository;
     @Autowired
@@ -23,17 +25,18 @@ public class OcupationService {
         ocupationRepository.save(ocupationMapper.toOcupation(ocupation));
         return ocupation;
     }
-    @Transactional
+
     public OcupationDTO getById(int id){
         return ocupationMapper.toOcupationDTO(ocupationRepository.findById(id).map(ocupation -> {
             return ocupation;
         }).orElseGet(null));
     }
-    @Transactional
+
     public List<OcupationDTO> getAll(){
         List<Ocupation> ocupation= (List<Ocupation>) ocupationRepository.findAll();
         return ocupationMapper.toOcupationDTOs(ocupation);
     }
+
     @Transactional
     public OcupationDTO updateOcupation(OcupationDTO ocupationDTO){
         if(getById(ocupationDTO.getId()) != null){
@@ -42,4 +45,5 @@ public class OcupationService {
         }
         return null;
     }
+
 }
