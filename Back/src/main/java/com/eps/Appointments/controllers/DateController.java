@@ -18,7 +18,7 @@ import com.eps.Appointments.services.DateService;
 
 @RestController
 @RequestMapping("/dates")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class DateController {
 
     @Autowired
