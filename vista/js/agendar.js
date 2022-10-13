@@ -40,7 +40,7 @@ function getHeadquarters(url){
         console.log(headquarters);
         headquarters.forEach(headquarter => {
             let option= document.createElement("option");
-            option.value= headquarter.id;
+            option.value= headquarter.name;
             document.getElementById("headquarters").appendChild(option);
         });
     })
