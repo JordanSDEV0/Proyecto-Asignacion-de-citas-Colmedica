@@ -23,6 +23,7 @@ public class SchedulingService{
   public SchedulingDTO create(SchedulingDTO scheduling){
       DateDTO dateDTO= dateService.create(schedulingMapper.toDateDto(scheduling));
       if(dateDTO != null){
+          scheduling.setDateId(dateDTO.getId());
           AppointmentDTO appointmentDTO= appointmentService.create(schedulingMapper.toAppointmentDTO(scheduling));
           if(appointmentDTO != null){
             return scheduling;
