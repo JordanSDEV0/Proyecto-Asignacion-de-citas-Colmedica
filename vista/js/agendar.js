@@ -43,7 +43,7 @@ function getHeadquarters(url){
             option.value= headquarter.name;
             document.getElementById("headquarters").appendChild(option);
         });
-    })
+    }).catch();
 }
 
 function getDoctors(url){
@@ -69,13 +69,18 @@ function getPatients(url){
             option.value= patient.id;
             document.getElementById("patients").appendChild(option);
         });
-    })
+    }).catch();
 }
 
 function getDateTypes(url){
     fetch(url)
     .then(response => response.json())
-    .then(data => {
-        console.log(data);
-    })
+    .then(dateTypes => {
+        console.log(dateTypes);
+        dateTypes.forEach(dateType => {
+            let option= document.createElement("option");
+            option.value= patient.description;
+            document.getElementById("date_types").appendChild(option);
+        });
+    }).catch();
 }
