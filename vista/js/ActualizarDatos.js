@@ -26,14 +26,14 @@ var formulario =document.getElementById('formulario')
         "idTypeId": 1,
         "headquarterId": 1,
         "ocupationId": 2,
-        "regimenType": "contributivo",
+        "regimenType":  form.elements['regimenType'].value,
         "phone": document.getElementById("phone").value,
         "name": document.getElementById("name").value,
         "lastName": document.getElementById("lastname").value,
         "address":document.getElementById("address").value,
         "email": document.getElementById("email").value,
-        "birthDate":"1960-02-10",
-        "genre": "masculino"
+        "birthDate":form.elements['birthDate'].value,
+        "genre": form.elements['genre'].value
     }
         console.log(datos)
     var url2="http://localhost:8080/patients/"+id;
