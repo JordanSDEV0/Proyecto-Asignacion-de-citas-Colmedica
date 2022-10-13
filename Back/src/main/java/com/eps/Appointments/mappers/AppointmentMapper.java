@@ -9,7 +9,6 @@ import org.mapstruct.Mapping;
 import com.eps.Appointments.DTOs.AppointmentDTO;
 import com.eps.Appointments.persistance.entities.Appointment;
 
-
 @Mapper(componentModel = "spring", uses = {DoctorMapper.class, PatientMapper.class, DateMapper.class})
 public interface AppointmentMapper {
 
@@ -19,9 +18,7 @@ public interface AppointmentMapper {
     @Mapping(source = "date.id", target = "dateId")
     AppointmentDTO toAppointmentDTO (Appointment appointment);
     
-   
     @InheritInverseConfiguration
-
     Appointment toAppointment (AppointmentDTO appointmentDTO);
 
     List<AppointmentDTO> toAppointmentDTOs(List<Appointment> appointments);

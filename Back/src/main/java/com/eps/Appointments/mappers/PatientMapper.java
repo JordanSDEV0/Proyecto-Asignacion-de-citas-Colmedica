@@ -53,16 +53,17 @@ public interface PatientMapper {
         headquarter.setId(id);
         return headquarter;
     }
+
     default Ocupation mapOcupation(int id){
         Ocupation ocupation= new Ocupation();
         ocupation.setId(id);
         return ocupation;
     }
+
     @InheritInverseConfiguration
     @Mapping(target = "user", ignore = true)
     Patient toPatient (PatientDTO patientDTO);
 
     List<PatientDTO> toPatientDTOs(List<Patient> patient);
 
-    
 }

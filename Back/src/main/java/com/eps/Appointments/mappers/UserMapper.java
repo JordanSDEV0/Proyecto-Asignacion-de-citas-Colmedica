@@ -19,7 +19,6 @@ public interface UserMapper {
     @InheritInverseConfiguration
     User toUser (UserDTO userDTO);
 
-     List<UserDTO> toUserDTOs(List<User> user);
+    List<UserDTO> toUserDTOs(List<User> user);
      
-    
 }
