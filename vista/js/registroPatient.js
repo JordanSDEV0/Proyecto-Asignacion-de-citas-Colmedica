@@ -1,6 +1,7 @@
 var idStorage = JSON.parse(localStorage.getItem("id"));
 var id=idStorage[0];
 console.log(id);
+let form= document.getElementById("formulario")
   formulario.addEventListener("submit",function(e){
     e.preventDefault();
     var datos={
@@ -9,14 +10,14 @@ console.log(id);
         "idTypeId": 1,
         "headquarterId": 1,
         "ocupationId": 2,
-        "regimenType": "contributivo",
+        "regimenType": form.elements['regimenType'].value,
         "phone": document.getElementById("phone").value,
         "name": document.getElementById("name").value,
         "lastName": document.getElementById("lastName").value,
         "address":document.getElementById("address").value,
         "email": document.getElementById("email").value,
-        "birthDate":"1960-02-10",
-        "genre": "masculino"
+        "birthDate":form.elements['birthDate'].value,
+        "genre": form.elements['genre'].value
     }
         console.log(datos)
     var url2="http://localhost:8080/patients";
