@@ -1,12 +1,22 @@
+/**
+* Package with which the persistence of the mappers is accessed
+**/
 package com.eps.Appointments.mappers;
-
+/**
+* Imports of mapstruct
+*/
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-
+/**
+* Imports of Appointments
+*/
 import com.eps.Appointments.DTOs.SchedulingDTO;
 import com.eps.Appointments.DTOs.DateDTO;
 import com.eps.Appointments.DTOs.AppointmentDTO;
-
+/**
+* public name interface SchedulingMapper
+* @mapper geographic information system (GIS)
+**/
 @Mapper(componentModel = "spring")
 public interface SchedulingMapper {
     
