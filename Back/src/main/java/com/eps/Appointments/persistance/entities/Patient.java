@@ -14,12 +14,16 @@ import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * Esta clase definira los atributos necesarios para los pacientes
+ */
 @Entity
 @NoArgsConstructor
 @Data
 public class Patient implements Serializable{
-
+/**
+ * Se definen los atributos de cada usuario con su respectivo tipo private
+ */
     @Id
     @Column(name = "eps_user")
     private String id;
