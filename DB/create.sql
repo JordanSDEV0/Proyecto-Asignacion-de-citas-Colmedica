@@ -1,4 +1,6 @@
+/*Create a stream object and specify its properties*/
 create sequence hibernate_sequence start 1 increment 1;
+/*Create the tables that are going to be used in the database, along with their attributes, types and keys*/
 create table access (id int4 not null, access_time timestamp, eps_user varchar(255) not null, primary key (id));
 create table appointment (id int4 not null, date_id int4 not null, doctor_eps_user varchar(255) not null, patient_eps_user varchar(255) not null, primary key (id));
 create table certificate (id int4 not null, rute varchar(255), type varchar(255), patient varchar(255) not null, primary key (id));
@@ -16,6 +18,7 @@ create table laboratory_result (id int4 not null, archive_rute varchar(255), des
 create table ocupation (id int4 not null, ocupation varchar(255), primary key (id));
 create table patient (eps_user varchar(255) not null, address varchar(255), birth_date date, email varchar(255) not null, genre varchar(255), last_name varchar(255), name varchar(255), phone varchar(10), regiment_type varchar(255), headquarter int4 not null, id_type int4 not null, ocupation int4 not null, primary key (eps_user));
 create table specialization (id int4 not null, description varchar(255), primary key (id));
+/*An existing table is modified (alter table)*/
 alter table if exists patient add constraint UK_bawli8xm92f30ei6x9p3h8eju unique (email);
 alter table if exists access add constraint FK8abmcl1ww4on9vfd3qupqsxch foreign key (eps_user) references eps_user;
 alter table if exists appointment add constraint FKu58jkf20oe2si6w086grfro5 foreign key (date_id) references date;
