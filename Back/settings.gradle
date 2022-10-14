@@ -1,1 +1,4 @@
+/**
+* Declares the configuration required to instantiate and configure the hierarchy of Project instances which are to participate in a build
+*//
 rootProject.name = 'Appointments'
