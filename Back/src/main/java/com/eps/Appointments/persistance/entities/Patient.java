@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 public class Patient implements Serializable{
 /**
  * Se definen los atributos de cada usuario con su respectivo tipo private
+ * @author:Sofware Bosque S.A
  */
     @Id
     @Column(name = "eps_user")
