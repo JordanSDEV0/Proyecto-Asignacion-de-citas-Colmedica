@@ -12,12 +12,17 @@ import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * Se tien la clase admin la cual sera la que manejara todo
+ * @author:Sofware Bosque S.A
+ */
 @Entity(name = "eps_admin")
 @NoArgsConstructor
 @Data
 public class Admin implements Serializable{
-
+/**
+* Se crea sus atributos de los admin para que puedan ingresar por medio sus datos
+ */
     @Id
     @Column(name = "eps_user")
     private String id;
