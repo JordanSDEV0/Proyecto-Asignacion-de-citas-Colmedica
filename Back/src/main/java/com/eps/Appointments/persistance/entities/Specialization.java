@@ -7,10 +7,16 @@ import javax.persistence.Id;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ *
+ * @author: 
+ */
 @Entity
 @NoArgsConstructor
 @Data
+/**
+ *Esta clase se encarga de manejar la asignacion de especialidad segun el id y la description
+ */
 public class Specialization {
 
     @Id
