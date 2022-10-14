@@ -1,4 +1,4 @@
-/*Create the database with docker*/
+#Create the database with docker
 FROM postgres
 COPY ./create.sql /docker-entrypoint-initdb.d
 COPY ./inserts.sql /docker-entrypoint-initdb.d
