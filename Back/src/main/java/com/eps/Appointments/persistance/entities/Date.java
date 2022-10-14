@@ -13,12 +13,17 @@ import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * Se crea la clase date la cual tendra todas las caracteristicas de esta misma
+ * @author:Sofware Bosque S.A
+ */
 @Entity
 @NoArgsConstructor
 @Data
 public class Date {
-
+/**
+ * Se definen los atributos de los datos y se llaman algunos otros y cada uno es de tipo private
+ */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
