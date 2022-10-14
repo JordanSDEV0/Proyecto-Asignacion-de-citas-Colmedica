@@ -1,17 +1,29 @@
+/**
+* Package with which the persistence of the mappers is accessed
+**/
 package com.eps.Appointments.mappers;
-
+/**
+* Imports of java
+*/
 import java.util.List;
-
+/**
+* Imports of mapstruct
+*/
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-
+/**
+* Imports of Appointments
+*/
 import com.eps.Appointments.DTOs.PatientDTO;
 import com.eps.Appointments.persistance.entities.Headquarter;
 import com.eps.Appointments.persistance.entities.IdType;
 import com.eps.Appointments.persistance.entities.Ocupation;
 import com.eps.Appointments.persistance.entities.Patient;
-
+/**
+* public name interface PatientMapper
+* @mapper geographic information system (GIS)
+**/
 @Mapper(componentModel = "spring")
 public interface PatientMapper {
 
@@ -59,7 +71,9 @@ public interface PatientMapper {
         ocupation.setId(id);
         return ocupation;
     }
-
+/**
+* Advises the code generator to apply all the Mapping s from an inverse mapping method to the annotated method as well
+**/
     @InheritInverseConfiguration
     @Mapping(target = "user", ignore = true)
     Patient toPatient (PatientDTO patientDTO);
