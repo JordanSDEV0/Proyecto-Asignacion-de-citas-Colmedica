@@ -13,7 +13,11 @@ import com.eps.Appointments.mappers.UserMapper;
 import com.eps.Appointments.persistance.entities.Doctor;
 import com.eps.Appointments.persistance.entities.User;
 import com.eps.Appointments.persistance.repositories.DoctorRepository;
-
+/**
+     * Esta clase define los objetos necesariso para DoctorService
+	 * @author:
+     *
+	 */
 @Service
 public class DoctorService {
 
@@ -25,7 +29,10 @@ public class DoctorService {
     private UserService userService;
     @Autowired
     private UserMapper userMapper;
-
+/**
+     * Este metodo sirve para crear los DoctorDTO Lo cual significara que puede trasportar datos a al base
+     * @return si este llega a ser null en dado caso el new user
+	 */
     @Transactional
     public DoctorDTO create(DoctorDTO doctorDTO) throws IllegalArgumentException{
         if(userService.getById(doctorDTO.getId()) == null){
@@ -40,13 +47,18 @@ public class DoctorService {
             return null;
         }
     }
-
+/**
+     * Se define su get para obtener la informacion de esta misma
+	 */
     public DoctorDTO getById(String id){
         return doctorMapper.toDoctorDTO(doctorRepository.findById(id).map(doctor -> {
             return doctor;
         }).orElseGet(null));
     }
-
+/**
+     * Este metodo sirve para Actualizar los DoctorDTO Lo cual significara que cambiara automaticamente el que ya estaba establecido
+     * @return si este llega a ser null 
+	 */
     @Transactional
     public DoctorDTO updateDoctor(DoctorDTO doctorDTO){
         if(getById(doctorDTO.getId()) != null){
@@ -55,7 +67,9 @@ public class DoctorService {
         }
         return null;
     }
-
+/**
+     * Se define su get para obtener la informacion de esta misma
+	 */
     public List<DoctorDTO> getAll(){
         List<Doctor> admin= (List<Doctor>) doctorRepository.findAll();
         return doctorMapper.toAdminDTOs(admin);
