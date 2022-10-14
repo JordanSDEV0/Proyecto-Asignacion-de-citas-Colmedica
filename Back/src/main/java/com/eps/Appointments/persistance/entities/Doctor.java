@@ -16,12 +16,17 @@ import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * Se crea la clase doctor para definir su rol en la eps
+ * @author:Sofware Bosque S.A
+  */
 @Entity
 @NoArgsConstructor
 @Data
 public class Doctor implements Serializable{
-
+/**
+ * Se tiene sus atributos para saber el doctor en que especializad esta y en que centro se encuentra atendiendo
+ */
     @Id
     @Column(name = "eps_user")
     private String id;
