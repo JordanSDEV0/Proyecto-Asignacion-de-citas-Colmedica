@@ -9,12 +9,17 @@ import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * Se tiene la clase Appointment la cual son citas 
+ * @author:Sofware Bosque S.A
+ */
 @Entity
 @NoArgsConstructor
 @Data
 public class Appointment {
-
+/**
+ * Esta clase esta definida por el doctor, paciente y dato para poder saber todo acerca sobre la cita
+ */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
