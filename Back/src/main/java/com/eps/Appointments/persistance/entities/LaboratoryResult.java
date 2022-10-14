@@ -10,12 +10,17 @@ import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * Se crea la clase LaboratoryResult
+ * @author:Sofware Bosque S.A
+ */
 @Entity(name = "laboratory_result")
 @NoArgsConstructor
 @Data
 public class LaboratoryResult {
-
+/**
+ * Esta clase nos sirve para poder idendificar los resultados de los laboratorios y comprobar si el archivo con los laboratorios ya esta
+ */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
