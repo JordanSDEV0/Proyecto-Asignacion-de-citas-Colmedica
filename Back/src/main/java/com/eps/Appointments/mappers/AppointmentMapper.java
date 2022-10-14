@@ -1,14 +1,26 @@
+/**
+* Package with which the persistence of the mappers is accessed
+**/
 package com.eps.Appointments.mappers;
-
+/**
+* Imports of java
+*/
 import java.util.List;
-
+/**
+* Imports of mapstruct
+*/
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-
+/**
+* Imports of appointments
+*/
 import com.eps.Appointments.DTOs.AppointmentDTO;
 import com.eps.Appointments.persistance.entities.Appointment;
-
+/**
+* public name interface AppointmentMapper
+* @mapper geographic information system (GIS)
+**/
 @Mapper(componentModel = "spring", uses = {DoctorMapper.class, PatientMapper.class, DateMapper.class})
 public interface AppointmentMapper {
 
