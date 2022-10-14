@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "initialTime": form.elements['initial_time'].value,
             "finalTime": form.elements['final_time'].value,
             "date": form.elements['date'].value,
-            "status": "example",
-            "doctorId": "doctor",
-            "patientId": "patient"            
+            "status": "xample",
+            "doctorId": form.elements['doctor'].value,
+            "patientId": form.elements['patient'].value
         }
         //console.log(data);
         createAppointment(baseUrl + "/scheduling", data);
