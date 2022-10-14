@@ -1,28 +1,42 @@
+/**
+* Package with which the persistence of the repositories is accessed
+**/
 package com.eps.Appointments.persistance.entities;
-
+/**
+* Imports persistence
+*/
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+/**
+* Imports of lombok.data
+*/
 import lombok.Data;
 import lombok.NoArgsConstructor;
 /**
-  *  Se tiene la clase Ocupation la cual asiganara cada una de esta dependiendo de sus caracteristicas
-   * @author:Sofware Bosque S.A
+  * There is the Occupation class which will assign each of these depending on its characteristics
+  * @entity The Entity Framework allows developers to work with data in the form of specific objects and properties
+  * @noargsconstructor will generate a constructor with no parameters
+  * @Data allows the use of class data
+  * @author:Sofware Bosque S.A
  */
 @Entity
 @NoArgsConstructor
 @Data
-
 public class Ocupation {
 /**
- * 
- * Se define los atributos para poder generar la ocupacion dependiendo de su ID y Ocupation
-  */
+ * The attributes are defined to be able to generate the occupation depending on its ID and Occupation
+ **/
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    /** 
+    * Private attribute of numeric type with name id
+    **/
     private Integer id;
+    /** 
+    * Private attribute of String type with name ocupation
+    **/
     private String ocupation;
     
 }
