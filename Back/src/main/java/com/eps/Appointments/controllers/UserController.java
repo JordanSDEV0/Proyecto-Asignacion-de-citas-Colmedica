@@ -7,7 +7,7 @@ package com.eps.Appointments.controllers;
 **/
 import java.util.List;
 /**
-*  imports of util.list
+*  imports of Springframework
 **/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
