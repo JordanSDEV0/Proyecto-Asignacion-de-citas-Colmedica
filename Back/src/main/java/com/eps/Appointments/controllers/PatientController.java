@@ -64,8 +64,8 @@ public class PatientController {
         }
     }
 /**
-* 
-*
+* Se crea un metodo privado llamado ResponseEntity y este buscara PatientDto Y nos dira si el paciente no esta creado
+*@PutMapping en su aplicación de servicios web RESTful para poder aceptar solicitudes HTTP Put que contengan un cuerpo de solicitud con JSON
 **/
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> update(@RequestBody PatientDTO patientDTO, @PathVariable("id") String id){
@@ -84,8 +84,8 @@ public class PatientController {
         }
     }
 /**
-* 
-*
+* Se crea un metodo llamado ResponseEntity en donde vamos a obtener esta informacion y poder comprobarla 
+* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
 **/	
     @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
@@ -100,8 +100,8 @@ public class PatientController {
         }
     }
 /**
-* 
-*
+* Se crea un metedo el cual dira si la informacion esta o no 
+*@GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
 **/
     @GetMapping
     public ResponseEntity<? extends Object> getAll(){
