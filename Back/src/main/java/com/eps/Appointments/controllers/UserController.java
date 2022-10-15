@@ -1,5 +1,5 @@
 /**
-* paquete por donde se accede al controlador
+* package where the controller is accessed
 **/
 package com.eps.Appointments.controllers;
 /**
@@ -27,27 +27,27 @@ import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.DTOs.UserDTO;
 import com.eps.Appointments.services.UserService;
 /**
-* Clase UserController
-* @Data permite el uso del programa
-* @RestController Simplifica la implementacion del controller
-* @CrossOrigin permitir solicitudes de origen cruzado en clases de controlador específicas y/o métodos de controlador
-* @CrossOrigin asignar solicitudes web a los métodos de Spring Controller.
+* UserController class
+* @Data allows the use of the program
+* @RestController Simplifies controller implementation
+* @CrossOrigin allow cross-origin requests on specific controller classes and/or controller methods
+* @CrossOrigin map web requests to Spring Controller methods.
 **/
 @RestController
 @RequestMapping("/users")
 @CrossOrigin
 public class UserController {
 /**
-* Se crea una clase UserController
-*@Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
-*@RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
-*Colocamos UserService tipo privado
+* Create a UserController class
+*@Autowired. Allows Spring to resolve and inject helper beans into our bean
+*@RequestMapping to map all incoming HTTP request URLs to the corresponding controller methods
+* We place UserService private type
 **/
     @Autowired
     private UserService userService;
 /**
-* Se crea un metodo tipo privado que usara el UserDTO
-*@PostMapping es una versión especializada de la anotación @RequestMapping
+* A private type method is created that will use the UserDTO
+*@PostMapping is a specialized version of the @RequestMapping annotation
 **/
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody UserDTO userDTO){
@@ -66,9 +66,10 @@ public class UserController {
         }
     }
 /**
-* Se crea un metodo tipo privado que utilizara UserDto en donde nos dira si el paciente es creado o no
-*@PutMapping en su aplicación de servicios web RESTful para poder aceptar solicitudes HTTP Put que contengan un cuerpo de solicitud con JSON
+* A private type method is created that UserDto will use where it will tell us if the patient is created or not
+*@PutMapping in your RESTful web services application to be able to accept HTTP Put requests that contain a JSON request body
 **/
+
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> update(@RequestBody UserDTO userDTO, @PathVariable("id") String id){
         try {
@@ -86,9 +87,9 @@ public class UserController {
         }
     }
 /**
-*  Se crea un metodo tipo publico el cual obtendra la ById
-* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
-**/	
+* A public type method is created which will obtain the ById
+* @GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
+**/
     @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
         try{
@@ -102,8 +103,8 @@ public class UserController {
         }
     }
 /**
-* Se crea un metodo dipo publico el cual tiene como finalida mostrar si las solicitudes HTTP se estan corriendo de forma correcto o por el contrario votara un error
-* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+* A public dipo method is created whose purpose is to show if the HTTP requests are running correctly or, on the contrary, it will vote an error
+* @GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping
     public ResponseEntity<? extends Object> getAll(){
