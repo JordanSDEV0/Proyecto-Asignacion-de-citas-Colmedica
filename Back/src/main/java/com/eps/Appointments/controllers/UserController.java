@@ -17,15 +17,29 @@ import org.springframework.web.bind.annotation.RestController;
 import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.DTOs.UserDTO;
 import com.eps.Appointments.services.UserService;
-
+/**
+* Clase UserController
+* @Data permite el uso del programa
+* @RestController Simplifica la implementacion del controller
+* @CrossOrigin permitir solicitudes de origen cruzado en clases de controlador específicas y/o métodos de controlador
+* @CrossOrigin asignar solicitudes web a los métodos de Spring Controller.
+**/
 @RestController
 @RequestMapping("/users")
 @CrossOrigin
 public class UserController {
-
+/**
+* Se crea una clase UserController
+*@Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
+*@RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
+*Colocamos UserService tipo privado
+**/
     @Autowired
     private UserService userService;
-
+/**
+* Se crea un metodo tipo privado que usara el UserDTO
+*@PostMapping es una versión especializada de la anotación @RequestMapping
+**/
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody UserDTO userDTO){
         try {
@@ -42,7 +56,10 @@ public class UserController {
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-
+/**
+* Se crea un metodo tipo privado que utilizara UserDto en donde nos dira si el paciente es creado o no
+*@PutMapping en su aplicación de servicios web RESTful para poder aceptar solicitudes HTTP Put que contengan un cuerpo de solicitud con JSON
+**/
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> update(@RequestBody UserDTO userDTO, @PathVariable("id") String id){
         try {
@@ -59,6 +76,10 @@ public class UserController {
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
+/**
+*  Se crea un metodo tipo publico el cual obtendra la ById
+* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+**/	
     @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
         try{
@@ -71,7 +92,10 @@ public class UserController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-
+/**
+* Se crea un metodo dipo publico el cual tiene como finalida mostrar si las solicitudes HTTP se estan corriendo de forma correcto o por el contrario votara un error
+* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+**/
     @GetMapping
     public ResponseEntity<? extends Object> getAll(){
         try{
