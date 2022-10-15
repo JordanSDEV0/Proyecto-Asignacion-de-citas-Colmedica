@@ -1,5 +1,5 @@
 /**
-* paquete por donde se accede al controlador
+* package where the controller is accessed
 **/
 package com.eps.Appointments.controllers;
 /**
@@ -25,43 +25,43 @@ import com.eps.Appointments.services.DoctorService;
 import com.eps.Appointments.services.PatientService;
 import com.eps.Appointments.services.DateService;
 /**
-* @RestController Simplifica la implementacion del controller
-* @RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
+* @RestController Simplifies controller implementation
+* @RequestMapping to map all incoming HTTP request URLs to the corresponding controller methods
 **/
 @RestController
 @RequestMapping("/appointments")
 public class AppointmentController {
 /**
-* 
+* the class is created
 **/
-    @Autowired
+   @Autowired
     private AppointmentService appointmentService;
 /**
-* Definimos un atributo de tipo privado llamado appointmentservice
-* @Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
-**/	
+* We define a private type attribute called appointmentservice
+* @Autowired. Allows Spring to resolve and inject helper beans into our bean
+**/
     @Autowired
     private DoctorService doctorService;
 /**
-* definimos un atributo tipo privado llamdo doctorservice
-* @Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
+* we define a private type attribute called doctorservice
+* @Autowired. Allows Spring to resolve and inject helper beans into our bean
 **/
     @Autowired
     private PatientService patientService;
 /**
-* definimos un atributo tipo privado llamado patientservice
-* @Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
+* we define a private type attribute called patientservice
+* @Autowired. Allows Spring to resolve and inject helper beans into our bean
 **/
     @Autowired
     private DateService dateService;
 /**
-* definimos un atributo tipo privado llamado dateservice 
-* @Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
+* we define a private type attribute called dateservice
+* @Autowired. Allows Spring to resolve and inject helper beans into our bean
 **/
 
 /**
-*se crea un metodo el cual recorrera todo hasta obtener la informacion suficiente
-* @PostMapping es una versión especializada de la anotación @RequestMapping
+* a method is created which will go through everything until it obtains enough information
+* @PostMapping is a specialized version of the @RequestMapping annotation
 **/
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody AppointmentDTO appointmentDTO){
@@ -83,8 +83,8 @@ public class AppointmentController {
         }
     }
 /**
-* Se crea un metdo el cual funciona para obtener informacion 
-* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+* A method is created which works to obtain information
+* @GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping
     public ResponseEntity<? extends Object> getAll(){
@@ -99,8 +99,8 @@ public class AppointmentController {
         }
     }
 /**
-*Se crea un metodo el cual dira si el paciente fue creado por medio de id
-* @PutMapping en su aplicación de servicios web RESTful para poder aceptar solicitudes HTTP Put que contengan un cuerpo de solicitud con JSON
+* A method is created which will say if the patient was created by means of id
+* @PutMapping in your RESTful web services application to be able to accept HTTP Put requests that contain a JSON request body
 **/
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> Update(@RequestBody AppointmentDTO appointmentDTO, @PathVariable("id") int id){
@@ -119,8 +119,8 @@ public class AppointmentController {
         }
     }
 /**
-* Se crea un metodo que comprueba si la informacion se esta obteniendo
-* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+* A method is created that checks if the information is being obtained
+* @GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping("/{id}")
         public ResponseEntity<? extends Object> getById(@PathVariable("id") Integer id){
