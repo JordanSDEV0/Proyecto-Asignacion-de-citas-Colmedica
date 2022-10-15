@@ -1,5 +1,5 @@
 /**
-* paquete por donde se accede al controlador
+* package where the controller is accessed
 **/
 package com.eps.Appointments.controllers;
 /**
@@ -22,23 +22,23 @@ import com.eps.Appointments.DTOs.AdminDTO;
 import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.services.AdminService;
 /**
-* @RestController Simplifica la implementacion del controller
-* @RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
-*@CrossOrigin permitir solicitudes de origen cruzado en clases de controlador específicas y/o métodos de controlador
+* @RestController Simplifies controller implementation
+* @RequestMapping to map all incoming HTTP request URLs to the corresponding controller methods
+*@CrossOrigin allow cross-origin requests on specific controller classes and/or controller methods
 **/
 @RestController
 @RequestMapping("/admin")
 @CrossOrigin
 public class AdminController {
 /**
-* se crea un atributo tipo privado llamado adminservice
-* @Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
+* a private type attribute called adminservice is created
+* @Autowired. Allows Spring to resolve and inject helper beans into our bean
 **/
     @Autowired
     private AdminService adminService;
 /**
-* se crea un metodo el cual confirme si el admin no fue creado y recorra todo
-* @PostMapping es una versión especializada de la anotación @RequestMapping
+* a method is created which confirms if the admin was not created and goes through everything
+* @PostMapping is a specialized version of the @RequestMapping annotation
 **/
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody AdminDTO admin){
@@ -58,8 +58,8 @@ public class AdminController {
         }
     }
 /**
-*metdo el cual sirve para saber si el admin es encontrado por id
-* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+*method which is used to know if the admin is found by id
+* @GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
@@ -78,8 +78,8 @@ public class AdminController {
         }
     }
 /**
-* Se crea un metodo el cual obtenga la informacion
-* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+* A method is created which obtains the information
+* @GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping
     public ResponseEntity<? extends Object> getAll(){
