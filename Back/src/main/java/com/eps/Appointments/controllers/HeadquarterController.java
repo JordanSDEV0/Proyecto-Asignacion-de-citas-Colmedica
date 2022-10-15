@@ -1,5 +1,5 @@
 /**
-* paquete por donde se accede al controlador
+* package where the controller is accessed
 **/
 package com.eps.Appointments.controllers;
 /**
@@ -19,24 +19,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.services.HeadquarterService;
 /**
-* Se crea una clase llamad headquarterController
-*@RestController Simplifica la implementacion del controller
-*@RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
-*@CrossOrigin permitir solicitudes de origen cruzado en clases de controlador específicas y/o métodos de controlador
+* Create a class called headquarterController
+*@RestController Simplifies controller implementation
+*@RequestMapping to map all incoming HTTP request URLs to the corresponding controller methods
+*@CrossOrigin allow cross-origin requests on specific controller classes and/or controller methods
 **/
 @RestController
 @RequestMapping("/headquarter")
 @CrossOrigin
 public class HeadquarterController {
 /**
-*Se crea un metodo llamado headquarterservice
-* @Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
+* A method called headquarterservice is created
+* @Autowired. Allows Spring to resolve and inject helper beans into our bean
 **/
     @Autowired
     private HeadquarterService headquarterService;
 /**
-*Se creaun un metdoo para obtener el nombre
-* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+* A method is created to obtain the name
+* @GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping("/{name}")
     private ResponseEntity<? extends Object> getByName(@PathVariable(name = "name") String name){
@@ -51,8 +51,8 @@ public class HeadquarterController {
         }
     }
 /**
-* Se obtiene un objeto para saber si se esta cumpliendo
-*@GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping 
+* An object is obtained to know if it is being fulfilled
+*@GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping
     private ResponseEntity<? extends Object> getAll(){
