@@ -1,5 +1,5 @@
 /**
-* paquete por donde se accede al controlador
+* package where the controller is accessed
 **/
 package com.eps.Appointments.controllers;
 /**
@@ -28,24 +28,24 @@ import com.eps.Appointments.DTOs.PatientDTO;
 import com.eps.Appointments.services.PatientService;
 
 /**
-* Se crea una clase llamada patientController
-* @RestController Simplifica la implementacion del controller
-* @RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
-*@CrossOrigin permitir solicitudes de origen cruzado en clases de controlador específicas y/o métodos de controlador
+* Create a class called patientController
+* @RestController Simplifies controller implementation
+* @RequestMapping to map all incoming HTTP request URLs to the corresponding controller methods
+*@CrossOrigin allow cross-origin requests on specific controller classes and/or controller methods
 **/
 @RestController
 @RequestMapping("/patient")
 @CrossOrigin
 public class PatientController {
 /**
-* se crea un metodo de tipo privado llamado PatientService
-*@Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
+* a private type method called PatientService is created
+*@Autowired. Allows Spring to resolve and inject helper beans into our bean
 **/
     @Autowired
     private PatientService patientService;
 /**
-* Se crea un 
-*@PostMapping es una versión especializada de la anotación @RequestMapping
+* Create a
+*@PostMapping is a specialized version of the @RequestMapping annotation
 **/
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody PatientDTO patientDTO){
@@ -64,8 +64,8 @@ public class PatientController {
         }
     }
 /**
-* Se crea un metodo privado llamado ResponseEntity y este buscara PatientDto Y nos dira si el paciente no esta creado
-*@PutMapping en su aplicación de servicios web RESTful para poder aceptar solicitudes HTTP Put que contengan un cuerpo de solicitud con JSON
+* A private method called ResponseEntity is created and it will look for PatientDto and tell us if the patient is not created
+*@PutMapping in your RESTful web services application to be able to accept HTTP Put requests that contain a JSON request body
 **/
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> update(@RequestBody PatientDTO patientDTO, @PathVariable("id") String id){
@@ -84,8 +84,8 @@ public class PatientController {
         }
     }
 /**
-* Se crea un metodo llamado ResponseEntity en donde vamos a obtener esta informacion y poder comprobarla 
-* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+* A method called ResponseEntity is created where we are going to obtain this information and be able to check it
+* @GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/	
     @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
@@ -100,8 +100,8 @@ public class PatientController {
         }
     }
 /**
-* Se crea un metedo el cual dira si la informacion esta o no 
-*@GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+* A method is created which will say if the information is there or not
+*@GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping
     public ResponseEntity<? extends Object> getAll(){
