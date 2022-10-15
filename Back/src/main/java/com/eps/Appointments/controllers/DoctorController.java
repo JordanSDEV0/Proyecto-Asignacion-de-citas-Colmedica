@@ -1,5 +1,5 @@
 /**
-* paquete por donde se accede al controlador
+* package where the controller is accessed
 **/
 package com.eps.Appointments.controllers;
 /**
@@ -28,23 +28,23 @@ import com.eps.Appointments.DTOs.DoctorDTO;
 import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.services.DoctorService;
 /**
-* @RestController Simplifica la implementacion del controller
-* @RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
-*@CrossOrigin permitir solicitudes de origen cruzado en clases de controlador específicas y/o métodos de controlador
+* @RestController Simplifies controller implementation
+* @RequestMapping to map all incoming HTTP request URLs to the corresponding controller methods
+*@CrossOrigin allow cross-origin requests on specific controller classes and/or controller methods
 **/
 @RestController
 @RequestMapping("/doctor")
 @CrossOrigin
 public class DoctorController {
 /**
-*Se crea un metodo el cual se llamara Doctorservice
-*@Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean 
+* A method is created which will be called Doctorservice
+*@Autowired. Allows Spring to resolve and inject helper beans into our bean
 **/
     @Autowired
     private DoctorService doctorService;
 /**
-*
-*@PostMapping es una versión especializada de la anotación @RequestMapping 
+* a method is created which says if the doctor was created
+*@PostMapping is a specialized version of the @RequestMapping annotation
 **/
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody DoctorDTO doctor){
@@ -64,8 +64,8 @@ public class DoctorController {
         }
     }
 /**
-* Se hace un metodo tipo publico el cual buscara la variable id
-*@GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+* A public type method is made which will look for the id variable
+*@GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
@@ -80,8 +80,8 @@ public class DoctorController {
         }
     }
 /**
-* Se crea un metodo el cual se encargara de obtener la informacion
-*@GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping 
+* A method is created which will be responsible for obtaining the information
+*@GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping
     public ResponseEntity<? extends Object> getAll(){
@@ -95,9 +95,9 @@ public class DoctorController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-/** 
-* Se crea un metodo el cual validara si el paciente esta creado
-* @PutMapping en su aplicación de servicios web RESTful para poder aceptar solicitudes HTTP Put que contengan un cuerpo de solicitud con JSON
+/**
+* A method is created which will validate if the patient is created
+* @PutMapping in your RESTful web services application to be able to accept HTTP Put requests that contain a JSON request body
 **/
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> Update(@RequestBody DoctorDTO doctorDTO, @PathVariable("id") String id){
