@@ -1,5 +1,5 @@
 /**
-* paquete por donde se accede al controlador
+* package where the controller is accessed
 **/
 package com.eps.Appointments.controllers;
 /**
@@ -22,9 +22,9 @@ import com.eps.Appointments.DTOs.SchedulingDTO;
 import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.services.SchedulingService;
 /**
-* @RestController Simplifica la implementacion del controller
-* @RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
-* @CrossOrigin permitir solicitudes de origen cruzado en clases de controlador específicas y/o métodos de controlador
+* @RestController Simplifies controller implementation
+* @RequestMapping to map all incoming HTTP request URLs to the corresponding controller methods
+* @CrossOrigin allow cross-origin requests on specific controller classes and/or controller methods
 **/
 @RestController
 @RequestMapping("/scheduling")
@@ -32,19 +32,19 @@ import com.eps.Appointments.services.SchedulingService;
 public class SchedulingController {
 
 /**
-* Se crea una clase publica llamada shedulingController
+* Create a public class called shedulingController
 **/	
     @Autowired
     private SchedulingService schedulingService;
 /**
-* Se crea un metodo privado llamada shedulingservice 
-* @Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
+* A method called ResponseEntity is created where it will give the order to show us if it exits if the appointment was not created
+* @PostMapping is a specialized version of the @RequestMapping annotation
 **/
 
 	
 /**
-* Se crea un metodo llamada ResponseEntity  en donde dara la orden de mostrarnos si sale si la cita no fue creada 
-* @PostMapping es una versión especializada de la anotación @RequestMapping
+* A method called ResponseEntity is created where it will give the order to show us if it exits if the appointment was not created
+* @PostMapping is a specialized version of the @RequestMapping annotation
 **/
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody SchedulingDTO scheduling){
@@ -63,8 +63,8 @@ public class SchedulingController {
         }
     }
 /**
-*Se crea un metodo tipo publico el cual obtendra esta informacion
-*@GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+* A public type method is created which will obtain this information
+*@GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping
     public ResponseEntity<? extends Object> getAll(){
@@ -79,8 +79,8 @@ public class SchedulingController {
         }
     }
 /**
-* se crea un metodo de tipo publica el cual tendra la funcion de obtener la informacion
-* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+* a public type method is created which will have the function of obtaining the information
+* @GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping("/{id}")
         public ResponseEntity<? extends Object> getById(@PathVariable("id") Integer id){
