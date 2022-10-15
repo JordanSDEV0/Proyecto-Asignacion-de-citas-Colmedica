@@ -1,7 +1,14 @@
+/**
+* paquete por donde se accede al controlador
+**/
 package com.eps.Appointments.controllers;
-
+/**
+*  imports of util.list
+**/
 import java.util.List;
-
+/**
+*  imports of Springframework
+**/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,19 +20,32 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+/**
+* Imports of Appointments
+*/
 
 import com.eps.Appointments.DTOs.DoctorDTO;
 import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.services.DoctorService;
-
+/**
+* @RestController Simplifica la implementacion del controller
+* @RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
+*@CrossOrigin permitir solicitudes de origen cruzado en clases de controlador específicas y/o métodos de controlador
+**/
 @RestController
 @RequestMapping("/doctor")
 @CrossOrigin
 public class DoctorController {
-
+/**
+*Se crea un metodo el cual se llamara Doctorservice
+*@Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean 
+**/
     @Autowired
     private DoctorService doctorService;
-
+/**
+*
+*@PostMapping es una versión especializada de la anotación @RequestMapping 
+**/
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody DoctorDTO doctor){
         try {
@@ -43,7 +63,10 @@ public class DoctorController {
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-
+/**
+* Se hace un metodo tipo publico el cual buscara la variable id
+*@GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+**/
     @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
         try{
@@ -56,7 +79,10 @@ public class DoctorController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-
+/**
+* Se crea un metodo el cual se encargara de obtener la informacion
+*@GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping 
+**/
     @GetMapping
     public ResponseEntity<? extends Object> getAll(){
         try{
@@ -69,7 +95,10 @@ public class DoctorController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-
+/** 
+* Se crea un metodo el cual validara si el paciente esta creado
+* @PutMapping en su aplicación de servicios web RESTful para poder aceptar solicitudes HTTP Put que contengan un cuerpo de solicitud con JSON
+**/
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> Update(@RequestBody DoctorDTO doctorDTO, @PathVariable("id") String id){
         try {
