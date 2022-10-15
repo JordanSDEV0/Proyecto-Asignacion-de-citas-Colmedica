@@ -1,4 +1,8 @@
+/**
+* paquete por donde se accede al controlador
+**/
 package com.eps.Appointments.controllers;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
