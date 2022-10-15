@@ -1,5 +1,5 @@
 /**
-* paquete por donde se accede al controlador
+* package where the controller is accessed
 **/
 
 package com.eps.Appointments.controllers;
@@ -24,9 +24,9 @@ import com.eps.Appointments.DTOs.DateDTO;
 import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.services.DateService;
 /**
-* @RestController Simplifica la implementacion del controller
-* @RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
-*@CrossOrigin permitir solicitudes de origen cruzado en clases de controlador específicas y/o métodos de controlador
+* @RestController Simplifies controller implementation
+* @RequestMapping to map all incoming HTTP request URLs to the corresponding controller methods
+*@CrossOrigin allow cross-origin requests on specific controller classes and/or controller methods
 **/
 @RestController
 @RequestMapping("/dates")
@@ -34,14 +34,14 @@ import com.eps.Appointments.services.DateService;
 
 public class DateController {
 /**
-*Se crea una clase DateController
-* @Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
+*Create a DateController class
+* @Autowired. Allows Spring to resolve and inject helper beans into our bean
 **/
     @Autowired
     private DateService dateService;
 /**
-* Se crea un metodo el cual sirve para mostrar si el dato fue creado
-* @PostMapping es una versión especializada de la anotación @RequestMapping
+* A method is created which serves to show if the data was created
+* @PostMapping is a specialized version of the @RequestMapping annotation
 **/
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody DateDTO dateDTO){
@@ -60,8 +60,8 @@ public class DateController {
         }
     }
 /**
-* Se crea un metodo el  cual pueda obtener esta informacion y diga si el admin puede o no por medio de id
-* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+* A method is created which can obtain this information and say if the admin can or not by means of id
+* @GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") Integer id){
@@ -80,8 +80,8 @@ public class DateController {
         }
     }
 /**
-* se crea un metodo para que pueda comprobar si la informacion se esta obteniendo
-* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+* a method is created so that you can check if the information is being obtained
+* @GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping
     public ResponseEntity<? extends Object> getAll(){
@@ -96,8 +96,8 @@ public class DateController {
         }
     }
 /**
-* se hace un solicitud y valida si el paciente no esta creado
-* @PutMapping en su aplicación de servicios web RESTful para poder aceptar solicitudes HTTP Put que contengan un cuerpo de solicitud con JSON
+* a request is made and validates if the patient is not created
+* @PutMapping in your RESTful web services application to be able to accept HTTP Put requests that contain a JSON request body
 **/
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> Update(@RequestBody DateDTO dateDTO, @PathVariable("id") String id){
