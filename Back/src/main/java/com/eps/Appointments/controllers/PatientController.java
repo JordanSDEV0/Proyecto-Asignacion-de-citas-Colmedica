@@ -1,7 +1,14 @@
+/**
+* paquete por donde se accede al controlador
+**/
 package com.eps.Appointments.controllers;
-
+/**
+*  imports of util.list
+**/
 import java.util.List;
-
+/**
+*  imports of Springframework
+**/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,19 +20,33 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+/**
+* Imports of Appointments
+*/
 import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.DTOs.PatientDTO;
 import com.eps.Appointments.services.PatientService;
 
+/**
+* Se crea una clase llamada patientController
+* @RestController Simplifica la implementacion del controller
+* @RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
+*@CrossOrigin permitir solicitudes de origen cruzado en clases de controlador específicas y/o métodos de controlador
+**/
 @RestController
 @RequestMapping("/patient")
 @CrossOrigin
 public class PatientController {
-
+/**
+* se crea un metodo de tipo privado llamado PatientService
+*@Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
+**/
     @Autowired
     private PatientService patientService;
-
+/**
+* Se crea un 
+*@PostMapping es una versión especializada de la anotación @RequestMapping
+**/
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody PatientDTO patientDTO){
         try {
@@ -42,7 +63,10 @@ public class PatientController {
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-
+/**
+* 
+*
+**/
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> update(@RequestBody PatientDTO patientDTO, @PathVariable("id") String id){
         try {
@@ -59,6 +83,10 @@ public class PatientController {
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
+/**
+* 
+*
+**/	
     @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
         try{
@@ -71,7 +99,10 @@ public class PatientController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-
+/**
+* 
+*
+**/
     @GetMapping
     public ResponseEntity<? extends Object> getAll(){
         try{
