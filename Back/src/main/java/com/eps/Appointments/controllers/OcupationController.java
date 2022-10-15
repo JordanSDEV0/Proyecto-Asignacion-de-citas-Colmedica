@@ -1,3 +1,6 @@
+/**
+* paquete por donde se accede al controlador
+**/
 package com.eps.Appointments.controllers;
 /**
 *  imports of util.list
