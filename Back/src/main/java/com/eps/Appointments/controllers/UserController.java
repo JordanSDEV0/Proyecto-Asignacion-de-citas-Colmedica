@@ -1,7 +1,14 @@
+/**
+* paquete por donde se accede al controlador
+**/
 package com.eps.Appointments.controllers;
-
+/**
+*  imports of util.list
+**/
 import java.util.List;
-
+/**
+*  imports of util.list
+**/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +20,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+/**
+* Imports of Appointments
+*/
 import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.DTOs.UserDTO;
 import com.eps.Appointments.services.UserService;
