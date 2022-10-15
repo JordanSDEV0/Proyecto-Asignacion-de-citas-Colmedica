@@ -1,5 +1,5 @@
 /**
-* paquete por donde se accede al controlador
+* package where the controller is accessed
 **/
 package com.eps.Appointments.controllers;
 /**
@@ -19,24 +19,24 @@ import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.services.DateTypeService;
 
 /**
-* se crea un clase llamad DateTypeController
-* @RestController Simplifica la implementacion del controller
-* @RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
-* @CrossOrigin permitir solicitudes de origen cruzado en clases de controlador específicas y/o métodos de controlador
+* Create a class called DateTypeController
+* @RestController Simplifies controller implementation
+* @RequestMapping to map all incoming HTTP request URLs to the corresponding controller methods
+* @CrossOrigin allow cross-origin requests on specific controller classes and/or controller methods
  */
 @RestController
 @RequestMapping("/date_type")
 @CrossOrigin
 public class DateTypeController {
 /**
-* Se usa un metodo llamado DateTypeService
-* @Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
+* A method called DateTypeService is used
+* @Autowired. Allows Spring to resolve and inject helper beans into our bean
 **/
     @Autowired
     private DateTypeService dateTypeService;
 /**
-*Se usa el metodo para obtener informacion
-*@GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping 
+*The method is used to obtain information
+*@GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping
     private ResponseEntity<? extends Object> getAll(){
