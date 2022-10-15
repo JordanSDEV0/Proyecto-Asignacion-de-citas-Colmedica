@@ -1,5 +1,5 @@
 /**
-* paquete por donde se accede al controlador
+* package where the controller is accessed
 **/
 package com.eps.Appointments.controllers;
 /**
@@ -26,22 +26,22 @@ import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.DTOs.OcupationDTO;
 import com.eps.Appointments.services.OcupationService;
 /**
-* Se crea una clase llamada ocupationController la cual se encargara de correr los metodos asignados
-* @RestController Simplifica la implementacion del controller
-* @RequestMapping para asignar todas las URL de solicitudes HTTP entrantes a los métodos de controlador correspondientes
+* A class called occupationController is created which will be in charge of running the assigned methods
+* @RestController Simplifies controller implementation
+* @RequestMapping to map all incoming HTTP request URLs to the corresponding controller methods
 **/
 @RestController
 @RequestMapping("/ocupation")
 public class OcupationController {
 /**
-* Se crea un metodo llamado ocupationservice
-* @Autowired. Permite que Spring resuelva e inyecte beans colaboradores en nuestro bean
+* A method called occupationservice is created
+* @Autowired. Allows Spring to resolve and inject helper beans into our bean
 **/
     @Autowired
     private OcupationService ocupationService;
 /**
-* Se crea un metodo el cual dira si el admin fue creado o no
-*@PostMapping es una versión especializada de la anotación @RequestMapping
+* A method is created which will say if the admin was created or not
+*@PostMapping is a specialized version of the @RequestMapping annotation
 **/
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody OcupationDTO ocupation){
@@ -60,9 +60,9 @@ public class OcupationController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-/** 
-* se crea un metodo el cual se encargara de obtener la informacion
-*@GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
+/**
+* a method is created which will be responsible for obtaining the information
+*@GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
 **/
     @GetMapping("/{id}")
     public ResponseEntity<? extends Object> getAll(@PathVariable("id") int id){
@@ -77,10 +77,9 @@ public class OcupationController {
         }
     }
 /**
-* Se crea un metdo el cual comprueba si la obtecion de objetos se esta haciendo
-* @GetMapping es una anotación compuesta que actúa como acceso directo para @RequestMapping
-**/
-    @GetMapping
+* A method is created which checks if the obtaining of objects is being done
+* @GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
+**/  @GetMapping
     public ResponseEntity<? extends Object> getAll(){
         try{
             return new ResponseEntity<List<OcupationDTO>>(ocupationService.getAll(), HttpStatus.OK);
@@ -93,8 +92,8 @@ public class OcupationController {
         }
     }
 /**
-* Se crea un metodo el cual hace solicitudes HTTP
-* @PutMapping en su aplicación de servicios web RESTful para poder aceptar solicitudes HTTP Put que contengan un cuerpo de solicitud con JSON
+* A method is created which makes HTTP requests
+* @PutMapping in your RESTful web services application to be able to accept HTTP Put requests that contain a JSON request body
 **/
     @PutMapping("/{id}")
     private ResponseEntity<? extends Object> Update(@RequestBody OcupationDTO ocupationDTO, @PathVariable("id") String id){
