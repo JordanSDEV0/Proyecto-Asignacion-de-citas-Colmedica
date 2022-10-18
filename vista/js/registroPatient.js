@@ -6,11 +6,11 @@ let form= document.getElementById("formulario")
     e.preventDefault();
     var datos={
         "id":document.getElementById("id").value,
-        "password":"sinvista",
-        "idTypeId": 1,
+        "password":document.getElementById("password").value,
+        "idTypeId": form.elements["idTypeId"].value,
         "headquarterId": 1,
-        "ocupationId": 2,
-        "regimenType": form.elements['regimenType'].value,
+        "ocupationId": 1,
+        "regimenType": form.elements['regimentType'].value,
         "phone": document.getElementById("phone").value,
         "name": document.getElementById("name").value,
         "lastName": document.getElementById("lastName").value,
@@ -20,7 +20,7 @@ let form= document.getElementById("formulario")
         "genre": form.elements['genre'].value
     }
         console.log(datos)
-    var url2="http://localhost:8080/patients";
+    var url2="http://localhost:8080/patient";
       fetch(url2,{
           method: "POST",
           body: JSON.stringify(datos),

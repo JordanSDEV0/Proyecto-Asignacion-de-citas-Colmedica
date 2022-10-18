@@ -75,7 +75,6 @@ public interface PatientMapper {
 * Advises the code generator to apply all the Mapping s from an inverse mapping method to the annotated method as well
 **/
     @InheritInverseConfiguration
-    @Mapping(target = "user", ignore = true)
     Patient toPatient (PatientDTO patientDTO);
 
     List<PatientDTO> toPatientDTOs(List<Patient> patient);

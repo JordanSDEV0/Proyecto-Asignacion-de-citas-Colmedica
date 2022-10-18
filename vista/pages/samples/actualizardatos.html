@@ -143,10 +143,10 @@
                       <label class="col-sm-3 col-form-label">Tipo de Documento</label>
                       <div class="col-sm-9">
                         <select class="form-control" readonly id="idTypeId">
-                          <option>Tarjeta de Identidad</option>
-                          <option>Cedula de Ciudadania</option>
-                          <option>Cedula de Extranjeria</option>
-                          <option>Pasaporte</option>
+                          <option value="1" >Tarjeta de Identidad</option>
+                          <option value="2" >Cedula de Ciudadania</option>
+                          <option value="3" >Cedula de Extranjeria</option>
+                          <option value="4" >Pasaporte</option>
                         </select>
                       </div>
                     </div>
@@ -202,9 +202,9 @@
                       <label class="col-sm-3 col-form-label">Regimen</label>
                       <div class="col-sm-9">
                         <select class="form-control" id="regimentType">
-                          <option>Contributivo</option>
-                          <option>Beneficiario</option>
-                          <option>Otro/a</option>
+                          <option value="Contributivo" >Contributivo</option>
+                          <option value="Beneficiario" >Beneficiario</option>
+                          <option value="Otro" >Otro/a</option>
                         </select>
                       </div>
                     </div>
@@ -214,9 +214,9 @@
                       <label class="col-sm-3 col-form-label" readonly>Genero</label>
                       <div class="col-sm-9">
                         <select class="form-control" id="genre">
-                          <option>Masculino</option>
-                          <option>Femenino</option>
-                          <option>Otro</option>
+                          <option value="1" >Masculino</option>
+                          <option value="2" >Femenino</option>
+                          <option value="3" >Otro</option>
                         </select>
                          </div>
                     </div>
@@ -227,7 +227,7 @@
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label" >Contraseña</label>
                       <div class="col-sm-9">
-                        <input id="contraseña1" type="password" class="form-control" value=""/>
+                        <input id="password" type="password" class="form-control" value=""/>
                       </div>
                 <div class="mt-3">
                   <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >Actualizar Datos</a>

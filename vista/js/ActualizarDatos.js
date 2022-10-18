@@ -1,7 +1,7 @@
 var idStorage = JSON.parse(localStorage.getItem("id"));
 var id=idStorage[0];
 console.log(id);
-var url="http://localhost:8080/patients/"+id;
+var url="http://localhost:8080/patient/"+id;
 console.log(url);
 var formulario =document.getElementById('formulario')
   fetch(url)
@@ -9,34 +9,36 @@ var formulario =document.getElementById('formulario')
   .then(patient=>{
       var valPatient = patient
       document.getElementById("id").value=valPatient.id;
-      //document.getElementById("idTypeId").value=valPatient.idTypeId;
-      //document.getElementById("regimenType").value=valPatient.regimenType;
+      formulario.elements['idTypeId'].value=valPatient.idTypeId;
+      formulario.elements['regimentType'].value=valPatient.regimenType;
       document.getElementById("phone").value=valPatient.phone;
       document.getElementById("name").value=valPatient.name;
       document.getElementById("lastname").value=valPatient.lastName;
       document.getElementById("address").value=valPatient.address;
-      document.getElementById("email").value=valPatient.email;
-      //document.getElementById("birthDate").value=valPatient.bithDate;
-      //document.getElementById("genre").value=valPatient.genre;
+      document.getElementById("email").value=valPatient.email;  
+      formulario.elements['birthDate'].value=valPatient.bithDate;
+      formulario.elements['genre'].value=valPatient.genre;
+      document.getElementById("password").value=valPatient.password;
   })
   formulario.addEventListener("submit",function(e){
     e.preventDefault();
     var datos={
         "id":document.getElementById("id").value,
-        "idTypeId": 1,
+        "password":document.getElementById("password").value,
+        "idTypeId": formulario.elements['idTypeId'].value,
         "headquarterId": 1,
         "ocupationId": 2,
-        "regimenType":  form.elements['regimenType'].value,
+        "regimenType":  formulario.elements['regimentType'].value,
         "phone": document.getElementById("phone").value,
         "name": document.getElementById("name").value,
         "lastName": document.getElementById("lastname").value,
         "address":document.getElementById("address").value,
         "email": document.getElementById("email").value,
-        "birthDate":form.elements['birthDate'].value,
-        "genre": form.elements['genre'].value
+        "birthDate":formulario.elements['birthDate'].value,
+        "genre": formulario.elements['genre'].value
     }
         console.log(datos)
-    var url2="http://localhost:8080/patients/"+id;
+    var url2="http://localhost:8080/patient/"+id;
       fetch(url2,{
           method: "PUT",
           body: JSON.stringify(datos),
@@ -46,6 +48,7 @@ var formulario =document.getElementById('formulario')
       }).then(response=> console.log(response))
      
   })
-    
+
+
     
    
