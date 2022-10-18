@@ -11,21 +11,20 @@ import java.util.List;
 */
 import javax.transaction.Transactional;
 /**
-* Imports of springframework
+Imports of springframework
 */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.stereotype.Service;
 /**
-* Imports of Appointments
+Imports of Appointments
 */
 import com.eps.Appointments.DTOs.OcupationDTO;
 import com.eps.Appointments.mappers.OcupationMapper;
 import com.eps.Appointments.persistance.entities.Ocupation;
 import com.eps.Appointments.persistance.repositories.OcupationRepository;
 /**
-* Creation of the public class OcupationService
-* @Service It is used to mark the class as a service provider 
+Creation of the public class OcupationService
+@Service It is used to mark the class as a service provider 
 **/
 @Service
 public class OcupationService {
