@@ -16,7 +16,7 @@ var formulario =document.getElementById('formulario')
       document.getElementById("lastname").value=valPatient.lastName;
       document.getElementById("address").value=valPatient.address;
       document.getElementById("email").value=valPatient.email;  
-      formulario.elements['birthDate'].value=valPatient.bithDate;
+      formulario.elements['birthDate'].value=valPatient.birthDate;
       formulario.elements['genre'].value=valPatient.genre;
       document.getElementById("password").value=valPatient.password;
   })
@@ -45,10 +45,12 @@ var formulario =document.getElementById('formulario')
           headers:{
               'Content-Type': 'application/json'
             }
-      }).then(response=> console.log(response))
-     
+      }).then(response=> {
+        console.log(response)
+        if(response.ok==true){
+        window.alert("Paciente actualizado exitosamente");
+        }else{
+          window.alert("Ocurrio un error inesperado, paciente no actualizado");
+        }
+    })
   })
-
-
-    
-   

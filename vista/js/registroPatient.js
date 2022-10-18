@@ -27,6 +27,13 @@ let form= document.getElementById("formulario")
           headers:{
               'Content-Type': 'application/json'
             }
-      }).then(response=> console.log(response))
+      }).then(response=> {
+        console.log(response)
+        if(response.ok==true){
+        window.alert("Paciente registrado exitosamente");
+        }else{
+          window.alert("Ocurrio un error inesperado, paciente no Registrado");
+        }
+    })
      
   })
