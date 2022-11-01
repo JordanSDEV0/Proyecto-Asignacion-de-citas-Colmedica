@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d0960c10-da67-422b-8269-fcbdfa46147c",
+		"_postman_id": "9191c81d-1b62-4855-b09e-2c8764081ca8",
 		"name": "IS-2",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "16661542"
 	},
 	"item": [
 		{
@@ -13,17 +14,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/appointments",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"appointments"
-							]
-						}
+						"url": "http://localhost:8080/appointments"
 					},
 					"response": []
 				},
@@ -41,18 +32,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/appointments/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"appointments",
-								"2"
-							]
-						}
+						"url": "http://localhost:8080/appointments/2"
 					},
 					"response": []
 				},
@@ -70,17 +50,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/appointments",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"appointments"
-							]
-						}
+						"url": "http://localhost:8080/appointments"
 					},
 					"response": []
 				},
@@ -89,18 +59,34 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/appointments/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"appointments",
-								"2"
-							]
-						}
+						"url": "http://localhost:8080/appointments/doctor"
+					},
+					"response": []
+				},
+				{
+					"name": "cita por doctor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/appointmentsDoctor/doctor"
+					},
+					"response": []
+				},
+				{
+					"name": "cita por usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/appointmentsPatient/patient"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Appointment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/appointments/63"
 					},
 					"response": []
 				}
@@ -123,17 +109,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/dates",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"dates"
-							]
-						}
+						"url": "http://localhost:8080/dates"
 					},
 					"response": []
 				},
@@ -142,17 +118,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/dates",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"dates"
-							]
-						}
+						"url": "http://localhost:8080/dates"
 					},
 					"response": []
 				},
@@ -161,18 +127,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/dates/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"dates",
-								"1"
-							]
-						}
+						"url": "http://localhost:8080/dates/1"
 					},
 					"response": []
 				},
@@ -190,18 +145,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/dates/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"dates",
-								"1"
-							]
-						}
+						"url": "http://localhost:8080/dates/1"
 					},
 					"response": []
 				}
@@ -212,20 +156,17 @@
 			"item": [
 				{
 					"name": "Get Patients",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/patients",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"patients"
-							]
-						}
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:8080/patient"
 					},
 					"response": []
 				},
@@ -234,18 +175,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/patients/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"patients",
-								"1"
-							]
-						}
+						"url": "http://localhost:8080/patient/patient"
 					},
 					"response": []
 				},
@@ -263,17 +193,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/patients",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"patients"
-							]
-						}
+						"url": "http://localhost:8080/patient"
 					},
 					"response": []
 				},
@@ -284,25 +204,23 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": " {\r\n    \"password\": \"5678\",\r\n    \"idTypeId\": 1,\r\n    \"headquarterId\": 1,\r\n    \"ocupationId\": 2,\r\n    \"regimenType\": \"Contributivo\",\r\n    \"phone\": \"3186918317\",\r\n    \"name\": \"editado\",\r\n    \"lastName\": \"update\",\r\n    \"address\": \"cra 90d2\",\r\n    \"email\": \"prueba@mail.com\",\r\n    \"birthDate\": \"1960-02-10\",\r\n    \"genre\": \"masculino\"\r\n}",
+							"raw": " {\r\n    \"id\":\"patient\",\r\n    \"idTypeId\": 1,\r\n    \"headquarterId\": 1,\r\n    \"ocupationId\": 2,\r\n    \"regimenType\": \"Contributivo\",\r\n    \"phone\": \"3186918317\",\r\n    \"name\": \"cambio\",\r\n    \"lastName\": \"update\",\r\n    \"address\": \"cra 90d2\",\r\n    \"email\": \"dev@mail.com\",\r\n    \"birthDate\": \"1960-02-10\",\r\n    \"genre\": \"masculino\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/patients/4",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"patients",
-								"4"
-							]
-						}
+						"url": "http://localhost:8080/patient/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Patient",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/patient/patient"
 					},
 					"response": []
 				}
@@ -325,17 +243,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/admin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin"
-							]
-						}
+						"url": "http://localhost:8080/admin"
 					},
 					"response": []
 				},
@@ -344,18 +252,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/admin/admin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin",
-								"admin"
-							]
-						}
+						"url": "http://localhost:8080/admin/admin"
 					},
 					"response": []
 				},
@@ -364,17 +261,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/admin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin"
-							]
-						}
+						"url": "http://localhost:8080/admin"
 					},
 					"response": []
 				}
@@ -388,18 +275,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/doctor/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"doctor",
-								"2"
-							]
-						}
+						"url": "http://localhost:8080/doctor/2"
 					},
 					"response": []
 				},
@@ -408,17 +284,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/doctor",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"doctor"
-							]
-						}
+						"url": "http://localhost:8080/doctor"
 					},
 					"response": []
 				},
@@ -436,17 +302,16 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/doctor",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"doctor"
-							]
-						}
+						"url": "http://localhost:8080/doctor"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Doctor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/doctor/8"
 					},
 					"response": []
 				}
@@ -460,18 +325,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/ocupation/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"ocupation",
-								""
-							]
-						}
+						"url": "http://localhost:8080/ocupation/"
 					},
 					"response": []
 				},
@@ -480,18 +334,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/ocupation/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"ocupation",
-								"1"
-							]
-						}
+						"url": "http://localhost:8080/ocupation/1"
 					},
 					"response": []
 				},
@@ -509,18 +352,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/ocupation/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"ocupation",
-								""
-							]
-						}
+						"url": "http://localhost:8080/ocupation/"
 					},
 					"response": []
 				},
@@ -538,18 +370,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/ocupation/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"ocupation",
-								"1"
-							]
-						}
+						"url": "http://localhost:8080/ocupation/1"
 					},
 					"response": []
 				}
@@ -565,49 +386,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"dateTypeId\": 1,\r\n\t\"headquarterId\": 1,\r\n    \"description\": \"example\",\r\n\t\"initialTime\": \"2021-10-11T00:00:00\",\r\n\t\"finalTime\": \"2022-10-11T00:00:00\",\r\n\t\"date\": \"2022-10-11\",\r\n\t\"status\": \"example\",\r\n    \"doctorId\": \"doctor\",\r\n    \"patientId\": \"patient\"\r\n}",
+							"raw": "{\r\n    \r\n    \"dateTypeId\": 1,\r\n\t\"headquarterId\": 1,\r\n    \"description\": \"example\",\r\n\t\"initialTime\": \"2021-10-11T00:00:00\",\r\n\t\"finalTime\": \"2022-10-11T00:00:00\",\r\n\t\"date\": \"2022-10-11\",\r\n\t\"status\": \"example\",\r\n    \"doctorId\": \"doctor\",\r\n    \"patientId\": \"patient\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:8080/scheduling",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"scheduling"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Sede",
-			"item": [
-				{
-					"name": "Get Headquarter By Name",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/headquarter/example",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"headquarter",
-								"example"
-							]
-						}
+						"url": "http://localhost:8080/scheduling"
 					},
 					"response": []
 				}
