@@ -2,6 +2,7 @@
 * Package with which the services of the appointments access
 **/
 package com.eps.Appointments.services;
+import java.util.ArrayList;
 /**
 * Imports of java util
 */
@@ -73,6 +74,27 @@ public class AppointmentService{
         return appointmentMapper.toAppointmentDTO(appointmentRepository.findById(id).map(ocupation -> {
             return ocupation;
         }).orElseGet(null));
-    }
 
+    }
+   
+    public List<AppointmentDTO> getAllDoctor(String id){
+        List<Appointment> appointments2=new ArrayList<>();
+        List<Appointment> appointments= (List<Appointment>) appointmentRepository.findAll();
+        for (Appointment appointment: appointments) {
+            if(id.equals(appointment.getDoctor().getId())){
+                appointments2.add(appointment);
+            }
+        }
+        return appointmentMapper.toAppointmentDTOs(appointments2);
+    }
+    public List<AppointmentDTO> getAllPatient(String id){
+        List<Appointment> appointments2=new ArrayList<>();
+        List<Appointment> appointments= (List<Appointment>) appointmentRepository.findAll();
+        for (Appointment appointment: appointments) {
+            if(id.equals(appointment.getPatient().getId())){
+                appointments2.add(appointment);
+            }
+        }
+        return appointmentMapper.toAppointmentDTOs(appointments2);
+    }
 }

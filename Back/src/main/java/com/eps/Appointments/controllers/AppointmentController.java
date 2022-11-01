@@ -8,6 +8,7 @@ package com.eps.Appointments.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 */
 import com.eps.Appointments.DTOs.AppointmentDTO;
 import com.eps.Appointments.DTOs.ErrorDTO;
+import com.eps.Appointments.persistance.repositories.AppointmentRepository;
 import com.eps.Appointments.services.AppointmentService;
 import com.eps.Appointments.services.DoctorService;
 import com.eps.Appointments.services.PatientService;
@@ -58,7 +60,8 @@ public class AppointmentController {
 * we define a private type attribute called dateservice
 * @Autowired. Allows Spring to resolve and inject helper beans into our bean
 **/
-
+@Autowired
+private AppointmentRepository appointmentRepository;
 /**
 * a method is created which will go through everything until it obtains enough information
 * @PostMapping is a specialized version of the @RequestMapping annotation
@@ -134,4 +137,8 @@ public class AppointmentController {
         return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
     }
     }
+    @DeleteMapping("/{id}")
+    public void deleteAppointment(@PathVariable int id) {
+	appointmentRepository.deleteById(id);
+}
 }

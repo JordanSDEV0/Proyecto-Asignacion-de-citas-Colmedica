@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.eps.Appointments.DTOs.DoctorDTO;
 import com.eps.Appointments.DTOs.ErrorDTO;
+import com.eps.Appointments.persistance.repositories.DoctorRepository;
 import com.eps.Appointments.services.DoctorService;
 /**
 * @RestController Simplifies controller implementation
@@ -42,6 +44,9 @@ public class DoctorController {
 **/
     @Autowired
     private DoctorService doctorService;
+    
+    @Autowired
+    private DoctorRepository doctorRepository;
 /**
 * a method is created which says if the doctor was created
 *@PostMapping is a specialized version of the @RequestMapping annotation
@@ -116,4 +121,8 @@ public class DoctorController {
         }
     }
     
+    @DeleteMapping("/{id}")
+    public void deleteDoctor(@PathVariable String id) {
+	doctorRepository.deleteById(id);
+}
 }
