@@ -32,27 +32,27 @@ public class Appointment {
  */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    /** 
+    /**
     * Private attribute of numeric type with name id
     **/
     private Integer id;
     @ManyToOne
     @JoinColumn(nullable = false)
-    /** 
+    /**
     * Private attribute of doctor type with name Doctor
     **/
     private Doctor doctor;
     @ManyToOne
     @JoinColumn(nullable = false)
-    /** 
+    /**
     * Private attribute of Patient type with name patient
     **/
     private Patient patient;
     @ManyToOne
     @JoinColumn(nullable = false)
-    /** 
+    /**
     * Private attribute of Date type with name date
     **/
     private Date date;
-    
+
 }

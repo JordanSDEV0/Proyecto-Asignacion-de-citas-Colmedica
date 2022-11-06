@@ -21,7 +21,7 @@ import com.eps.Appointments.persistance.entities.Date;
 import com.eps.Appointments.persistance.repositories.DateRepository;
 /**
 * Creation of the public class DateService
-* @Service It is used to mark the class as a service provider 
+* @Service It is used to mark the class as a service provider
 **/
 @Service
 public class DateService {
@@ -73,5 +73,5 @@ public class DateService {
         }
         return null;
     }
-    
+
 }

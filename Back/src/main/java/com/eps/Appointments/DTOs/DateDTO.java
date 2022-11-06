@@ -35,7 +35,7 @@ public class DateDTO {
 	/**
     * Private attribute of type String of name description
     **/
-    private String description;	
+    private String description;
 	/**
     * Private attribute of type LocalDateTime of name initialTime
     **/
@@ -52,5 +52,5 @@ public class DateDTO {
     * Private attribute of type String of name status
     **/
 	private String status;
-	    
+
 }

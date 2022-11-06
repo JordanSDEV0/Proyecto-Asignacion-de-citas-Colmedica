@@ -22,14 +22,14 @@ import com.eps.Appointments.persistance.entities.Appointment;
 import com.eps.Appointments.persistance.repositories.AppointmentRepository;
 /**
 * Creation of the public class AppointmentService
-* @Service It is used to mark the class as a service provider 
+* @Service It is used to mark the class as a service provider
 **/
 @Service
 public class AppointmentService{
  /**
     * annotation that allows to inject some dependencies with others inside Spring
     **/
-    @Autowired 
+    @Autowired
     /**
     * Private attribute of type AppointmentRepository of name appointmentRepository
     **/
@@ -56,7 +56,7 @@ public class AppointmentService{
         return appointmentMapper.toAppointmentDTOs(appointments);
     }
     /**
-    * class creation AppointmentDTO updateAppointment with attributes appointmentDTO 
+    * class creation AppointmentDTO updateAppointment with attributes appointmentDTO
     * @Transactional annotation is the metadata that specifies the semantics of the transactions on a method
     **/
     @Transactional
@@ -68,7 +68,7 @@ public class AppointmentService{
         return null;
     }
     /**
-    * creation of the class AppointmentDTO getById with id attributes 
+    * creation of the class AppointmentDTO getById with id attributes
     **/
     public AppointmentDTO getById(int id){
         return appointmentMapper.toAppointmentDTO(appointmentRepository.findById(id).map(ocupation -> {
@@ -76,8 +76,8 @@ public class AppointmentService{
         }).orElseGet(null));
 
     }
-   
-    public List<AppointmentDTO> getAllDoctor(String id){
+
+    public List<AppointmentDTO> getAllByDoctor(String id){
         List<Appointment> appointments2=new ArrayList<>();
         List<Appointment> appointments= (List<Appointment>) appointmentRepository.findAll();
         for (Appointment appointment: appointments) {
@@ -87,7 +87,8 @@ public class AppointmentService{
         }
         return appointmentMapper.toAppointmentDTOs(appointments2);
     }
-    public List<AppointmentDTO> getAllPatient(String id){
+
+    public List<AppointmentDTO> getAllByPatient(String id){
         List<Appointment> appointments2=new ArrayList<>();
         List<Appointment> appointments= (List<Appointment>) appointmentRepository.findAll();
         for (Appointment appointment: appointments) {
@@ -97,4 +98,15 @@ public class AppointmentService{
         }
         return appointmentMapper.toAppointmentDTOs(appointments2);
     }
+
+    public AppointmentDTO delete(int id){
+        return appointmentRepository.findById(id).map(appointment -> {
+            appointmentRepository.delete(appointment);
+            return appointmentMapper.toAppointmentDTO(appointment);
+        }).orElseThrow(IllegalArgumentException::new);
+    }
+    public List<AppointmentDTO> getAllActive() {
+        return null;
+    }
+
 }

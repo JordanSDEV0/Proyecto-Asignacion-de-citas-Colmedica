@@ -38,43 +38,43 @@ public class Date {
  **/
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    /** 
+    /**
     * Private attribute of numeric type with name id
     **/
     private Integer id;
     @ManyToOne
     @JoinColumn(name = "date_type", nullable = false)
-    /** 
+    /**
     * Private attribute of DateType type with name dateType
     **/
     private DateType dateType;
     @ManyToOne
     @JoinColumn(nullable = false)
-    /** 
+    /**
     * Private attribute of Headquarter type with name headquarter
     **/
     private Headquarter headquarter;
-    /** 
+    /**
     * Private attribute of String type with name description
     **/
     private String description;
     @Column(name = "initial_hour", nullable = false)
-    /** 
+    /**
     * Private attribute of LocalDateTime type with name initialTime
     **/
     private LocalDateTime initialTime;
     @Column(name = "final_hour")
-    /** 
+    /**
     * Private attribute of LocalDateTime type with name finalTime
     **/
     private LocalDateTime finalTime;
-    /** 
+    /**
     * Private attribute of LocalDate type with name date
     **/
     private LocalDate date;
-    /** 
+    /**
     * Private attribute of String type with name status
     **/
     private String status;
-    
+
 }

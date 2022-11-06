@@ -42,7 +42,7 @@ public class AppointmentDoctorController {
     public ResponseEntity<? extends Object> getById(@PathVariable("id") String id){
         {
         try{
-            return new ResponseEntity<>(appointmentService.getAllDoctor(id), HttpStatus.OK);
+            return new ResponseEntity<>(appointmentService.getAllByDoctor(id), HttpStatus.OK);
 	    } catch(IllegalArgumentException illegalArgumentException){
 	        System.out.println(illegalArgumentException.getCause());
 	        return new ResponseEntity<>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
