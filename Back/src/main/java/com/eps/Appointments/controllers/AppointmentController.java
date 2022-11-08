@@ -8,6 +8,7 @@ package com.eps.Appointments.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,6 +32,8 @@ import com.eps.Appointments.services.DateService;
 **/
 @RestController
 @RequestMapping("/appointments")
+@CrossOrigin(origins = "*")
+
 public class AppointmentController {
 /**
 * the class is created
@@ -95,18 +98,18 @@ public class AppointmentController {
         }
     }
 
-    @GetMapping
-    public ResponseEntity<?> getAllActive(){
-        try {
-            return new ResponseEntity<>(appointmentService.getAllActive(), HttpStatus.OK);
-        } catch (IllegalArgumentException illegalArgumentException){
-            System.out.println("IAE on getAllActive method on appointment controller:\n" + illegalArgumentException.getMessage());
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } catch (Exception e) {
-            System.out.println("General Error on getAllActive method on appointment controller:\n" + e.getMessage());
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+   // @GetMapping
+    //public ResponseEntity<?> getAllActive(){
+     //   try {
+       //     return new ResponseEntity<>(appointmentService.getAllActive(), HttpStatus.OK);
+        //} catch (IllegalArgumentException illegalArgumentException){
+         //   System.out.println("IAE on getAllActive method on appointment controller:\n" + illegalArgumentException.getMessage());
+         //   return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        //} catch (Exception e) {
+         //   System.out.println("General Error on getAllActive method on appointment controller:\n" + e.getMessage());
+          //  return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+       // }
+    //}
 
     @GetMapping("/patients/{id}")
     private ResponseEntity<?> getAllByPatient(@PathVariable(name = "id") String id){

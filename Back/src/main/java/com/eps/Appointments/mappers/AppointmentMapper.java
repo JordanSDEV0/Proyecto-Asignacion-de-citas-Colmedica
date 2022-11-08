@@ -28,6 +28,10 @@ public interface AppointmentMapper {
     @Mapping(source = "doctor.id", target = "doctorId")
     @Mapping(source = "patient.id", target = "patientId")
     @Mapping(source = "date.id", target = "dateId")
+    @Mapping(source = "date.date", target = "date")
+    @Mapping(source = "date.initialTime", target = "inititalHour")
+
+
     AppointmentDTO toAppointmentDTO (Appointment appointment);
     
     @InheritInverseConfiguration

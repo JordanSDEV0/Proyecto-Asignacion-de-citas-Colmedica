@@ -74,42 +74,12 @@
                             <div class="brand-logo">
                                 <img src="../../images/logo1.svg" alt="logo">
                               </div>
-                              <label class="badge badge-info w-100 mb-3 font-weight-bold" style="height: 30px; font-size: 14px; color: white;">Medico General: Solano Lopez -        Codigo Medico: 1234567 </label>
+                              <script src="../../js/citasDoctor.js"></script>
+                              <label id="nMedico" class="badge badge-info w-100 mb-3 font-weight-bold" style="height: 30px; font-size: 14px; color: white;"></label>
                             <h3 class="text-center">Historico de Citas Medico</h3>
                             <div class="table-responsive">
-                              <table class="table">
-                                <thead>
-                                  <tr>
-                                    <th>Numero</th>
-                                    <th>Paciente</th>
-                                    <th>Fecha</th>
-                                    <th>Hora</th>
-                                    <th>Estado</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                      <td>1</td>
-                                      <td>Paula Gomez Angulo</td>
-                                      <td>12 May 2022</td>
-                                      <td>10:30 AM</td>
-                                    <td><label class="badge badge-success">Finalizada</label></td>
-                                  </tr>
-                                  <tr>
-                                      <td>2</td>
-                                      <td>Mauricio Sanchez Paez</td>
-                                      <td>14 May 2022</td>
-                                      <td>12:30 PM</td>
-                                      <td><label class="badge badge-warning">Pendiente</label></td>
-                                  </tr>
-                                  <tr>
-                                    <td>3</td>
-                                    <td>Erika Sarmiento Pai</td>
-                                    <td>20 May 2022</td>
-                                    <td>07:30 PM </td>
-                                    <td><label class="badge badge-danger">Cancelada</label></td>
-                                  </tr>
-                                </tbody>
+                              <table class="table" id="historicoCitas">
+                                
                               </table>
                               <div class="row mt-3">
                                   <div class="col-6">

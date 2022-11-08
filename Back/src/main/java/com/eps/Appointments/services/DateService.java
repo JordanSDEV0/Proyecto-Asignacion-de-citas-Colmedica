@@ -73,5 +73,11 @@ public class DateService {
         }
         return null;
     }
+    public DateDTO getById(Integer id){
+        return dateMapper.toDateDto(dateRepository.findById(id).map(ocupation -> {
+            return ocupation;
+        }).orElseGet(null));
+
+    }
 
 }
