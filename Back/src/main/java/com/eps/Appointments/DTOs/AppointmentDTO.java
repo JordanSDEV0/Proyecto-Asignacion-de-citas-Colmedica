@@ -2,6 +2,8 @@
 * Package with which the DTOs of the appointments is accessed
 **/
 package com.eps.Appointments.DTOs;
+import java.util.Date;
+
 /**
 * Imports of lombok
 */
@@ -28,5 +30,10 @@ public class AppointmentDTO {
     * Private attribute of type int of name dateId
     **/
     private int dateId;
+
+    private Date date;
+
+    private Date inititalHour;
+
 
 }

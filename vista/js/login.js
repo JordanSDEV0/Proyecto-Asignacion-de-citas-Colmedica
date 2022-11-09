@@ -18,7 +18,7 @@
                           let id =[datos.get("id")];
                           localStorage.setItem("id", JSON.stringify(id));
                           console.log(localStorage.getItem("id"));
-                          location.href="../../login.html";
+                          location.href="../vista/pages/COLMEDICA-WEBSITE/main_page.html";
                           console.log("ingresa")
                     }
                   }
