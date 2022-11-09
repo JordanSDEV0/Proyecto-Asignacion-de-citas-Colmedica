@@ -2,6 +2,9 @@
 * Package with which the persistence of the repositories is accessed
 **/
 package com.eps.Appointments.persistance.repositories;
+import java.time.LocalDateTime;
+import java.util.List;
+
 /**
 * Imports org.springframework
 */
@@ -16,5 +19,7 @@ import com.eps.Appointments.persistance.entities.Date;
 */
 @Repository
 public interface DateRepository extends CrudRepository<Date, Integer> {
+
+  public List<Date> findAllByInitialTimeAfter(LocalDateTime initialTime);
 
 }

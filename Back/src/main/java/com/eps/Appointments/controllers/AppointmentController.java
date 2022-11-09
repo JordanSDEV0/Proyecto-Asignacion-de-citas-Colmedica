@@ -22,9 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.eps.Appointments.DTOs.AppointmentDTO;
 import com.eps.Appointments.DTOs.ErrorDTO;
 import com.eps.Appointments.services.AppointmentService;
-import com.eps.Appointments.services.DoctorService;
-import com.eps.Appointments.services.PatientService;
-import com.eps.Appointments.services.DateService;
+
 /**
 * @RestController Simplifies controller implementation
 * @RequestMapping to map all incoming HTTP request URLs to the corresponding controller methods
@@ -38,29 +36,13 @@ public class AppointmentController {
    @Autowired
     private AppointmentService appointmentService;
 /**
-* We define a private type attribute called appointmentservice
-* @Autowired. Allows Spring to resolve and inject helper beans into our bean
-**/
-    @Autowired
-    private DoctorService doctorService;
-/**
-* we define a private type attribute called doctorservice
-* @Autowired. Allows Spring to resolve and inject helper beans into our bean
-**/
-    @Autowired
-    private PatientService patientService;
-/**
-* we define a private type attribute called patientservice
-* @Autowired. Allows Spring to resolve and inject helper beans into our bean
-**/
-    @Autowired
-    private DateService dateService;
-/**
 * a method is created which will go through everything until it obtains enough information
 * @PostMapping is a specialized version of the @RequestMapping annotation
 **/
     @PostMapping
     private ResponseEntity<? extends Object> create(@RequestBody AppointmentDTO appointmentDTO){
+        return new ResponseEntity<>(new ErrorDTO("Use scheduling api instead"), HttpStatus.NOT_FOUND);
+        /*
         try {
             if((doctorService.getById(appointmentDTO.getDoctorId()) != null) && (patientService.getById(appointmentDTO.getPatientId()) != null) && (dateService.getById(appointmentDTO.getDateId()) != null)){
                 AppointmentDTO newAppointment= appointmentService.create(appointmentDTO);
@@ -77,6 +59,7 @@ public class AppointmentController {
             System.out.println(e.getCause());
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
+        */
     }
 /**
 * A method is created which works to obtain information
@@ -95,7 +78,7 @@ public class AppointmentController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/active")
     public ResponseEntity<?> getAllActive(){
         try {
             return new ResponseEntity<>(appointmentService.getAllActive(), HttpStatus.OK);
@@ -112,6 +95,19 @@ public class AppointmentController {
     private ResponseEntity<?> getAllByPatient(@PathVariable(name = "id") String id){
         try {
             return new ResponseEntity<>(appointmentService.getAllByPatient(id), HttpStatus.OK);
+        } catch (IllegalArgumentException illegalArgumentException){
+            System.out.println("IAE on getAllByUser method on appointment controller:\n" + illegalArgumentException.getMessage());
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            System.out.println("General Error on getAllByUser method on appointment controller:\n" + e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/doctors/{id}")
+    private ResponseEntity<?> getAllByDoctor(@PathVariable(name = "id") String id){
+        try {
+            return new ResponseEntity<>(appointmentService.getAllByDoctor(id), HttpStatus.OK);
         } catch (IllegalArgumentException illegalArgumentException){
             System.out.println("IAE on getAllByUser method on appointment controller:\n" + illegalArgumentException.getMessage());
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -170,4 +166,5 @@ public class AppointmentController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 }

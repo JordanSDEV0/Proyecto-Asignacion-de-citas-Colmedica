@@ -2,7 +2,9 @@
 * Package with which the services of the appointments access
 **/
 package com.eps.Appointments.services;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 /**
 * Imports of java util
 */
@@ -20,6 +22,7 @@ import com.eps.Appointments.DTOs.AppointmentDTO;
 import com.eps.Appointments.mappers.AppointmentMapper;
 import com.eps.Appointments.persistance.entities.Appointment;
 import com.eps.Appointments.persistance.repositories.AppointmentRepository;
+import com.eps.Appointments.persistance.repositories.DateRepository;
 /**
 * Creation of the public class AppointmentService
 * @Service It is used to mark the class as a service provider
@@ -34,6 +37,10 @@ public class AppointmentService{
     * Private attribute of type AppointmentRepository of name appointmentRepository
     **/
     private AppointmentRepository appointmentRepository;
+
+    @Autowired
+    private DateRepository dateRepository;
+
     @Autowired
     /**
     * Private attribute of type AppointmentMapper of name appointmentMapper
@@ -45,7 +52,6 @@ public class AppointmentService{
     **/
     @Transactional
     public AppointmentDTO create(AppointmentDTO appointmentDTO) throws IllegalArgumentException{
-        System.out.println(appointmentMapper.toAppointment(appointmentDTO));
         return appointmentMapper.toAppointmentDTO(appointmentRepository.save(appointmentMapper.toAppointment(appointmentDTO)));
     }
     /**
@@ -99,14 +105,18 @@ public class AppointmentService{
         return appointmentMapper.toAppointmentDTOs(appointments2);
     }
 
+    @Transactional
     public AppointmentDTO delete(int id){
         return appointmentRepository.findById(id).map(appointment -> {
             appointmentRepository.delete(appointment);
             return appointmentMapper.toAppointmentDTO(appointment);
         }).orElseThrow(IllegalArgumentException::new);
     }
+
     public List<AppointmentDTO> getAllActive() {
-        return null;
+        System.out.println(LocalDateTime.now());
+        System.out.println(dateRepository.findAllByInitialTimeAfter(LocalDateTime.now()));
+        return appointmentMapper.toAppointmentDTOs(appointmentRepository.findAllByDateIn(dateRepository.findAllByInitialTimeAfter(LocalDateTime.now())));
     }
 
 }
