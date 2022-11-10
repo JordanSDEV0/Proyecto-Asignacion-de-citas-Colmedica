@@ -119,7 +119,10 @@ public class PatientController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-    
+    /**
+*method used to delete patient
+*DeleteMapping to remove a resource. We use annotations to configure a Spring web application
+**/
     @DeleteMapping("/{id}")
     public void deletePatient(@PathVariable String id) {
 	patientRepository.deleteById(id);
