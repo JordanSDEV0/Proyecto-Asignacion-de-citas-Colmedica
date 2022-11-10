@@ -80,7 +80,11 @@ public class AppointmentController {
             return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-
+/**
+    * 
+    *A method is created which works to obtain information
+    *@GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
+    **/
     @GetMapping("/active")
     public ResponseEntity<?> getAllActive(){
         try {
@@ -93,7 +97,10 @@ public class AppointmentController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+/**
+    *A method is created which works to obtain information
+    *@GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
+    **/
     @GetMapping("/patients/{id}")
     private ResponseEntity<?> getAllByPatient(@PathVariable(name = "id") String id){
         try {
@@ -106,7 +113,10 @@ public class AppointmentController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+/**
+    *A method is created which works to obtain information
+    *@GetMapping is a compound annotation that acts as a shortcut for @RequestMapping
+    **/
     @GetMapping("/doctors/{id}")
     private ResponseEntity<?> getAllByDoctor(@PathVariable(name = "id") String id){
         try {
@@ -156,7 +166,10 @@ public class AppointmentController {
             return new ResponseEntity<ErrorDTO>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
     }
-
+/**
+    *method that delete Appointment
+    *@DeleteMapping to remove a resource. We use annotations to configure a Spring web application
+    **/
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteAppointment(@PathVariable int id) {
         try {
