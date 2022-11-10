@@ -82,7 +82,9 @@ public class AppointmentService{
         }).orElseGet(null));
 
     }
-
+/**
+    * creation of the class AppointmentDTO getAllByDoctor with id attributes
+    **/
     public List<AppointmentDTO> getAllByDoctor(String id){
         List<Appointment> appointments2=new ArrayList<>();
         List<Appointment> appointments= (List<Appointment>) appointmentRepository.findAll();
@@ -93,7 +95,9 @@ public class AppointmentService{
         }
         return appointmentMapper.toAppointmentDTOs(appointments2);
     }
-
+/**
+    * creation of the class AppointmentDTO getAllByPatient with id attributes
+    **/
     public List<AppointmentDTO> getAllByPatient(String id){
         List<Appointment> appointments2=new ArrayList<>();
         List<Appointment> appointments= (List<Appointment>) appointmentRepository.findAll();
@@ -104,7 +108,10 @@ public class AppointmentService{
         }
         return appointmentMapper.toAppointmentDTOs(appointments2);
     }
-
+/**
+    *method that deletw AppointmentDTO
+    *@Transactional annotation is the metadata that specifies the semantics of the transactions on a method
+    **/
     @Transactional
     public AppointmentDTO delete(int id){
         return appointmentRepository.findById(id).map(appointment -> {
@@ -112,7 +119,9 @@ public class AppointmentService{
             return appointmentMapper.toAppointmentDTO(appointment);
         }).orElseThrow(IllegalArgumentException::new);
     }
-
+/**
+    * creation of the class list AppointmentDTO getAllACtive with id attributes
+    **/
     public List<AppointmentDTO> getAllActive() {
         System.out.println(LocalDateTime.now());
         System.out.println(dateRepository.findAllByInitialTimeAfter(LocalDateTime.now()));
