@@ -65,7 +65,7 @@ public class PatientService {
     @Transactional
     public PatientDTO create(PatientDTO patientDTO)throws IllegalArgumentException{
         if(userService.getById(patientDTO.getId()) == null){
-            User newUser= userMapper.toUser(userService.create(userMapper.toUserDTO(new User(patientDTO.getId(), patientDTO.getPassword()))));
+            User newUser= userMapper.toUser(userService.create(userMapper.toUserDTO(new User(patientDTO.getId(), patientDTO.getPassword(), patientDTO.getRol()))));
             if(newUser != null){
                 Patient patient = patientMapper.toPatient(patientDTO);
                 patient.setUser(newUser);

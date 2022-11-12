@@ -22,6 +22,9 @@ public class AdminDTO{
     /**
     * Private attribute of type String of name password
     **/
-    private String password;
+    private String password;    
+    private int rol;    
+
+
 
 }

@@ -27,6 +27,8 @@ public class PatientDTO {
     * Private attribute of type String of name password
     **/
     private String password;
+    private int rol;
+
     /**
     * Private attribute of type int of name idTypeId
     **/

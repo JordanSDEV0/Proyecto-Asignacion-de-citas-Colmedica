@@ -7,6 +7,7 @@ let form= document.getElementById("formulario")
     var datos={
         "id":document.getElementById("id").value,
         "password":document.getElementById("password").value,
+        "rol":1,
         "idTypeId": form.elements["idTypeId"].value,
         "headquarterId": 1,
         "ocupationId": 1,

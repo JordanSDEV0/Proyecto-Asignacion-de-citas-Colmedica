@@ -27,6 +27,11 @@ public interface DoctorMapper {
 
     @Mapping(source = "user.id", target = "id")
     @Mapping(source = "user.password", target = "password")
+    @Mapping(source = "user.rol", target = "rol")
+    @Mapping(source = "name_doctor", target = "name_doctor")
+    @Mapping(source = "lastName", target = "lastName")
+    @Mapping(source = "phone", target = "phone")
+    @Mapping(source = "email", target = "email")
     @Mapping(source = "headquarter", target = "headquarterId")
     @Mapping(source = "specialization", target = "specializationList")
     DoctorDTO toDoctorDTO (Doctor doctor);

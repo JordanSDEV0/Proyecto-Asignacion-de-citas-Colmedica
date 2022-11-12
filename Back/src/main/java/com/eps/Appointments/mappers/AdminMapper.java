@@ -25,7 +25,9 @@ import com.eps.Appointments.persistance.entities.Admin;
 public interface AdminMapper {
 
     @Mapping(source = "user.id", target = "id")
-    @Mapping(source = "password", target = "password")
+    @Mapping(source = "user.password", target = "password")
+    @Mapping(source = "user.rol", target = "rol")
+
     AdminDTO toAdminDTO (Admin admin);
 
     @InheritInverseConfiguration

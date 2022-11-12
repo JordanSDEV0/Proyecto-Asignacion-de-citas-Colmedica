@@ -60,7 +60,7 @@ public class AdminService {
     @Transactional
     public AdminDTO create(AdminDTO adminDTO) throws IllegalArgumentException{
         if(userService.getById(adminDTO.getId()) == null){
-            User newUser= userMapper.toUser(userService.create(userMapper.toUserDTO(new User(adminDTO.getId(), adminDTO.getPassword()))));
+            User newUser= userMapper.toUser(userService.create(userMapper.toUserDTO(new User(adminDTO.getId(), adminDTO.getPassword(),adminDTO.getRol()))));
             if(newUser != null){
                 Admin newAdmin= adminMapper.toAdmin(adminDTO);
                 newAdmin.setUser(newUser);
