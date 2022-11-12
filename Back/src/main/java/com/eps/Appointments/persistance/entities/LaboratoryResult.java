@@ -21,12 +21,12 @@ import lombok.NoArgsConstructor;
 
 /**
  * The LaboratoryResult class is created
- * 
+ *
  * @entity The Entity Framework allows developers to work with data in the form
  *         of specific objects and properties
  * @noargsconstructor will generate a constructor with no parameters
  * @Data allows the use of class data
- * @author:Sofware Bosque S.A
+ * @author:Software Bosque S.A
  */
 @Entity(name = "laboratory_result")
 @NoArgsConstructor
