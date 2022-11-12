@@ -56,6 +56,6 @@ public class Access {
     /**
      * Private attribute of LocalDateTime type with name accessTime
      **/
-    private Date accessTime;
+    private MedicalDate accessTime;
 
 }

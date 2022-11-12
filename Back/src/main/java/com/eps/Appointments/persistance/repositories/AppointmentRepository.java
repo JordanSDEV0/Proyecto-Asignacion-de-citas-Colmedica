@@ -2,6 +2,7 @@
 * Package with which the persistence of the repositories is accessed
 **/
 package com.eps.Appointments.persistance.repositories;
+
 import java.util.List;
 
 /**
@@ -13,12 +14,14 @@ import org.springframework.stereotype.Repository;
 * Imports com.eps
 */
 import com.eps.Appointments.persistance.entities.Appointment;
-import com.eps.Appointments.persistance.entities.Date;
-/**
-* interface with name AppointmentRepository which comes from CrudRepository<Appointment, Integer>
-*/
-@Repository
-public interface AppointmentRepository extends CrudRepository<Appointment, Integer>{
+import com.eps.Appointments.persistance.entities.MedicalDate;
 
-  public List<Appointment> findAllByDateIn(List<Date> dates);
+/**
+ * interface with name AppointmentRepository which comes from
+ * CrudRepository<Appointment, Integer>
+ */
+@Repository
+public interface AppointmentRepository extends CrudRepository<Appointment, Integer> {
+
+  public List<Appointment> findAllByDateIn(List<MedicalDate> dates);
 }

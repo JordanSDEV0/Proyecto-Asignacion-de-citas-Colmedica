@@ -58,6 +58,6 @@ public class Appointment {
     /**
      * Private attribute of Date type with name date
      **/
-    private Date date;
+    private MedicalDate date;
 
 }
