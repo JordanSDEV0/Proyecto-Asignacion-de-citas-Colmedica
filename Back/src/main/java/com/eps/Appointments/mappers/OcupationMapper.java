@@ -2,6 +2,7 @@
 * Package with which the persistence of the mappers is accessed
 **/
 package com.eps.Appointments.mappers;
+
 /**
 * Imports of java
 */
@@ -16,20 +17,22 @@ import org.mapstruct.Mapping;
 * Imports of Appointments
 */
 import com.eps.Appointments.DTOs.OcupationDTO;
-import com.eps.Appointments.persistance.entities.Ocupation;
+import com.eps.Appointments.persistance.entities.Occupation;
+
 /**
-* public name interface OcupationMapper
-* @mapper geographic information system (GIS)
-**/
+ * public name interface OcupationMapper
+ * 
+ * @mapper geographic information system (GIS)
+ **/
 @Mapper(componentModel = "spring")
 public interface OcupationMapper {
 
     @Mapping(source = "id", target = "id")
     @Mapping(source = "ocupation", target = "ocupation")
-    OcupationDTO toOcupationDTO (Ocupation ocupation);
+    OcupationDTO toOcupationDTO(Occupation ocupation);
 
     @InheritInverseConfiguration
-    Ocupation toOcupation (OcupationDTO ocupationDTO);
+    Occupation toOcupation(OcupationDTO ocupationDTO);
 
-    List<OcupationDTO> toOcupationDTOs(List<Ocupation> ocupation);
+    List<OcupationDTO> toOcupationDTOs(List<Occupation> ocupation);
 }

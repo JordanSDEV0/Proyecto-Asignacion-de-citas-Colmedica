@@ -2,6 +2,7 @@
 * Package with which the persistence of the mappers is accessed
 **/
 package com.eps.Appointments.mappers;
+
 /**
 * Imports of java
 */
@@ -18,12 +19,14 @@ import org.mapstruct.Mapping;
 import com.eps.Appointments.DTOs.PatientDTO;
 import com.eps.Appointments.persistance.entities.Headquarter;
 import com.eps.Appointments.persistance.entities.IdType;
-import com.eps.Appointments.persistance.entities.Ocupation;
+import com.eps.Appointments.persistance.entities.Occupation;
 import com.eps.Appointments.persistance.entities.Patient;
+
 /**
-* public name interface PatientMapper
-* @mapper geographic information system (GIS)
-**/
+ * public name interface PatientMapper
+ * 
+ * @mapper geographic information system (GIS)
+ **/
 @Mapper(componentModel = "spring")
 public interface PatientMapper {
 
@@ -41,42 +44,44 @@ public interface PatientMapper {
     @Mapping(source = "email", target = "email")
     @Mapping(source = "birthDate", target = "birthDate")
     @Mapping(source = "genre", target = "genre")
-    PatientDTO toPatientDTO (Patient patient);
+    PatientDTO toPatientDTO(Patient patient);
 
-    default int mapIdType(IdType idType){
+    default int mapIdType(IdType idType) {
         return idType.getId();
     }
 
-    default int mapHeadquarter(Headquarter headquarter){
+    default int mapHeadquarter(Headquarter headquarter) {
         return headquarter.getId();
     }
 
-    default int mapOcupation(Ocupation ocupation){
+    default int mapOcupation(Occupation ocupation) {
         return ocupation.getId();
     }
 
-    default IdType mapIdType(int id){
-        IdType idType= new IdType();
+    default IdType mapIdType(int id) {
+        IdType idType = new IdType();
         idType.setId(id);
         return idType;
     }
 
-    default Headquarter mapHeadquarter(int id){
-        Headquarter headquarter= new Headquarter();
+    default Headquarter mapHeadquarter(int id) {
+        Headquarter headquarter = new Headquarter();
         headquarter.setId(id);
         return headquarter;
     }
 
-    default Ocupation mapOcupation(int id){
-        Ocupation ocupation= new Ocupation();
+    default Occupation mapOcupation(int id) {
+        Occupation ocupation = new Occupation();
         ocupation.setId(id);
         return ocupation;
     }
-/**
-* Advises the code generator to apply all the Mapping s from an inverse mapping method to the annotated method as well
-**/
+
+    /**
+     * Advises the code generator to apply all the Mapping s from an inverse mapping
+     * method to the annotated method as well
+     **/
     @InheritInverseConfiguration
-    Patient toPatient (PatientDTO patientDTO);
+    Patient toPatient(PatientDTO patientDTO);
 
     List<PatientDTO> toPatientDTOs(List<Patient> patient);
 
