@@ -18,15 +18,23 @@
                           let id =[datos.get("id")];
                           localStorage.setItem("id", JSON.stringify(id));
                           console.log(localStorage.getItem("id"));
+                          if(valUser.rol==2){
+                            location.href="../vista/pages/COLMEDICA-WEBSITE/main_page.html";
+                          }
+                          else if(valUser.rol==1){
                           location.href="../vista/pages/COLMEDICA-WEBSITE/main_page.html";
+                          }
+                          else if(valUser.rol==0){
+                            location.href="../vista/pages/COLMEDICA-WEBSITE/admin_main_page.html";
+                            }
                           console.log("ingresa")
                     }
                   }
-                      respuesta.innerHTML =`
-                      <div class="alert alert-primary role="alert"">
-                        Usuario o Contraseña incorrecta
-                        </div>
-                      `
+                  respuesta.innerHTML =`
+                  <div class="alert alert-primary role="alert"">
+                    Usuario o Contraseña incorrecta
+                    </div>
+                  `
                   })
                 }
               })

@@ -31,6 +31,8 @@ import lombok.NoArgsConstructor;
  */
 public class User {
 
+    public User(String id2, String password2) {
+    }
     @Id
     /** 
     * Private attribute of String type with name id
@@ -41,5 +43,7 @@ public class User {
     * Private attribute of String type with name password
     **/
     private String password;
+    private int rol;
+
     
 }

@@ -4,7 +4,6 @@
 package com.eps.Appointments.services;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 /**
 * Imports of java util
 */

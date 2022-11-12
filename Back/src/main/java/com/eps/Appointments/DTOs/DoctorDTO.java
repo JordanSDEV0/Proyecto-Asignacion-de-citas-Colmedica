@@ -27,10 +27,16 @@ public class DoctorDTO {
     * Private attribute of type String of name password
     **/
     private String password;
+    private int rol;
+
     /**
     * Private attribute of type int of name headquarterId
     **/
     private int headquarterId;
+    private String name_doctor;
+    private String lastName;
+    private String email;
+    private int phone;
     /**
     * Private attribute of type list SpecializationDTO of name specializationList
     **/
