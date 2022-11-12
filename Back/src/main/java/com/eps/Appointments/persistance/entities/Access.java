@@ -4,10 +4,6 @@
 package com.eps.Appointments.persistance.entities;
 
 /**
-* Imports of time
-*/
-import java.time.LocalDateTime;
-/**
 * Imports persistence
 */
 import javax.persistence.Column;
@@ -28,7 +24,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * There is the Access class which will be used to access the eps
- * 
+ *
  * @entity The Entity Framework allows developers to work with data in the form
  *         of specific objects and properties
  * @noargsconstructor will generate a constructor with no parameters
