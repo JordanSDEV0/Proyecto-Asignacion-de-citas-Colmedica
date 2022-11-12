@@ -2,11 +2,13 @@
 * Package com.eps.Appointments
 **/
 package com.eps.Appointments;
+
 /**
 * Imports org.springframework
 */
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 /**
 * Inherits the behavior of an annotation set, in this case from the AppointmentsApplication class
 **/
