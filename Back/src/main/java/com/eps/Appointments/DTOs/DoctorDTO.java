@@ -36,7 +36,7 @@ public class DoctorDTO {
      * Private attribute of type int of name headquarterId
      **/
     private int headquarterId;
-    private String name_doctor;
+    private String name;
     private String lastName;
     private String email;
     private int phone;
