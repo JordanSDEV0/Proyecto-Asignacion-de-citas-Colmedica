@@ -3,36 +3,34 @@
 **/
 package com.eps.Appointments.DTOs;
 
-import java.util.Date;
-
+/**
+* Imports of time
+*/
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 /**
 * Imports of lombok
 */
 import lombok.Data;
+import lombok.AllArgsConstructor;
 
 /**
- * Public class for dto appointment
- *
+ * Public class for dto date
+ * 
  * @Data allows the use of db data and persistence
+ * @AllArgsConstructor annotation automatically generates a constructor with a
+ *                     parameter for each field in your class
  **/
 @Data
-public class AppointmentDTO {
+@AllArgsConstructor
+public class MedicalDateDTO {
     /**
      * Private attribute of type int of name id
      **/
     private int id;
     /**
-     * Private attribute of type String of name doctorId
+     * Private attribute of type int of name dateTypeId
      **/
-    private String doctorId;
-    /**
-     * Private attribute of type String of name patientId
-     **/
-    private String patientId;
-    /**
-     * Private attribute of type int of name dateId
-     **/
-    private int dateId;
     private int dateTypeId;
     /**
      * Private attribute of type int of name headquarterId
@@ -45,15 +43,15 @@ public class AppointmentDTO {
     /**
      * Private attribute of type LocalDateTime of name initialTime
      **/
-    private Date initialTime;
+    private LocalDateTime initialTime;
     /**
      * Private attribute of type LocalDateTime of name finalTime
      **/
-    private Date finalTime;
+    private LocalDateTime finalTime;
     /**
      * Private attribute of type LocalDate of name date
      **/
-    private Date date;
+    private LocalDate date;
     /**
      * Private attribute of type String of name status
      **/

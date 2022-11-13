@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
 * Imports of Appointments
 */
-import com.eps.Appointments.DTOs.DateDTO;
+import com.eps.Appointments.DTOs.MedicalDateDTO;
 import com.eps.Appointments.mappers.DateMapper;
 import com.eps.Appointments.persistance.entities.MedicalDate;
 import com.eps.Appointments.persistance.repositories.DateRepository;
@@ -45,7 +45,7 @@ public class DateService {
     /**
      * creation of the class DateDTO getById with dateId attributes
      **/
-    public DateDTO getById(int dateId) {
+    public MedicalDateDTO getById(int dateId) {
         return dateMapper.toDateDto(dateRepository.findById(dateId).map(date -> {
             return date;
         }).orElseGet(null));
@@ -59,14 +59,14 @@ public class DateService {
      *                transactions on a method
      **/
     @Transactional
-    public DateDTO create(DateDTO dateDTO) throws IllegalArgumentException {
+    public MedicalDateDTO create(MedicalDateDTO dateDTO) throws IllegalArgumentException {
         return dateMapper.toDateDto(dateRepository.save(dateMapper.toDate(dateDTO)));
     }
 
     /**
      * creation of the class List<DateDTO> getAll
      **/
-    public List<DateDTO> getAll() {
+    public List<MedicalDateDTO> getAll() {
         List<MedicalDate> dates = (List<MedicalDate>) dateRepository.findAll();
         return dateMapper.toDateDTOs(dates);
     }
@@ -78,7 +78,7 @@ public class DateService {
      *                transactions on a method
      **/
     @Transactional
-    public DateDTO updateDate(DateDTO dateDTO) {
+    public MedicalDateDTO updateDate(MedicalDateDTO dateDTO) {
         if (getById(dateDTO.getId()) != null) {
             MedicalDate updatedDate = dateMapper.toDate(dateDTO);
             return dateMapper.toDateDto(dateRepository.save(updatedDate));
@@ -86,7 +86,7 @@ public class DateService {
         return null;
     }
 
-    public DateDTO getById(Integer id) {
+    public MedicalDateDTO getById(Integer id) {
         return dateMapper.toDateDto(dateRepository.findById(id).map(ocupation -> {
             return ocupation;
         }).orElseGet(null));

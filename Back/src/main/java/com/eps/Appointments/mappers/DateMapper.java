@@ -16,14 +16,14 @@ import org.mapstruct.Mapping;
 /**
 * Imports of Appointments
 */
-import com.eps.Appointments.DTOs.DateDTO;
+import com.eps.Appointments.DTOs.MedicalDateDTO;
 import com.eps.Appointments.persistance.entities.MedicalDate;
 import com.eps.Appointments.persistance.entities.DateType;
 import com.eps.Appointments.persistance.entities.Headquarter;
 
 /**
  * public name interface DateMapper
- * 
+ *
  * @mapper geographic information system (GIS)
  **/
 @Mapper(componentModel = "spring", uses = { DateTypeMapper.class, HeadquarterMapper.class })
@@ -37,7 +37,7 @@ public interface DateMapper {
     @Mapping(source = "finalTime", target = "finalTime")
     @Mapping(source = "date", target = "date")
     @Mapping(source = "status", target = "status")
-    DateDTO toDateDto(MedicalDate date);
+    MedicalDateDTO toDateDto(MedicalDate date);
 
     default int mapDateType(DateType dateType) {
         return dateType.getId();
@@ -60,8 +60,8 @@ public interface DateMapper {
     }
 
     @InheritInverseConfiguration
-    MedicalDate toDate(DateDTO dateDTO);
+    MedicalDate toDate(MedicalDateDTO dateDTO);
 
-    List<DateDTO> toDateDTOs(List<MedicalDate> dates);
+    List<MedicalDateDTO> toDateDTOs(List<MedicalDate> dates);
 
 }
