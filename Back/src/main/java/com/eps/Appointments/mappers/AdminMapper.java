@@ -2,6 +2,7 @@
 * Package with which the persistence of the mappers is accessed
 **/
 package com.eps.Appointments.mappers;
+
 /**
 * Imports of java
 */
@@ -17,23 +18,22 @@ import org.mapstruct.Mapping;
 */
 import com.eps.Appointments.DTOs.AdminDTO;
 import com.eps.Appointments.persistance.entities.Admin;
+
 /**
-* public name interface AdminMapper
-* @mapper geographic information system (GIS)
-**/
+ * public name interface AdminMapper
+ *
+ * @mapper geographic information system (GIS)
+ **/
 @Mapper(componentModel = "spring")
 public interface AdminMapper {
 
-    @Mapping(source = "user.id", target = "id")
-    @Mapping(source = "user.password", target = "password")
-    @Mapping(source = "user.rol", target = "rol")
-
-    AdminDTO toAdminDTO (Admin admin);
+    @Mapping(target = "password", ignore = true)
+    AdminDTO toAdminDTO(Admin admin);
 
     @InheritInverseConfiguration
     @Mapping(target = "user", ignore = true)
-    Admin toAdmin (AdminDTO adminDTO);
+    Admin toAdmin(AdminDTO adminDTO);
 
     List<AdminDTO> toAdminDTOs(List<Admin> admin);
-    
+
 }
