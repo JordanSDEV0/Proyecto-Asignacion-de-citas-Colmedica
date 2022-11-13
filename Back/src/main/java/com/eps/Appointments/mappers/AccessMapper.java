@@ -2,30 +2,29 @@
 * Package with which the persistence of the mappers is accessed
 **/
 package com.eps.Appointments.mappers;
+
 /**
 * Imports of mapstruct
 */
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 /**
 * Imports of Appointments
 */
 import com.eps.Appointments.DTOs.AccessDTO;
 import com.eps.Appointments.persistance.entities.Access;
+
 /**
-* public name interface AccessMapper
-* @mapper geographic information system (GIS)
-**/
+ * public name interface AccessMapper
+ *
+ * @mapper geographic information system (GIS)
+ **/
 @Mapper(componentModel = "spring", uses = UserMapper.class)
 public interface AccessMapper {
-    
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "user", target = "user")
-    @Mapping(source = "accessTime", target = "accessTime")
-    AccessDTO toAccessDTO (Access access);
+
+    AccessDTO toAccessDTO(Access access);
 
     @InheritInverseConfiguration
-    Access toAccess (AccessDTO accessDTO);
+    Access toAccess(AccessDTO accessDTO);
 
 }

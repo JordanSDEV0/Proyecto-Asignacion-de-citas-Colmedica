@@ -3,6 +3,8 @@
 **/
 package com.eps.Appointments.persistance.entities;
 
+import java.util.Date;
+
 /**
 * Imports persistence
 */
@@ -56,6 +58,6 @@ public class Access {
     /**
      * Private attribute of LocalDateTime type with name accessTime
      **/
-    private MedicalDate accessTime;
+    private Date accessTime;
 
 }
