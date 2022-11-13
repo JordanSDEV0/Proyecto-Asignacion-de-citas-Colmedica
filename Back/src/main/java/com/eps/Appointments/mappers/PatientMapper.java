@@ -24,26 +24,16 @@ import com.eps.Appointments.persistance.entities.Patient;
 
 /**
  * public name interface PatientMapper
- * 
+ *
  * @mapper geographic information system (GIS)
  **/
 @Mapper(componentModel = "spring")
 public interface PatientMapper {
 
-    @Mapping(source = "user.id", target = "id")
-    @Mapping(source = "user.password", target = "password")
-    @Mapping(source = "user.rol", target = "rol")
+    @Mapping(target = "password", ignore = true)
     @Mapping(source = "idType", target = "idTypeId")
     @Mapping(source = "headquarter", target = "headquarterId")
-    @Mapping(source = "ocupation", target = "ocupationId")
-    @Mapping(source = "regimenType", target = "regimenType")
-    @Mapping(source = "phone", target = "phone")
-    @Mapping(source = "name", target = "name")
-    @Mapping(source = "lastName", target = "lastName")
-    @Mapping(source = "address", target = "address")
-    @Mapping(source = "email", target = "email")
-    @Mapping(source = "birthDate", target = "birthDate")
-    @Mapping(source = "genre", target = "genre")
+    @Mapping(source = "occupation", target = "occupationId")
     PatientDTO toPatientDTO(Patient patient);
 
     default int mapIdType(IdType idType) {
@@ -54,8 +44,8 @@ public interface PatientMapper {
         return headquarter.getId();
     }
 
-    default int mapOcupation(Occupation ocupation) {
-        return ocupation.getId();
+    default int mapOccupation(Occupation occupation) {
+        return occupation.getId();
     }
 
     default IdType mapIdType(int id) {
@@ -70,10 +60,10 @@ public interface PatientMapper {
         return headquarter;
     }
 
-    default Occupation mapOcupation(int id) {
-        Occupation ocupation = new Occupation();
-        ocupation.setId(id);
-        return ocupation;
+    default Occupation mapOccupation(int id) {
+        Occupation occupation = new Occupation();
+        occupation.setId(id);
+        return occupation;
     }
 
     /**
@@ -81,6 +71,7 @@ public interface PatientMapper {
      * method to the annotated method as well
      **/
     @InheritInverseConfiguration
+    @Mapping(target = "user", ignore = true)
     Patient toPatient(PatientDTO patientDTO);
 
     List<PatientDTO> toPatientDTOs(List<Patient> patient);

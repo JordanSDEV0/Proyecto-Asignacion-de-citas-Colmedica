@@ -7,7 +7,8 @@ package com.eps.Appointments.persistance.entities;
 * Imports of java
 */
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
+
 /**
 * Imports persistence
 */
@@ -19,6 +20,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 /**
 * Imports of lombok.data
 */
@@ -102,10 +106,11 @@ public class Patient implements Serializable {
      **/
     private String email;
     @Column(name = "birth_date")
+    @Temporal(TemporalType.DATE)
     /**
      * Private attribute of LocalDate type with name birthDate
      **/
-    private LocalDate birthDate;
+    private Date birthDate;
     /**
      * Private attribute of String type with name genre
      **/
