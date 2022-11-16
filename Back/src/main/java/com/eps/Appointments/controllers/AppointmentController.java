@@ -44,12 +44,12 @@ public class AppointmentController {
     /**
      * a method is created which will go through everything until it obtains enough
      * information
-     * 
+     *
      * @PostMapping is a specialized version of the @RequestMapping annotation
      **/
     @PostMapping
-    private ResponseEntity<?> create(@RequestBody AppointmentDTO appointmentDTO) {
-        return null;
+    private ResponseEntity<AppointmentDTO> create(@RequestBody AppointmentDTO appointmentDTO) {
+        return appointmentService.create(appointmentDTO);
     }
 
     /**

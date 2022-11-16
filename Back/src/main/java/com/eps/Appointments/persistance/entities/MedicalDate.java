@@ -42,10 +42,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "medical_date")
 public class MedicalDate {
-    /**
-     * The attributes of the data are defined and some others are called and each
-     * one is of type private
-     **/
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     /**

@@ -21,7 +21,7 @@ import com.eps.Appointments.persistance.entities.MedicalDate;
  * Integer>
  */
 @Repository
-public interface DateRepository extends CrudRepository<MedicalDate, Integer> {
+public interface MedicalDateRepository extends CrudRepository<MedicalDate, Integer> {
 
   public List<MedicalDate> findAllByInitialTimeAfter(LocalDateTime initialTime);
 

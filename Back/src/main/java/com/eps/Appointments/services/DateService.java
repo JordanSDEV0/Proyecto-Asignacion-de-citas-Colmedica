@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.eps.Appointments.DTOs.MedicalDateDTO;
 import com.eps.Appointments.mappers.DateMapper;
 import com.eps.Appointments.persistance.entities.MedicalDate;
-import com.eps.Appointments.persistance.repositories.DateRepository;
+import com.eps.Appointments.persistance.repositories.MedicalDateRepository;
 
 /**
  * Creation of the public class DateService
@@ -35,7 +35,7 @@ public class DateService {
     /**
      * attribute of type DateRepository of name dateRepository
      **/
-    DateRepository dateRepository;
+    MedicalDateRepository dateRepository;
     @Autowired
     /**
      * attribute of type DateMapper of name dateMapper
