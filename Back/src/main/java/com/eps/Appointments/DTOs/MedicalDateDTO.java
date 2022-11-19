@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 
 /**
  * Public class for dto date
- * 
+ *
  * @Data allows the use of db data and persistence
  * @AllArgsConstructor annotation automatically generates a constructor with a
  *                     parameter for each field in your class

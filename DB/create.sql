@@ -2,10 +2,10 @@
 create sequence hibernate_sequence start 1 increment 1;
 /*Create the tables that are going to be used in the database, along with their attributes, types and keys*/
 create table access (id int4 not null, access_time timestamp, eps_user varchar(255) not null, primary key (id));
-create table appointment (id int4 not null, date_id int4 not null, doctor_eps_user varchar(255) not null, patient_eps_user varchar(255) not null, primary key (id));
+create table appointment (id int4 not null, medical_date_id int4 not null, doctor_eps_user varchar(255) not null, patient_eps_user varchar(255) not null, primary key (id));
 create table certificate (id int4 not null, rute varchar(255), type varchar(255), patient varchar(255) not null, primary key (id));
 create table city (id int4 not null, city varchar(255), department int4 not null, primary key (id));
-create table date (id int4 not null, date date, description varchar(255), final_hour timestamp, initial_hour timestamp not null, status varchar(255), date_type int4 not null, headquarter_id int4 not null, primary key (id));
+create table medical_date (id int4 not null, date date, description varchar(255), final_hour timestamp, initial_hour timestamp not null, status varchar(255), date_type int4 not null, headquarter_id int4 not null, primary key (id));
 create table date_type (id int4 not null, description varchar(255), primary key (id));
 create table department (id int4 not null, department varchar(255), primary key (id));
 create table doctor (eps_user varchar(255) not null, headquarter_id int4 not null, primary key (eps_user));
@@ -14,14 +14,14 @@ create table eps_admin (eps_user varchar(255) not null, password varchar(255) no
 create table eps_user (id varchar(255) not null, password varchar(255) not null, primary key (id));
 create table headquarter (id int4 not null, address varchar(255), name varchar(255), city int4 not null, primary key (id));
 create table id_type (id int4 not null, type varchar(255), primary key (id));
-create table laboratory_result (id int4 not null, archive_rute varchar(255), description varchar(255), date_id int4 not null, primary key (id));
+create table laboratory_result (id int4 not null, archive_rute varchar(255), description varchar(255), medical_date_id int4 not null, primary key (id));
 create table occupation (id int4 not null, occupation varchar(255), primary key (id));
 create table patient (eps_user varchar(255) not null, address varchar(255), birth_date date, email varchar(255) not null, genre varchar(255), last_name varchar(255), name varchar(255), phone varchar(10), regiment_type varchar(255), headquarter int4 not null, id_type int4 not null, occupation int4 not null, primary key (eps_user));
 create table specialization (id int4 not null, description varchar(255), primary key (id));
 /*An existing table is modified (alter table)*/
 alter table if exists patient add constraint UK_bawli8xm92f30ei6x9p3h8eju unique (email);
 alter table if exists access add constraint FK8abmcl1ww4on9vfd3qupqsxch foreign key (eps_user) references eps_user;
-alter table if exists appointment add constraint FKu58jkf20oe2si6w086grfro5 foreign key (date_id) references date;
+alter table if exists appointment add constraint FKu58jkf20oe2si6w086grfro5 foreign key (medical_date_id) references medical_date;
 alter table if exists appointment add constraint FK3r95wfx5dy6m35vbnp1vsr0xr foreign key (doctor_eps_user) references doctor;
 alter table if exists appointment add constraint FK849906oowiyccv000ntn9bsub foreign key (patient_eps_user) references patient;
 alter table if exists certificate add constraint FKoagaef7k3cihupigr0ex6tjen foreign key (patient) references patient;
@@ -34,7 +34,7 @@ alter table if exists doctor_specialization add constraint FK6jp5bem76u8ep90von0
 alter table if exists doctor_specialization add constraint FKri59acwd2tn40pbsqbs4vk0ql foreign key (doctor_eps_user) references doctor;
 alter table if exists eps_admin add constraint FKpowi9pyf0wt2qgg7ih5q797as foreign key (eps_user) references eps_user;
 alter table if exists headquarter add constraint FKt9tl2hbp4wdne1ju728uh1k4d foreign key (city) references city;
-alter table if exists laboratory_result add constraint FKgb0sv8ex8518n9ko6xucna8tq foreign key (date_id) references date;
+alter table if exists laboratory_result add constraint FKgb0sv8ex8518n9ko6xucna8tq foreign key (medical_date_id) references medical_date;
 alter table if exists patient add constraint FKc6ytdg5aiprcwldiim0r0a19t foreign key (headquarter) references headquarter;
 alter table if exists patient add constraint FK2riumgfovequpxsuous8cbbcp foreign key (id_type) references id_type;
 alter table if exists patient add constraint FKkkbi2v9d6yq8whdu8l7sek06m foreign key (occupation) references occupation;

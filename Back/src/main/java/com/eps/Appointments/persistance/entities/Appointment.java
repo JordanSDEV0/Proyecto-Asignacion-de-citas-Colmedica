@@ -54,7 +54,7 @@ public class Appointment {
      **/
     private Patient patient;
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(name = "medical_date_id", nullable = false)
     /**
      * Private attribute of Date type with name date
      **/
