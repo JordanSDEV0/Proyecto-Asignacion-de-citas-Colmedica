@@ -57,14 +57,16 @@ public class AppointmentService {
         return appointmentMapper.toAppointmentDTO(appointmentRepository.save(appointment), medicalDate);
     }
 
-    /// **
-    // * creation of the class List<AppointmentDTO> getAll
-    // **/
-    // public List<AppointmentDTO> getAll() {
-    // List<Appointment> appointments = (List<Appointment>)
-    /// appointmentRepository.findAll();
-    // return appointmentMapper.toAppointmentDTOs(appointments);
-    // }
+    /**
+     * creation of the class List<AppointmentDTO> getAll
+     **/
+    public List<AppointmentDTO> getAll() {
+        List<Appointment> appointments = (List<Appointment>) appointmentRepository.findAll();
+        List<MedicalDate> medicalDates = medicalDateService.getAll();
+        System.out.println(appointments);
+        System.out.println(medicalDates);
+        return appointmentMapper.toAppointmentDTOs(appointments, medicalDates);
+    }
 
     /// **
     // * class creation AppointmentDTO updateAppointment with attributes

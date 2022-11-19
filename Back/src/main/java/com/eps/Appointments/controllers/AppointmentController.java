@@ -58,20 +58,19 @@ public class AppointmentController {
      * @GetMapping is a compound annotation that acts as a shortcut
      *             for @RequestMapping
      **/
-    // @GetMapping
-    // public ResponseEntity<? extends Object> getAll() {
-    // try {
-    // return new ResponseEntity<>(appointmentService.getAll(), HttpStatus.OK);
-    // } catch (IllegalArgumentException illegalArgumentException) {
-    // System.out.println(illegalArgumentException.getCause());
-    // return new ResponseEntity<>(new
-    // ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
-    // } catch (Exception e) {
-    // System.out.println(e.getCause());
-    // return new ResponseEntity<>(new ErrorDTO(e.getMessage()),
-    // HttpStatus.BAD_REQUEST);
-    // }
-    // }
+    @GetMapping
+    public ResponseEntity<? extends Object> getAll() {
+        try {
+            return new ResponseEntity<>(appointmentService.getAll(), HttpStatus.OK);
+        } catch (IllegalArgumentException illegalArgumentException) {
+            System.out.println(illegalArgumentException.getCause());
+            return new ResponseEntity<>(new ErrorDTO(illegalArgumentException.getMessage()), HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            System.out.println(e.getCause());
+            return new ResponseEntity<>(new ErrorDTO(e.getMessage()),
+                    HttpStatus.BAD_REQUEST);
+        }
+    }
 
     /// **
     // *

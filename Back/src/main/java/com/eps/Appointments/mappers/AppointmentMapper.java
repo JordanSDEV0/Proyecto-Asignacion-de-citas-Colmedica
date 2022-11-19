@@ -3,6 +3,7 @@
 **/
 package com.eps.Appointments.mappers;
 
+import java.util.ArrayList;
 /**
 * Imports of java
 */
@@ -13,7 +14,6 @@ import java.util.List;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.ObjectFactory;
 
 /**
 * Imports of appointments
@@ -84,7 +84,16 @@ public interface AppointmentMapper {
         return headquarter;
     }
 
-    @ObjectFactory
-    List<AppointmentDTO> toAppointmentDTOs(List<Appointment> appointments, List<MedicalDate> medicalDates);
+    default List<AppointmentDTO> toAppointmentDTOs(List<Appointment> appointments, List<MedicalDate> medicalDates) {
+        List<AppointmentDTO> appointmentDTOs = new ArrayList<>();
+        for (int index = 0; index < appointments.size(); index++) {
+            Appointment a = appointments.get(index);
+            MedicalDate m = medicalDates.get(index);
+            appointmentDTOs.add(new AppointmentDTO(a.getId(), a.getDoctor().getId(), a.getPatient().getId(), m.getId(),
+                    m.getDateType().getId(), m.getHeadquarter().getId(), m.getDescription(), m.getInitialTime(),
+                    m.getFinalTime(), m.getDate(), m.getStatus()));
+        }
+        return appointmentDTOs;
+    }
 
 }

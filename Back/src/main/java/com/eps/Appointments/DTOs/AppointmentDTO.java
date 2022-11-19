@@ -5,6 +5,7 @@ package com.eps.Appointments.DTOs;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 /**
 * Imports of lombok
 */
@@ -16,6 +17,7 @@ import lombok.Data;
  * @Data allows the use of db data and persistence
  **/
 @Data
+@AllArgsConstructor
 public class AppointmentDTO {
     /**
      * Private attribute of type int of name id
