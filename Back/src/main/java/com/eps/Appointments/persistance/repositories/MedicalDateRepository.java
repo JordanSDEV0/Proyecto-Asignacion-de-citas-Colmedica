@@ -3,7 +3,7 @@
 **/
 package com.eps.Appointments.persistance.repositories;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,6 +23,6 @@ import com.eps.Appointments.persistance.entities.MedicalDate;
 @Repository
 public interface MedicalDateRepository extends CrudRepository<MedicalDate, Integer> {
 
-  public List<MedicalDate> findAllByInitialTimeAfter(LocalDateTime initialTime);
+  public List<MedicalDate> findAllByInitialTimeAfter(Date initialTime);
 
 }

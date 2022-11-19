@@ -26,4 +26,10 @@ public class MedicalDateService {
       return (List<MedicalDate>) medicalDateRepository.findAll();
    }
 
+   public MedicalDate getById(int id) {
+      return medicalDateRepository.findById(id).map(medicalDate -> {
+         return medicalDate;
+      }).orElseThrow(IllegalArgumentException::new);
+   }
+
 }
