@@ -24,13 +24,11 @@ import com.eps.Appointments.persistance.entities.User;
  *
  * @mapper geographic information system (GIS)
  **/
-// @Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring")
 public interface UserMapper {
 
     @Mapping(source = "id", target = "id")
     @Mapping(source = "password", target = "password")
-    @Mapping(source = "rol", target = "rol")
-
     UserDTO toUserDTO(User user);
 
     /**
