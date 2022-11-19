@@ -19,8 +19,8 @@ import org.springframework.stereotype.Service;
 /**
 Imports of Appointments
 */
-import com.eps.Appointments.DTOs.OcupationDTO;
-import com.eps.Appointments.mappers.OcupationMapper;
+import com.eps.Appointments.DTOs.OccupationDTO;
+import com.eps.Appointments.mappers.OccupationMapper;
 import com.eps.Appointments.persistance.entities.Occupation;
 import com.eps.Appointments.persistance.repositories.OcupationRepository;
 
@@ -43,7 +43,7 @@ public class OcupationService {
     /**
      * Private attribute of type OcupationMapper of name ocupationMapper
      **/
-    private OcupationMapper ocupationMapper;
+    private OccupationMapper ocupationMapper;
 
     /**
      * class creation OcupationDTO with attributes ocupation and exception
@@ -53,16 +53,16 @@ public class OcupationService {
      *                transactions on a method
      **/
     @Transactional
-    public OcupationDTO create(OcupationDTO ocupation) throws IllegalArgumentException {
-        ocupationRepository.save(ocupationMapper.toOcupation(ocupation));
+    public OccupationDTO create(OccupationDTO ocupation) throws IllegalArgumentException {
+        ocupationRepository.save(ocupationMapper.toOccupation(ocupation));
         return ocupation;
     }
 
     /**
      * creation of the class OcupationDTO getById with id attributes
      **/
-    public OcupationDTO getById(int id) {
-        return ocupationMapper.toOcupationDTO(ocupationRepository.findById(id).map(ocupation -> {
+    public OccupationDTO getById(int id) {
+        return ocupationMapper.toOccupationDTO(ocupationRepository.findById(id).map(ocupation -> {
             return ocupation;
         }).orElseGet(null));
     }
@@ -70,19 +70,19 @@ public class OcupationService {
     /**
      * creation of the class List<OcupationDTO> getAll
      **/
-    public List<OcupationDTO> getAll() {
+    public List<OccupationDTO> getAll() {
         List<Occupation> ocupation = (List<Occupation>) ocupationRepository.findAll();
-        return ocupationMapper.toOcupationDTOs(ocupation);
+        return ocupationMapper.toOccupationDTOs(ocupation);
     }
 
     /**
      * class creation OcupationDTO with updateOcupation and attributes ocupationDTO
      **/
     @Transactional
-    public OcupationDTO updateOcupation(OcupationDTO ocupationDTO) {
+    public OccupationDTO updateOcupation(OccupationDTO ocupationDTO) {
         if (getById(ocupationDTO.getId()) != null) {
-            Occupation updatedOcupation = ocupationMapper.toOcupation(ocupationDTO);
-            return ocupationMapper.toOcupationDTO(ocupationRepository.save(updatedOcupation));
+            Occupation updatedOcupation = ocupationMapper.toOccupation(ocupationDTO);
+            return ocupationMapper.toOccupationDTO(ocupationRepository.save(updatedOcupation));
         }
         return null;
     }

@@ -16,7 +16,7 @@ import org.mapstruct.Mapping;
 /**
 * Imports of Appointments
 */
-import com.eps.Appointments.DTOs.OcupationDTO;
+import com.eps.Appointments.DTOs.OccupationDTO;
 import com.eps.Appointments.persistance.entities.Occupation;
 
 /**
@@ -25,14 +25,14 @@ import com.eps.Appointments.persistance.entities.Occupation;
  * @mapper geographic information system (GIS)
  **/
 @Mapper(componentModel = "spring")
-public interface OcupationMapper {
+public interface OccupationMapper {
 
     @Mapping(source = "id", target = "id")
-    @Mapping(source = "ocupation", target = "ocupation")
-    OcupationDTO toOcupationDTO(Occupation ocupation);
+    @Mapping(source = "occupation", target = "occupation")
+    OccupationDTO toOccupationDTO(Occupation occupation);
 
     @InheritInverseConfiguration
-    Occupation toOcupation(OcupationDTO ocupationDTO);
+    Occupation toOccupation(OccupationDTO occupationDTO);
 
-    List<OcupationDTO> toOcupationDTOs(List<Occupation> ocupation);
+    List<OccupationDTO> toOccupationDTOs(List<Occupation> occupation);
 }
