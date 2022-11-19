@@ -19,6 +19,6 @@ INSERT INTO public.id_type
 (id, "type")
 VALUES(1, 'type example');
 /*Adding a single record to a table using append query syntax (public.ocupation)*/
-INSERT INTO public.ocupation
-(id, ocupation)
+INSERT INTO public.occupation
+(id, occupation)
 VALUES(1, 'ocupation example');

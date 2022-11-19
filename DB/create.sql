@@ -15,8 +15,8 @@ create table eps_user (id varchar(255) not null, password varchar(255) not null,
 create table headquarter (id int4 not null, address varchar(255), name varchar(255), city int4 not null, primary key (id));
 create table id_type (id int4 not null, type varchar(255), primary key (id));
 create table laboratory_result (id int4 not null, archive_rute varchar(255), description varchar(255), date_id int4 not null, primary key (id));
-create table ocupation (id int4 not null, ocupation varchar(255), primary key (id));
-create table patient (eps_user varchar(255) not null, address varchar(255), birth_date date, email varchar(255) not null, genre varchar(255), last_name varchar(255), name varchar(255), phone varchar(10), regiment_type varchar(255), headquarter int4 not null, id_type int4 not null, ocupation int4 not null, primary key (eps_user));
+create table occupation (id int4 not null, occupation varchar(255), primary key (id));
+create table patient (eps_user varchar(255) not null, address varchar(255), birth_date date, email varchar(255) not null, genre varchar(255), last_name varchar(255), name varchar(255), phone varchar(10), regiment_type varchar(255), headquarter int4 not null, id_type int4 not null, occupation int4 not null, primary key (eps_user));
 create table specialization (id int4 not null, description varchar(255), primary key (id));
 /*An existing table is modified (alter table)*/
 alter table if exists patient add constraint UK_bawli8xm92f30ei6x9p3h8eju unique (email);
@@ -37,5 +37,5 @@ alter table if exists headquarter add constraint FKt9tl2hbp4wdne1ju728uh1k4d for
 alter table if exists laboratory_result add constraint FKgb0sv8ex8518n9ko6xucna8tq foreign key (date_id) references date;
 alter table if exists patient add constraint FKc6ytdg5aiprcwldiim0r0a19t foreign key (headquarter) references headquarter;
 alter table if exists patient add constraint FK2riumgfovequpxsuous8cbbcp foreign key (id_type) references id_type;
-alter table if exists patient add constraint FKkkbi2v9d6yq8whdu8l7sek06m foreign key (ocupation) references ocupation;
+alter table if exists patient add constraint FKkkbi2v9d6yq8whdu8l7sek06m foreign key (occupation) references occupation;
 alter table if exists patient add constraint FKij377sx52to3m3yvahsx8otb4 foreign key (eps_user) references eps_user;

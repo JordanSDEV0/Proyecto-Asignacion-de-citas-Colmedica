@@ -60,7 +60,7 @@ public class PatientService {
     public PatientDTO getById(String id) {
         return patientMapper.toPatientDTO(patientRepository.findById(id).map(patient -> {
             return patient;
-        }).orElseGet(null));
+        }).orElse(null));
     }
 
     /**
@@ -104,8 +104,8 @@ public class PatientService {
      * creation of the class List<PatientDTO> getAll
      **/
     public List<PatientDTO> getAll() {
-        List<Patient> patient = (List<Patient>) patientRepository.findAll();
-        return patientMapper.toPatientDTOs(patient);
+        List<Patient> patients = (List<Patient>) patientRepository.findAll();
+        return patientMapper.toPatientDTOs(patients);
     }
 
 }
