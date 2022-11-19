@@ -10,7 +10,7 @@ create table date_type (id int4 not null, description varchar(255), primary key 
 create table department (id int4 not null, department varchar(255), primary key (id));
 create table doctor (eps_user varchar(255) not null, headquarter_id int4 not null, primary key (eps_user));
 create table doctor_specialization (doctor_eps_user varchar(255) not null, specialization_id int4 not null);
-create table eps_admin (eps_user varchar(255) not null, password varchar(255) not null, primary key (eps_user));
+create table eps_admin (eps_user varchar(255) not null, primary key (eps_user));
 create table eps_user (id varchar(255) not null, password varchar(255) not null, primary key (id));
 create table headquarter (id int4 not null, address varchar(255), name varchar(255), city int4 not null, primary key (id));
 create table id_type (id int4 not null, type varchar(255), primary key (id));
