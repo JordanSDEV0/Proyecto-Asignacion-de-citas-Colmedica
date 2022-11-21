@@ -19,7 +19,7 @@
                           localStorage.setItem("id", JSON.stringify(id));
                           console.log(localStorage.getItem("id"));
                           if(valUser.rol==2){
-                            location.href="../vista/pages/COLMEDICA-WEBSITE/main_page.html";
+                            location.href="../vista/pages/COLMEDICA-WEBSITE/medico_main_page.html";
                           }
                           else if(valUser.rol==1){
                           location.href="../vista/pages/COLMEDICA-WEBSITE/main_page.html";
