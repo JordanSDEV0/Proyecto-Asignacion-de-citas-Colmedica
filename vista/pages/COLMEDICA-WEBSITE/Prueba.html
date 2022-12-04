@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js" integrity="sha512-jzL0FvPiDtXef2o2XZJWgaEpVAihqquZT/tT89qCVaxVuHwJ/1DFcJ+8TBMXplSJXE8gLbVAUv+Lj20qHpGx+A==" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+    <h1>jsPDF</h1>
+    <a href="javascript:genPDF()">descargar PDF</a>
+
+    <script type="text/javascript">
+        const { jsPDF } = window.jspdf;
+
+        function genPDF(){
+          var doc = new jsPDF();
+          doc.setFontSize(22);
+          doc.text(20, 20, 'COLMEDICA');
+          
+          
+          doc.setFontSize(22);
+          doc.text(20, 20, 'CERTIFICA QUE:');
+          
+          doc.setFontSize(16);
+          doc.text(20, 30, 'Nombre paciente'+'identificado'+'Documento identidad'+'Se encuentra afiliado(a) a la EPS COLMEDICA.');
+          
+          
+          doc.setFontSize(16);
+          doc.text(20, 30, ''+'La presente certificacion se expide'+'fecha actual');
+          
+          
+          doc.setFontSize(16);
+          doc.text(20, 30, 'Cordialmente');
+          
+          doc.save('Test.pdf');
+        }
+
+      </script>
+    
+</body>
+</html>

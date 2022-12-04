@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="../../css/vertical-layout-light/style.css" />
     <!-- endinject -->
     <link rel="shortcut icon" href="../../images/favicon.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js" integrity="sha512-jzL0FvPiDtXef2o2XZJWgaEpVAihqquZT/tT89qCVaxVuHwJ/1DFcJ+8TBMXplSJXE8gLbVAUv+Lj20qHpGx+A==" crossorigin="anonymous"></script>    
   </head>
 
   <body>
@@ -126,7 +128,10 @@
                   <div class="form-group">
                   </div>
                   <div class="mt-3">
+                    <script src="../../js/certificadoAfiliacion.js"></script>
                     <button
+                      id="certAfiliacion"
+                      onclick="genPDF()"
                       type="submit"
                       class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
                     >
@@ -134,7 +139,10 @@
                     </button>
                   </div>
                   <div class="mt-3">
+                    <script src="../../js/certIncapacidad.js"></script>
                     <button
+                      id="certIncapacidad"
+                      onclick="genPDFIn()"
                       type="submit"
                       class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
                     >
