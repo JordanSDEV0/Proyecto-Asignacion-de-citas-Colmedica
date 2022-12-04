@@ -1,7 +1,7 @@
 var idStorage = JSON.parse(localStorage.getItem("id"));
 var id=idStorage[0];
 console.log(id);
-var url="http://localhost:8080/appointmentsDoctorDate/"+id;
+var url="http://localhost:8080/appointmentsPatientDate/"+id;
 console.log(url);
 var Fecha="";
   fetch(url)
@@ -23,10 +23,6 @@ var Fecha="";
         fila +="<td>"
         fila+=appointment.patientId;
         fila+="</td>"
-
-        fila +="<td>"
-        fila+=appointment.doctorId;
-        fila+="</td>"
         
         fila +="<td>"
         fila+=appointment.date;
@@ -36,7 +32,9 @@ var Fecha="";
         fila+=appointment.inititalHour;
         fila+="</td>"
         
-        
+        fila +="<td>"
+        fila+=appointment.doctorId;
+        fila+="</td>"
 
         stringTable+=fila;
 

@@ -4,6 +4,8 @@
 package com.eps.Appointments.services;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 /**
 * Imports of java util
 */
@@ -84,13 +86,24 @@ public class AppointmentService{
 /**
     * creation of the class AppointmentDTO getAllByDoctor with id attributes
     **/
+    public List<AppointmentDTO> getAllByDoctorDate(String id){
+        List<Appointment> appointments2=new ArrayList<>();
+        List<Appointment> appointments= (List<Appointment>) appointmentRepository.findAll();
+        for (Appointment appointment: appointments) {
+            if(id.equals(appointment.getDoctor().getId())){
+                System.out.print(LocalDateTime.now());
+                if((appointment.getDate().getInitialTime().isAfter(LocalDateTime.now())==true)){
+                appointments2.add(appointment);}
+            }
+        }
+        return appointmentMapper.toAppointmentDTOs(appointments2);
+    }
     public List<AppointmentDTO> getAllByDoctor(String id){
         List<Appointment> appointments2=new ArrayList<>();
         List<Appointment> appointments= (List<Appointment>) appointmentRepository.findAll();
         for (Appointment appointment: appointments) {
             if(id.equals(appointment.getDoctor().getId())){
-                appointments2.add(appointment);
-            }
+                            appointments2.add(appointment);}
         }
         return appointmentMapper.toAppointmentDTOs(appointments2);
     }
@@ -103,6 +116,18 @@ public class AppointmentService{
         for (Appointment appointment: appointments) {
             if(id.equals(appointment.getPatient().getId())){
                 appointments2.add(appointment);
+            }
+        }
+        return appointmentMapper.toAppointmentDTOs(appointments2);
+    }
+    public List<AppointmentDTO> getAllByPatientDate(String id){
+        List<Appointment> appointments2=new ArrayList<>();
+        List<Appointment> appointments= (List<Appointment>) appointmentRepository.findAll();
+        for (Appointment appointment: appointments) {
+            if(id.equals(appointment.getPatient().getId())){
+                System.out.print(LocalDateTime.now());
+                if((appointment.getDate().getInitialTime().isAfter(LocalDateTime.now())==true)){
+                appointments2.add(appointment);}
             }
         }
         return appointmentMapper.toAppointmentDTOs(appointments2);

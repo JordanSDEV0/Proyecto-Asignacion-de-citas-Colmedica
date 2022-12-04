@@ -1,7 +1,7 @@
 var idStorage = JSON.parse(localStorage.getItem("id"));
 var id=idStorage[0];
 console.log(id);
-var url="http://localhost:8080/appointmentsDoctorDate/"+id;
+var url="http://localhost:8080/appointmentsDoctor/"+id;
 console.log(url);
 var Fecha="";
   fetch(url)
