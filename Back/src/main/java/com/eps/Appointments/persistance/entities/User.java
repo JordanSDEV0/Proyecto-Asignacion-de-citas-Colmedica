@@ -43,6 +43,9 @@ public class User {
     * Private attribute of String type with name password
     **/
     private String password;
+     /**
+    * Private attribute of type int of name rol
+    **/
     private int rol;
 
     
