@@ -30,9 +30,13 @@ public class AppointmentDTO {
     * Private attribute of type int of name dateId
     **/
     private int dateId;
-
+ /**
+    * Private attribute of type date of name date
+    **/
     private Date date;
-
+ /**
+    * Private attribute of type date of name initialHour
+    **/
     private Date inititalHour;
 
 
