@@ -23,7 +23,9 @@ public class UserDTO {
   	  * Private attribute of type String of name password
   	  **/
 	private String password;
-
+ /**
+    * Private attribute of type int of name rol
+    **/
 	private int rol;
 
 
