@@ -64,12 +64,22 @@ public class Doctor implements Serializable{
     * Private attribute of list Specialization type with name specialization
     **/
     private List<Specialization> specialization;
-
+ /**
+    * Private attribute of type string of name name doctor
+    **/
     private String name_doctor;
     @Column(name = "last_name")
-
+ /**
+    * Private attribute of type string of name last name
+    **/
     private String lastName;
+  /**
+    * Private attribute of type string of email 
+    **/
     private String email;
+  /**
+    * Private attribute of type int of name phone
+    **/
     private int phone;
     
 }
