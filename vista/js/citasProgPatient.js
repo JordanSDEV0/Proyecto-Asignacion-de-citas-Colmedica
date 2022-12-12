@@ -33,7 +33,7 @@ var Fecha="";
         fila+="</td>"
         
         fila +="<td>"
-        fila+=appointment.doctorId;
+        fila+=appointment.status;
         fila+="</td>"
 
         stringTable+=fila;

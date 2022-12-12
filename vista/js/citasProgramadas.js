@@ -33,7 +33,7 @@ var Fecha="";
         fila+="</td>"
 
         fila +="<td>"
-        fila+=appointment.inititalHour;
+        fila+=appointment.status;
         fila+="</td>"
         
         

@@ -3,9 +3,8 @@
                     e.preventDefault();
                     var datos= new FormData(formulario);
                     if(datos.get("id")=="" || datos.get("password")==""){
-                      respuesta.innerHTML =`
-                      <div class="alert alert-primary role="alert"">
-                        Llenar todos los datos
+                      document.getElementById('respuesta').innerHTML =`<div class="alert alert-primary role="alert"">
+                      Llenar todos los datos
                         </div>
                       `
                     }else{
@@ -26,14 +25,14 @@
                           }
                           else if(valUser.rol==0){
                             location.href="../vista/pages/COLMEDICA-WEBSITE/admin_main_page.html";
-                            }
+                          }
+
                           console.log("ingresa")
                     }
                   }
-                  respuesta.innerHTML =`
-                  <div class="alert alert-primary role="alert"">
-                    Usuario o Contraseña incorrecta
-                    </div>
+                  document.getElementById('respuesta').innerHTML =`<div class="alert alert-primary role="alert"">
+                  Usuario o Contraseña incorrecta
+                  </div>
                   `
                   })
                 }

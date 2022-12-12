@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "initialTime": form.elements['initial_time'].value,
             "finalTime": form.elements['final_time'].value,
             "date": form.elements['date'].value,
-            "status": "xample",
+            "status": "Pendiente",
             "doctorId": form.elements['doctor'].value,
             "patientId": form.elements['patient'].value
         }
@@ -30,7 +30,14 @@ function createAppointment(url, data){
             "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
-    }).then(response => console.log(response));
+    }).then(response => {
+        console.log(response)
+        if(response.ok==true){
+        window.alert("Cita registrada exitosamente");
+        }else{
+          window.alert("Ocurrio un error inesperado, Medico no Registrado");
+        }
+    })
 }
 
 function getHeadquarters(url){

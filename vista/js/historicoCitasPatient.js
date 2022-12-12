@@ -4,7 +4,7 @@ console.log(id);
 var url="http://localhost:8080/appointmentsPatient/"+id;
 console.log(url);
 var Fecha="";
-  fetch(url)
+fetch(url)
   .then(appointmentDoc => appointmentDoc.json())
   .then(appointmentDoc=>{
      console.log(appointmentDoc)
@@ -33,7 +33,7 @@ var Fecha="";
         fila+="</td>"
         
         fila +="<td>"
-        fila+=appointment.doctorId;
+        fila+=appointment.status;
         fila+="</td>"
 
         stringTable+=fila;

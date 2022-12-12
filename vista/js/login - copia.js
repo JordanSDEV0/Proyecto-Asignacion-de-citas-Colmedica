@@ -1,7 +1,8 @@
                   var formulario =document.getElementById('formulario')
+                  var datos= new FormData(formulario);
+
                   formulario.addEventListener("submit",function(e){
                     e.preventDefault();
-                    var datos= new FormData(formulario);
                     if(datos.get("id")=="" || datos.get("password")==""){
                       respuesta.innerHTML =`
                       <div class="alert alert-primary role="alert"">

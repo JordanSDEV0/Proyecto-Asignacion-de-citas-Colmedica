@@ -39,5 +39,7 @@ public class AppointmentDTO {
     **/
     private Date inititalHour;
 
+    private String status;
+
 
 }

@@ -2,7 +2,9 @@
 * Package with which the services of the appointments access
 **/
 package com.eps.Appointments.services;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -152,4 +154,10 @@ public class AppointmentService{
         return appointmentMapper.toAppointmentDTOs(appointmentRepository.findAllByDateIn(dateRepository.findAllByInitialTimeAfter(LocalDateTime.now())));
     }
 
+
+public LocalDateTime Formato(LocalDate dTime){
+DateTimeFormatter format=DateTimeFormatter.ofPattern("dd-MM-yyyy");
+String fecha = format.format(dTime);
+return LocalDateTime.parse(fecha);
+}
 }

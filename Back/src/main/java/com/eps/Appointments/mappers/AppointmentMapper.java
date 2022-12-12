@@ -30,6 +30,8 @@ public interface AppointmentMapper {
     @Mapping(source = "date.id", target = "dateId")
     @Mapping(source = "date.date", target = "date")
     @Mapping(source = "date.initialTime", target = "inititalHour")
+    @Mapping(source = "date.status", target = "status")
+
 
 
     AppointmentDTO toAppointmentDTO (Appointment appointment);

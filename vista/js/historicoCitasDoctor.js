@@ -25,15 +25,15 @@ var Fecha="";
         fila+="</td>"
 
         fila +="<td>"
-        fila+=appointment.doctorId;
+        fila+=appointment.date;
         fila+="</td>"
         
         fila +="<td>"
-        fila+=appointment.date;
+        fila+=appointment.inititalHour;
         fila+="</td>"
 
         fila +="<td>"
-        fila+=appointment.inititalHour;
+        fila+=appointment.status;
         fila+="</td>"
         
         
